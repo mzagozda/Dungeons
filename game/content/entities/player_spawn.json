@@ -1,0 +1,17 @@
+{
+  "id": "core:player_spawn",
+  "displayName": "Player spawn",
+  "category": "logic",
+  "kind": "Marker",
+  "radius": 0,
+  "solid": false,
+  "unique": true,
+  "requiresGround": true,
+  "render": {
+    "editorOnly": "editor/icons/entities/player_spawn.png"
+  },
+  "editor": {
+    "icon": "editor/icons/entities/player_spawn.png",
+    "char": "P"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "core:torch",
+  "displayName": "Torch",
+  "category": "light",
+  "kind": "Light",
+  "radius": 0.15,
+  "solid": true,
+  "requiresGround": true,
+  "render": {
+    "model": "models/props/torch.glb",
+    "emissive": 2.5,
+    "particles": "torch_flame",
+    "light": true
+  },
+  "audio": {
+    "loop": "core:sfx_torch_loop"
+  },
+  "props": {
+    "color": {
+      "type": "color",
+      "default": "#ffa64d"
+    },
+    "radius": {
+      "type": "float",
+      "default": 6,
+      "min": 1,
+      "max": 20
+    },
+    "energy": {
+      "type": "float",
+      "default": 2.0,
+      "min": 0,
+      "max": 8
+    },
+    "flicker": {
+      "type": "bool",
+      "default": true,
+      "label": "Flicker (±10 % at 8 Hz noise)"
+    }
+  },
+  "editor": {
+    "icon": "editor/icons/entities/torch.png",
+    "char": "t"
+  }
+}

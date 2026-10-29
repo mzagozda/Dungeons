@@ -1,0 +1,22 @@
+{
+  "formatVersion": 1,
+  "reviewStatus": "approved",
+  "reviewer": "Project owner (human user)",
+  "approvedUtc": "2026-10-28T02:53:18.9990447Z",
+  "reference": "Codex chat 01a177be-6e83-77f3-a8dd-80e2cde2f6e6; call_946d8252037142e880ec05c101116391; explicit reply: Adopt verified reference (Recommended)",
+  "scope": "Exact proposed Windows windows-r5-7600x .NET 10/12-warmup reference; original +20%, absolute and allocation limits unchanged.",
+  "baselineSha256": "67f9f14de69afdfdca35d1451f0a0a50ec3be5ca13dd5a3210c08a89d90454bc",
+  "previousReferenceSha256": "644f4c541a3121cafbeb7717ef8c3d940415c8b0869e46d39461b6fff0517798",
+  "previousReference": "assets/baselines/performance/archive/windows-r5-7600x-net8-pre-host47.json",
+  "proposalDirectory": "artifacts/host-migration/native-aot-main/performance-reference-proposal",
+  "independentComparisons": [
+    "artifacts/host-migration/benchmarks-net10-warm12-independent/result.json",
+    "artifacts/host-migration/native-aot-main-benchmarks/result.json"
+  ],
+  "excluded": [
+    "Linux or other hardware baselines",
+    "physical devices",
+    "hosted green nights",
+    "visual or motion/audio acceptance"
+  ]
+}

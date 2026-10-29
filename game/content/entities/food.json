@@ -1,0 +1,24 @@
+{
+  "id": "core:food",
+  "displayName": "Food",
+  "category": "prop",
+  "kind": "Pickup",
+  "radius": 0.2,
+  "solid": false,
+  "requiresGround": true,
+  "props": {},
+  "render": {
+    "model": "models/props/food.glb"
+  },
+  "pickup": {
+    "kind": "food",
+    "healPercent": 25
+  },
+  "audio": {
+    "collect": "core:sfx_pickup_food"
+  },
+  "editor": {
+    "icon": "editor/icons/entities/food.png",
+    "char": "f"
+  }
+}

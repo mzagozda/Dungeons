@@ -1,0 +1,21 @@
+{
+  "formatVersion": 1,
+  "scenario": "terrain-stairs",
+  "passed": true,
+  "width": 1280,
+  "height": 720,
+  "imageSha256": "286f819a04bc186b9c482e92e768c16840c3114ffbf94b1162cf44420394d2c0",
+  "godot": "4.7.2-stable (official)",
+  "renderer": "mobile",
+  "adapter": "NVIDIA GeForce RTX 3060",
+  "quality": "High",
+  "shaderTime": 0,
+  "visualStepSeconds": 0.016666668,
+  "levelHash": "c391473056e7e0ebafda303ee52c43ce1ce2fa0eb4e7b7feb0a946a3cce3b073",
+  "contentHash": "2ca5f6f1a50da8787185c6c3b555be5e41cc4686e4be10f4a3f70e4546fec8a6",
+  "seed": 1,
+  "tick": 120,
+  "finalHash": "f8a0378150bccde1",
+  "baselineApproved": false,
+  "physicalAcceptance": false
+}

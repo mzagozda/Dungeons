@@ -1,0 +1,19 @@
+{
+  "id": "core:loot_chest_common",
+  "rows": [
+    {
+      "item": "emerald",
+      "chance": 1.0,
+      "min": 10,
+      "max": 20
+    },
+    {
+      "item": "food",
+      "chance": 0.5
+    },
+    {
+      "item": "arrows",
+      "chance": 0.5
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "core:spawner",
+  "displayName": "Spawner",
+  "category": "logic",
+  "kind": "SpawnMarker",
+  "radius": 0,
+  "solid": false,
+  "requiresGround": true,
+  "render": {
+    "editorOnly": "editor/icons/entities/spawner.png"
+  },
+  "props": {
+    "entity": {
+      "type": "ref",
+      "refKind": "entity",
+      "default": "core:zombie"
+    },
+    "count": {
+      "type": "int",
+      "default": 1,
+      "min": 1,
+      "max": 100
+    },
+    "interval": {
+      "type": "float",
+      "default": 1.0,
+      "min": 0,
+      "max": 60
+    },
+    "maxAlive": {
+      "type": "int",
+      "default": 0,
+      "min": 0,
+      "max": 64,
+      "label": "Max alive (0 = count)"
+    },
+    "radius": {
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 8
+    },
+    "activation": {
+      "type": "enum",
+      "values": [
+        "immediate",
+        "proximity",
+        "trigger",
+        "sight"
+      ],
+      "default": "trigger"
+    },
+    "activationRadius": {
+      "type": "float",
+      "default": 8,
+      "min": 1,
+      "max": 30
+    },
+    "delay": {
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "max": 60
+    },
+    "tag": {
+      "type": "ref",
+      "refKind": "tag",
+      "default": ""
+    }
+  },
+  "editor": {
+    "icon": "editor/icons/entities/spawner.png",
+    "char": "W"
+  }
+}

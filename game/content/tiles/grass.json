@@ -1,0 +1,25 @@
+{
+  "id": "core:grass",
+  "displayName": "Grass",
+  "category": "ground",
+  "walkable": true,
+  "solid": false,
+  "blocksProjectiles": false,
+  "blocksVision": false,
+  "moveCost": 1.0,
+  "overlay": false,
+  "render": {
+    "kind": "block",
+    "top": "atlas:grass_top",
+    "side": "atlas:dirt_side",
+    "tint": "#7bb04a",
+    "topVariants": 4
+  },
+  "audio": {
+    "footstep": "core:sfx_step_soft"
+  },
+  "editor": {
+    "icon": "editor/icons/tiles/grass.png",
+    "char": "."
+  }
+}

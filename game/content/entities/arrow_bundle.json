@@ -1,0 +1,24 @@
+{
+  "id": "core:arrow_bundle",
+  "displayName": "Arrow Bundle",
+  "category": "prop",
+  "kind": "Pickup",
+  "radius": 0.2,
+  "solid": false,
+  "requiresGround": true,
+  "props": {},
+  "render": {
+    "model": "models/props/arrow_bundle.glb"
+  },
+  "pickup": {
+    "kind": "arrows",
+    "amount": 10
+  },
+  "audio": {
+    "collect": "core:sfx_pickup_arrows"
+  },
+  "editor": {
+    "icon": "editor/icons/entities/arrow_bundle.png",
+    "char": "a"
+  }
+}

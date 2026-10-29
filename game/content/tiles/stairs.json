@@ -1,0 +1,35 @@
+{
+  "id": "core:stairs",
+  "displayName": "Stairs",
+  "category": "structure",
+  "walkable": true,
+  "solid": false,
+  "blocksProjectiles": false,
+  "blocksVision": false,
+  "moveCost": 1.2,
+  "render": {
+    "kind": "stairs",
+    "top": "atlas:stone_top",
+    "side": "atlas:stone_side"
+  },
+  "props": {
+    "dir": {
+      "type": "enum",
+      "values": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "default": "north",
+      "label": "Up direction"
+    }
+  },
+  "editor": {
+    "icon": "editor/icons/tiles/stairs.png",
+    "char": "s"
+  },
+  "audio": {
+    "footstep": "core:sfx_step_stone"
+  }
+}

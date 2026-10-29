@@ -1,0 +1,139 @@
+keys,en
+LOADING_GAME,Loading content...
+SETTINGS,Settings
+VIDEO,Video
+AUDIO,Audio
+CONTROLS,Controls
+ACCESSIBILITY,Accessibility
+APPLY,Apply
+SETTINGS_DEFAULTS,Defaults
+SETTINGS_APPLY_HINT,Choose Apply to save changes. Back discards unapplied changes.
+SETTINGS_SAVED,Settings saved.
+SETTINGS_SAVE_FAILED,Settings could not be saved. Your previous settings are unchanged.
+QUALITY,Quality
+QUALITY_LOW,Low
+QUALITY_MEDIUM,Medium
+QUALITY_HIGH,High
+QUALITY_CUSTOM,Custom
+FULLSCREEN,Fullscreen
+VSYNC,VSync
+RESOLUTION_SCALE,3D resolution
+SHADOWS,Shadows
+GLOW,Glow
+MSAA,2× anti-aliasing
+ADAPTIVE_RESOLUTION,Adaptive resolution
+LIGHT_LIMIT,Light limit
+FOUR_LIGHTS,4 lights
+EIGHT_LIGHTS,8 lights
+UI_SCALE,Interface scale
+QUALITY_DEVICE_LIMIT,This device currently uses Low graphics. Saved preferences remain available for supported hardware.
+MASTER_VOLUME,Master volume
+MUSIC_VOLUME,Music volume
+SFX_VOLUME,Sound effects
+UI_VOLUME,Interface sounds
+AMBIENCE_VOLUME,Ambience volume
+AUTO_AIM,Aim assist
+OFF,Off
+AIM_NORMAL,Normal
+AIM_STRONG,Strong
+TOUCH_AIM_REQUIRED,Touch attacks always use at least normal aim assist.
+VIBRATION,Vibration
+LEFT_HANDED,Left-handed controls
+TOUCH_SCALE,Touch control size
+TOUCH_LAYOUT_HINT,Drag the buttons to change their positions. Buttons keep space between them.
+RESET_TOUCH_LAYOUT,Reset button positions
+ACTION_MOVE_UP,Move up
+ACTION_MOVE_DOWN,Move down
+ACTION_MOVE_LEFT,Move left
+ACTION_MOVE_RIGHT,Move right
+ACTION_ATTACK,Attack
+ACTION_RANGED,Bow
+ACTION_ROLL,Roll
+ACTION_POTION,Potion
+ACTION_INTERACT,Interact
+ACTION_PAUSE,Pause
+PRESS_BINDING,Press a key or gamepad control. Escape cancels.
+BINDING_CANCELLED,Binding change cancelled.
+BINDING_READY,Binding ready. Choose Apply to save it.
+BINDING_CONFLICT,"Also used by {0}. Apply will keep both actions on this control."
+CLEAR_BINDING,Clear
+UNBOUND,Unbound
+MOUSE_LEFT,Left mouse
+MOUSE_RIGHT,Right mouse
+MOUSE_MIDDLE,Middle mouse
+MOUSE_NUMBER,Mouse {0}
+PAD_CONTROL,Pad
+DAMAGE_NUMBERS,Damage numbers
+HIGH_CONTRAST_HEALTH,Patterned health bars
+HEALTH_PALETTE,Health bar colours
+PALETTE_DEFAULT,Default
+PALETTE_PROTANOPIA,Protanopia
+PALETTE_DEUTERANOPIA,Deuteranopia
+PALETTE_TRITANOPIA,Tritanopia
+TEXT_SCALE,Text size
+REDUCE_MOTION,Reduce motion
+IMPORT_LEVEL,Import level…
+IMPORT_SUCCEEDED,Level imported. It is now available in the level list.
+IMPORT_FAILED,The level could not be imported.
+IMPORT_FILES_HELP,Use Files → On My iPhone/iPad → Block Dungeons → levels to copy a .dlvl package. Then return here and choose Refresh.
+IMPORT_OPEN_WITH_HELP,Open the .dlvl package in your Files app and choose Open with → Block Dungeons. Return here to see the import result.
+M0_TITLE,Block Dungeons — platform probe
+M0_JSON_OK,Packaged JSON read successfully
+M0_JSON_FAILED,Platform probe failed — check the log
+M0_DETAILS,"Platform: {0} | Core: {1}"
+M0_PATHS,"User levels: {0}"
+M0_HINT,The cube should spin smoothly. This is the M0 export probe.
+GAME_TITLE,Block Dungeons
+PLAY,Play
+CREDITS,Credits
+CREDITS_ORIGINAL,Original cuboid art and animations by the Block Dungeons project. Silkscreen font by The Silkscreen Project Authors (SIL Open Font License 1.1). See bundled licences for font and engine/runtime notices.
+QUIT,Quit
+LEVEL_SELECT,Choose a level
+LEVEL_AUTHOR,By {0}
+LEVEL_UNKNOWN_AUTHOR,Unknown author
+LEVEL_NO_PREVIEW,Preview unavailable
+LEVEL_NO_DESCRIPTION,No description provided.
+LEVEL_BEST_TIME,Best {0}
+LEVEL_NO_RECORD,No completed run yet
+LEVEL_RECORD_UNFINISHED,No completed run | Emeralds {0} | Attempts {1}
+LEVEL_INVALID,Invalid level
+LEVEL_SHOW_DIAGNOSTICS,Show all diagnostics
+LEVEL_NONE,No levels found. Import a package or choose Refresh.
+DIFFICULTY,Difficulty {0}
+USER_LEVEL,User level
+REFRESH,Refresh
+OPEN_LEVELS_FOLDER,Open Levels Folder
+BACK,Back
+LOAD_FAILED,Unable to load level
+LOADING_LEVEL,Building the world…
+PAUSED,Paused
+RESUME,Resume
+QUIT_TO_LEVELS,Quit to Level Select
+HUD_COUNTERS,Emeralds {0}   Lives {1}
+HUD_ACTIONS,Sword [J]   Bow [K] {0}   Roll [Space] {1}   Potion [Q] {2}   ◇ ◇ ◇
+HUD_ACTIONS_GAMEPAD,Sword [X]   Bow [RT] {0}   Roll [A/B] {1}   Potion [Y] {2}   ◇ ◇ ◇
+HUD_READY,Ready
+HUD_CHECKPOINT,Checkpoint reached
+REPLAY_COMPLETE,Replay complete
+HUD_LOCKED_OBJECTIVE,Locked — {0}
+HUD_LOCKED_FALLBACK,complete the objectives
+HUD_ROLLING,Rolling
+DEBUG_GAMEPLAY_PENDING,AI state diagnostics arrive with the enemy system.
+DEBUG_LAYERS,F4 navigation | F5 collision | F6 triggers | F7 paths
+RESTART,Restart
+RETRY,Retry
+CONTINUE,Continue
+DEAD_RESPAWNING,You died — respawning…
+YOU_DIED,You died
+MISSION_COMPLETE,Mission Complete
+MISSION_FAILED,Mission Failed
+RESULT_STATS,"Time {0:00}:{1:00}\nEmeralds {2}   Kills {3}   Deaths {4}\nXP {5}   Hero level {6}\nSeed {7}"
+LEVEL_RECORD,"{0} | Best {1:F1}s | Emeralds {2} | Attempts {3}"
+COMPLETED,Completed
+NOT_COMPLETED,Not completed
+CONFIRM_QUIT,Quit Block Dungeons?
+CANCEL,Cancel
+EDITOR_RELOAD_HELP,Development reload: save level.json to reset the run; hero position is retained when safe. Recording is off.
+EDITOR_RELOAD_READY,Reload {0}: ready in {1:F1} ms. New run; recording off.
+EDITOR_RELOAD_UNCHANGED,Source is valid and unchanged; previous run retained.
+EDITOR_RELOAD_REJECTED,Reload rejected; previous run retained. {0}

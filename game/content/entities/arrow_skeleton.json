@@ -1,0 +1,28 @@
+{
+  "id": "core:arrow_skeleton",
+  "displayName": "Arrow (skeleton)",
+  "category": "projectile",
+  "kind": "Projectile",
+  "faction": "Monster",
+  "radius": 0.15,
+  "solid": false,
+  "projectile": {
+    "damage": 6,
+    "speed": 11,
+    "lifetime": 1.5,
+    "pierce": 0,
+    "knockback": 0.5
+  },
+  "render": {
+    "model": "models/props/arrow.glb",
+    "stickOnTerrain": 2.0
+  },
+  "audio": {
+    "hitTerrain": "core:sfx_arrow_hit_wood",
+    "hitEntity": "core:sfx_arrow_hit_flesh"
+  },
+  "editor": {
+    "icon": "editor/icons/entities/arrow_skeleton.png",
+    "char": "<"
+  }
+}

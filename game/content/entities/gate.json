@@ -1,0 +1,58 @@
+{
+  "id": "core:gate",
+  "displayName": "Gate",
+  "category": "structure",
+  "kind": "Gate",
+  "radius": 0,
+  "solid": true,
+  "requiresGround": true,
+  "render": {
+    "model": "models/props/gate_wood.glb",
+    "animations": {
+      "open": "open",
+      "close": "close"
+    }
+  },
+  "audio": {
+    "open": "core:sfx_gate_open",
+    "close": "core:sfx_gate_close"
+  },
+  "props": {
+    "axis": {
+      "type": "enum",
+      "values": [
+        "x",
+        "z"
+      ],
+      "default": "x"
+    },
+    "width": {
+      "type": "int",
+      "default": 2,
+      "min": 1,
+      "max": 8
+    },
+    "state": {
+      "type": "enum",
+      "values": [
+        "closed",
+        "open"
+      ],
+      "default": "closed"
+    },
+    "openWhen": {
+      "type": "ref",
+      "refKind": "objective",
+      "default": "",
+      "label": "Open when objective completes"
+    },
+    "interactable": {
+      "type": "bool",
+      "default": false
+    }
+  },
+  "editor": {
+    "icon": "editor/icons/entities/gate.png",
+    "char": "G"
+  }
+}

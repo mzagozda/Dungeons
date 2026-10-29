@@ -1,0 +1,239 @@
+{
+  "formatVersion": 1,
+  "sourceHash": "39b3279f02b52343436f9511e4a0de142cb7706bde6bc5fbe4c874f8e7f313f0",
+  "numpy": "2.5.4",
+  "soundfile": "0.14.0",
+  "libsndfile": "1.2.2",
+  "files": {
+    "audio/sfx/sfx_sword_1_1.ogg": {
+      "sha256": "547780e585da63635771b69405e6873698e04300024e787d7f8e9d9de9de5ae8",
+      "seconds": 0.24,
+      "channels": 1
+    },
+    "audio/sfx/sfx_sword_1_2.ogg": {
+      "sha256": "4e7fbc26df6e4f9ce42f67aed07d0cc6bbda3cf57caf404918661ea1638724d8",
+      "seconds": 0.24,
+      "channels": 1
+    },
+    "audio/sfx/sfx_sword_2_1.ogg": {
+      "sha256": "762b716c2e308ab26dc4d1d136bce2906aa66d6fd2b93da458fa7838e9648e89",
+      "seconds": 0.29,
+      "channels": 1
+    },
+    "audio/sfx/sfx_sword_2_2.ogg": {
+      "sha256": "6b86f023ba4d944dadc3f63c8d0f3f6274f0fde77d49859bbeecce218616815e",
+      "seconds": 0.29,
+      "channels": 1
+    },
+    "audio/sfx/sfx_sword_3_1.ogg": {
+      "sha256": "b37271f4d1295b5de84fbbfdaa79113b391f97dc67898a6d5aa677ab3b3c2b9a",
+      "seconds": 0.38,
+      "channels": 1
+    },
+    "audio/sfx/sfx_sword_3_2.ogg": {
+      "sha256": "65ad1270df70c6e40e8f0d67f36e4e2923534754f850571ba957c7c54d70bf97",
+      "seconds": 0.38,
+      "channels": 1
+    },
+    "audio/sfx/sfx_sword_hit_flesh.ogg": {
+      "sha256": "7c8031c37ec16e353d8e39eb627573738f4c9bca32205a8cc9f5767d6b3d694f",
+      "seconds": 0.23,
+      "channels": 1
+    },
+    "audio/sfx/sfx_bow_draw.ogg": {
+      "sha256": "f6ee0694c8ad9900728a746368386e98c359e128d784969fb7fcce5a5040308e",
+      "seconds": 0.36,
+      "channels": 1
+    },
+    "audio/sfx/sfx_bow_release.ogg": {
+      "sha256": "ea735260e46ff78d3c1e857c4781032f2f0ecfc99db01139eb7076392b7cec95",
+      "seconds": 0.34,
+      "channels": 1
+    },
+    "audio/sfx/sfx_arrow_hit_wood.ogg": {
+      "sha256": "a278798c579e1c1a2e3d71ff25ed66a5a4b1d836585365fc8088c34ed1b91e4f",
+      "seconds": 0.22,
+      "channels": 1
+    },
+    "audio/sfx/sfx_arrow_hit_flesh.ogg": {
+      "sha256": "180bf78811eca31075ed7de5c19f2d4b792f33df9de5c6a306290f571f7bf34f",
+      "seconds": 0.19,
+      "channels": 1
+    },
+    "audio/sfx/sfx_roll.ogg": {
+      "sha256": "a5cc871caaf58d5a946221b047cfefb008bb650c327b1d2fb19091cd5a744037",
+      "seconds": 0.38,
+      "channels": 1
+    },
+    "audio/sfx/sfx_potion.ogg": {
+      "sha256": "9bbb0467f2a79fa3eb6305b80ae4481f90a4df0c73a91819e7f55bf834d71bb9",
+      "seconds": 0.8,
+      "channels": 1
+    },
+    "audio/sfx/sfx_hero_hurt_1.ogg": {
+      "sha256": "a1bf0a82d4595ad5cae4f62e74ec6e7901818ec03409386356858939a2eda19f",
+      "seconds": 0.32,
+      "channels": 1
+    },
+    "audio/sfx/sfx_hero_hurt_2.ogg": {
+      "sha256": "6807293bbdebfe17a25947ea7c6c530c6cef2d3db5149fd9b37d117f71799ebf",
+      "seconds": 0.32,
+      "channels": 1
+    },
+    "audio/sfx/sfx_hero_death.ogg": {
+      "sha256": "47b974af22a0e683ffeeaa562f8696377ea68ebcec4c3693642a1c12ffa7032c",
+      "seconds": 0.95,
+      "channels": 1
+    },
+    "audio/sfx/sfx_step_soft_1.ogg": {
+      "sha256": "e58414f9c2c4e0e96451e41ea87c438e0ae9beca01113b73eb9614a62d8023f0",
+      "seconds": 0.16,
+      "channels": 1
+    },
+    "audio/sfx/sfx_step_soft_2.ogg": {
+      "sha256": "21f7904eac2e44135bfd0573e682476c23cf171938133de5b3180e744b324d8f",
+      "seconds": 0.16,
+      "channels": 1
+    },
+    "audio/sfx/sfx_step_stone_1.ogg": {
+      "sha256": "a010ca6231b68bbb5244ebf23228394c48e1da87b8374442764799ef94f01c5a",
+      "seconds": 0.15,
+      "channels": 1
+    },
+    "audio/sfx/sfx_step_stone_2.ogg": {
+      "sha256": "d368873f92327d0d8767dbac8392005cfbb6e3c1d5541e3424459faec75fabaa",
+      "seconds": 0.15,
+      "channels": 1
+    },
+    "audio/sfx/sfx_step_wood_1.ogg": {
+      "sha256": "5f59e1f8d9f29f23e79406bd1e6e82f8d46d5541d92fe663f1b874560f862115",
+      "seconds": 0.17,
+      "channels": 1
+    },
+    "audio/sfx/sfx_step_wood_2.ogg": {
+      "sha256": "4ac368abb768288088db68f04b5e1e548eb4a4fdd8247dad87237290cd211538",
+      "seconds": 0.17,
+      "channels": 1
+    },
+    "audio/sfx/sfx_zombie_alert.ogg": {
+      "sha256": "2965f816fe331ae84ecd1bf9febc40e7ae671325cb693cd39a9f839bd5ca36f1",
+      "seconds": 0.7,
+      "channels": 1
+    },
+    "audio/sfx/sfx_zombie_swing.ogg": {
+      "sha256": "77925ab13ece3dc9dc470fdebd35bff78310a6a19ff0d64a94bcc32e9144e6a8",
+      "seconds": 0.4,
+      "channels": 1
+    },
+    "audio/sfx/sfx_zombie_hit.ogg": {
+      "sha256": "a87bba511420d1171b5656b4e242b4d05953da8b77c1f3efd722c874ba27ddef",
+      "seconds": 0.27,
+      "channels": 1
+    },
+    "audio/sfx/sfx_zombie_death.ogg": {
+      "sha256": "5303c917aa2f22f5b01d1157b68c6f7b4c875591ea8f781cdf60dd169e658211",
+      "seconds": 1.0,
+      "channels": 1
+    },
+    "audio/sfx/sfx_skeleton_alert.ogg": {
+      "sha256": "648902f0a33c367f579795b70ec8dab03198e317d12786fa2ae7ee02ca183488",
+      "seconds": 0.5,
+      "channels": 1
+    },
+    "audio/sfx/sfx_skeleton_draw.ogg": {
+      "sha256": "4125607c7f6cf3104fe9cc15b551b44bb90386a918a8abc0c9dd886abe74f998",
+      "seconds": 0.4,
+      "channels": 1
+    },
+    "audio/sfx/sfx_skeleton_hit.ogg": {
+      "sha256": "a207535543b2c9065b8ce9ab5f3898c5802f72dc63ead51350f7b406fa1aa985",
+      "seconds": 0.25,
+      "channels": 1
+    },
+    "audio/sfx/sfx_skeleton_death.ogg": {
+      "sha256": "5ebd584f34ac339e324de42f53a4d0a791ed3ea5d9d3d7e8fb44446a6228ba3c",
+      "seconds": 0.95,
+      "channels": 1
+    },
+    "audio/sfx/sfx_pickup_emerald.ogg": {
+      "sha256": "414aec15b523a0e1f542a4d6b918f273226624770c6fabd5df3cbf66bfb71523",
+      "seconds": 0.44,
+      "channels": 1
+    },
+    "audio/sfx/sfx_pickup_food.ogg": {
+      "sha256": "74342120a1d738bd1da97fcd384722c9b8e1505ca49651bb47e22af5b16dbc63",
+      "seconds": 0.38,
+      "channels": 1
+    },
+    "audio/sfx/sfx_pickup_arrows.ogg": {
+      "sha256": "dfac2992874a5602a9c54485e63b55c015732346966635f3745ea8f2735dc912",
+      "seconds": 0.26,
+      "channels": 1
+    },
+    "audio/sfx/sfx_chest_open.ogg": {
+      "sha256": "bd5a55d299e8d0496d2ab8dee6c33dde979251e3a0909828327fb88906b99450",
+      "seconds": 0.7,
+      "channels": 1
+    },
+    "audio/sfx/sfx_gate_open.ogg": {
+      "sha256": "fe8bcdc6fd7124a50be9f437dee474347595c35816c8a1c8fb61c8833d12198c",
+      "seconds": 0.85,
+      "channels": 1
+    },
+    "audio/sfx/sfx_gate_close.ogg": {
+      "sha256": "c779a8d71faa3a42135a36086fba60f1cdf1d70c2fae9f929f3494863205ea86",
+      "seconds": 0.6,
+      "channels": 1
+    },
+    "audio/sfx/sfx_checkpoint.ogg": {
+      "sha256": "9785f9afd047f5b63c1137a53d508b9bcb883f13c567e0ed0fee4c80cf5614f3",
+      "seconds": 1.2,
+      "channels": 1
+    },
+    "audio/sfx/sfx_ambush_horn.ogg": {
+      "sha256": "18dc1211a5683b10cf91e2c3c61f42b3da114d46d5aab6091d873932f0908f0f",
+      "seconds": 1.35,
+      "channels": 1
+    },
+    "audio/sfx/sfx_mission_complete.ogg": {
+      "sha256": "523fab0d90f006f4a1a665acc7b455884b8b01976bec226ba8e59fc181e1fe71",
+      "seconds": 3.0,
+      "channels": 1
+    },
+    "audio/sfx/sfx_mission_failed.ogg": {
+      "sha256": "05d952e6d7bbc83454ba5ad33a440a0009c34714c6440929db507417091dd3ad",
+      "seconds": 2.2,
+      "channels": 1
+    },
+    "audio/sfx/sfx_ui_click.ogg": {
+      "sha256": "920b90280d741319f8e16742cd151dd0e37cae8fa10aecf5b6dd08d953dfa12b",
+      "seconds": 0.09,
+      "channels": 1
+    },
+    "audio/sfx/sfx_ui_hover.ogg": {
+      "sha256": "1450cc9767b1d94cf0530046b10f102dda406c0a96898db11ed361b69b2118a1",
+      "seconds": 0.12,
+      "channels": 1
+    },
+    "audio/sfx/sfx_ui_back.ogg": {
+      "sha256": "80a335716881ca5df9139bdd4d74c654314fe052b548c7db4cd23ad03865aa7f",
+      "seconds": 0.2,
+      "channels": 1
+    },
+    "audio/ambience/sfx_torch_loop.ogg": {
+      "sha256": "c05973637e7a26e38219524a061ec30fc34055293fe480f1d9eca034494e17d2",
+      "seconds": 8.0,
+      "channels": 1
+    },
+    "audio/ambience/amb_forest_night.ogg": {
+      "sha256": "2b380ca8c215ff1a9c6c424b94c71ba07d89c06125f1661118c13dcc094ae2bb",
+      "seconds": 32.0,
+      "channels": 1
+    },
+    "audio/music/music_forest.ogg": {
+      "sha256": "4cb17e5adc7d14979d6f778a461a619a83f62123c790fa63142fa322f2cdba2a",
+      "seconds": 144.0,
+      "channels": 2
+    }
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "free",
+    "box_uv": false
+  },
+  "name": "pillar_broken",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "uuid": "b7331af2-9070-566a-a8dd-3732c1c8660d",
+      "type": "cube",
+      "name": "base",
+      "from": [
+        -6.4,
+        0.0,
+        -6.4
+      ],
+      "to": [
+        6.4,
+        3.2,
+        6.4
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "f7f6cfb3-a597-5567-974f-717253dd2900",
+      "type": "cube",
+      "name": "pillar",
+      "from": [
+        -4.4,
+        3.2,
+        -4.4
+      ],
+      "to": [
+        4.4,
+        17.6,
+        4.4
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "0022cad7-77e0-54a5-b142-617b12a7e049",
+      "type": "cube",
+      "name": "break",
+      "from": [
+        -4.32,
+        17.599999999999998,
+        -3.6
+      ],
+      "to": [
+        0.48,
+        19.2,
+        3.6
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    {
+      "name": "root",
+      "uuid": "25a92565-70ec-5104-b654-296fde428105",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "children": [
+        "b7331af2-9070-566a-a8dd-3732c1c8660d",
+        "f7f6cfb3-a597-5567-974f-717253dd2900",
+        "0022cad7-77e0-54a5-b142-617b12a7e049"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "name": "pillar_broken.png",
+      "id": "0",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABWklEQVR4nOXVPUpDURRF4ZWt+EMQBQNGJZqUFqK2ggNwBJaCtZ0jEDvH4hSsBNtglTIqiCnSiAgqSuR2F7z3tCn2V6TZPMh6xXmNs/OLydLMDzWdTofNrV51799c02otVPe11Sbt9np1P7m65ag7V933j09Zbs5X993FATu9p+o+3rjkYO+wuiuKT6L4JIpPovgkik+i+CSKT6L4RJgT5hSN77+z4cMvz8NwH48/w300eg33u8fvcH/7+Ar3wXA73PsP9/9fQB5dug95dOk+5NGl+5BHl+5DHl26D3l06T7k0aX7kKLz+yDH6JzSj/OXoLHS7k4wJswJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfMCXOa9h+Ytj/24Vvq1yoWLAAAAABJRU5ErkJggg=="
+    }
+  ],
+  "animations": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "core:stone_floor_cracked",
+  "displayName": "Cracked stone floor",
+  "category": "ground",
+  "walkable": true,
+  "solid": false,
+  "moveCost": 1,
+  "render": {
+    "kind": "block",
+    "top": "atlas:stone_cracked",
+    "side": "atlas:dirt_side",
+    "tint": "#6f6f6f"
+  },
+  "audio": {
+    "footstep": "core:sfx_step_stone"
+  },
+  "editor": {
+    "icon": "editor/icons/tiles/stone_floor_cracked.png",
+    "char": "%"
+  }
+}

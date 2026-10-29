@@ -1,0 +1,7 @@
+# Original procedural audio
+
+`score.json` is the editable source for the sound bank and **Lanterns under the Hollow**, an original 48-bar, 80 BPM, 144-second stereo composition. Chords, melody, sound types, frequencies, durations, variants, mix buses and levels are editable here. The synthesis implementation is `tools/make_audio.py`; its fixed seed is independent of gameplay RNG. No recordings, sampled instruments, commercial music or reference-game assets are used.
+
+Run `python tools/make_audio.py` using `tools/requirements.txt`, import the outputs in pinned Godot, run `python tools/make_audio.py --write-imports`, import again, then run `python tools/make_audio.py --check`. The manifest binds the source and generator to every encoded file. Ogg serials and CRCs are canonicalized; rebuilding on a different codec/platform still requires inspection rather than assuming byte identity. The audit decodes every file and checks provenance hashes, codec, rate, channels, duration, finite/non-silent/non-clipping samples, loop discontinuity and committed Godot loop imports.
+
+The sounds use synthesized noise, resonances and oscillators: sword air movement, woody impacts, bone rattles, creaks, fictional vocal cues, potion bubbles and pitched UI/pickup motifs. Forest/torch sounds and room tails wrap across their loop boundaries. This is an initial original sound-design pass; listening balance, in-game routing and device playback acceptance are tracked separately in the specification. Automated waveform checks do not establish listening approval.

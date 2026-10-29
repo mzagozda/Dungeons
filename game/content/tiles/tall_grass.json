@@ -1,0 +1,21 @@
+{
+  "id": "core:tall_grass",
+  "displayName": "Tall grass",
+  "category": "decoration",
+  "overlay": true,
+  "walkable": true,
+  "solid": false,
+  "blocksProjectiles": false,
+  "blocksVision": false,
+  "moveCost": 1.0,
+  "render": {
+    "kind": "cross",
+    "texture": "atlas:tall_grass",
+    "sway": 0.6,
+    "randomRotation": true
+  },
+  "editor": {
+    "icon": "editor/icons/tiles/tall_grass.png",
+    "char": ","
+  }
+}

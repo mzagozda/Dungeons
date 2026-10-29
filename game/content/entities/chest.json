@@ -1,0 +1,26 @@
+{
+  "id": "core:chest",
+  "displayName": "Chest",
+  "category": "prop",
+  "kind": "Chest",
+  "radius": 0.35,
+  "solid": true,
+  "requiresGround": true,
+  "props": {
+    "loot": {
+      "type": "ref",
+      "refKind": "loot",
+      "default": "core:loot_chest_common"
+    }
+  },
+  "render": {
+    "model": "models/props/chest.glb"
+  },
+  "audio": {
+    "open": "core:sfx_chest_open"
+  },
+  "editor": {
+    "icon": "editor/icons/entities/chest.png",
+    "char": "$"
+  }
+}

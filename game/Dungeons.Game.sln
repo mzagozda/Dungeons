@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dungeons.Game", "Dungeons.Game.csproj", "{FE4056FE-A6DB-47EA-9622-3609E9A702D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dungeons.Core", "..\src\Dungeons.Core\Dungeons.Core.csproj", "{F38EE148-73E3-4D0C-BDBF-3DB9B4758CDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE4056FE-A6DB-47EA-9622-3609E9A702D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE4056FE-A6DB-47EA-9622-3609E9A702D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE4056FE-A6DB-47EA-9622-3609E9A702D9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE4056FE-A6DB-47EA-9622-3609E9A702D9}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{F38EE148-73E3-4D0C-BDBF-3DB9B4758CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F38EE148-73E3-4D0C-BDBF-3DB9B4758CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F38EE148-73E3-4D0C-BDBF-3DB9B4758CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F38EE148-73E3-4D0C-BDBF-3DB9B4758CDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

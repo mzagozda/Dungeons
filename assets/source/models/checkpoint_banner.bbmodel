@@ -1,0 +1,266 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "free",
+    "box_uv": false
+  },
+  "name": "checkpoint_banner",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "uuid": "5c4e2c4b-7ebd-5f51-ac2a-8a674055017c",
+      "type": "cube",
+      "name": "foot",
+      "from": [
+        -4.0,
+        0.0,
+        -4.0
+      ],
+      "to": [
+        4.0,
+        3.2,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "68c0def7-4a5f-5357-a105-c93702af04a5",
+      "type": "cube",
+      "name": "pole",
+      "from": [
+        -0.8,
+        1.5999999999999996,
+        -0.8
+      ],
+      "to": [
+        0.8,
+        27.200000000000003,
+        0.8
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "24d9a6a1-8f26-5e05-8665-f8ce2c720536",
+      "type": "cube",
+      "name": "flag",
+      "from": [
+        0.0,
+        17.6,
+        -0.48
+      ],
+      "to": [
+        9.6,
+        25.6,
+        0.48
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            48,
+            0,
+            56,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            48,
+            0,
+            56,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            48,
+            0,
+            56,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            48,
+            0,
+            56,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            48,
+            0,
+            56,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            48,
+            0,
+            56,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    {
+      "name": "root",
+      "uuid": "ae257894-fbbf-5fc4-9d1e-dc3584312077",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "children": [
+        "5c4e2c4b-7ebd-5f51-ac2a-8a674055017c",
+        "68c0def7-4a5f-5357-a105-c93702af04a5",
+        "24d9a6a1-8f26-5e05-8665-f8ce2c720536"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "name": "checkpoint_banner.png",
+      "id": "0",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABWklEQVR4nOXVPUpDURRF4ZWt+EMQBQNGJZqUFqK2ggNwBJaCtZ0jEDvH4hSsBNtglTIqiCnSiAgqSuR2F7z3tCn2V6TZPMh6xXmNs/OLydLMDzWdTofNrV51799c02otVPe11Sbt9np1P7m65ag7V933j09Zbs5X993FATu9p+o+3rjkYO+wuiuKT6L4JIpPovgkik+i+CSKT6L4RJgT5hSN77+z4cMvz8NwH48/w300eg33u8fvcH/7+Ar3wXA73PsP9/9fQB5dug95dOk+5NGl+5BHl+5DHl26D3l06T7k0aX7kKLz+yDH6JzSj/OXoLHS7k4wJswJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfMCXOa9h+Ytj/24Vvq1yoWLAAAAABJRU5ErkJggg=="
+    }
+  ],
+  "animations": []
+}

@@ -1,0 +1,189 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "free",
+    "box_uv": false
+  },
+  "name": "food",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "uuid": "4895969c-1c9f-56fd-9560-e376c3cc25ad",
+      "type": "cube",
+      "name": "fruit",
+      "from": [
+        -2.56,
+        0.6400000000000001,
+        -2.4
+      ],
+      "to": [
+        2.56,
+        5.76,
+        2.4
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "1f153c74-7ea2-5aac-90b7-147e7d972f13",
+      "type": "cube",
+      "name": "stem",
+      "from": [
+        -0.4,
+        5.6000000000000005,
+        -0.4
+      ],
+      "to": [
+        0.4,
+        7.2,
+        0.4
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    {
+      "name": "root",
+      "uuid": "8c0aac45-c74b-51cc-8bdc-ef27bb664fc9",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "children": [
+        "4895969c-1c9f-56fd-9560-e376c3cc25ad",
+        "1f153c74-7ea2-5aac-90b7-147e7d972f13"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "name": "food.png",
+      "id": "0",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABU0lEQVR4nOXVPyuFYRzG8a/vwEhKHeTfeCYZTkrJOzAps8WbMEneks2kxCSTzb8SYWBkoXu7y/Pcq+H6DGe5+tW5nnquZ+xib/Sz/jVBn+3bVw6Gk7358c0nM1P991ujBQaD2d589+iUzeXx/vudfeYXV3rz6bcThisPvfn73CFrqxu9ua3yRat80SpftMoXrfJFq3zRKl+0yhcSTsLZCi8nvprH5f1vefto37+8PDfzs/vvZv70eNfMb+6WmvnV9fnfB1CX7tqHunTXPtSlu/ahLt21D3Xprn2oS3ftQ126ax9K6XofTCxds/wkfwnGpgbLPwSTcBJOwkk4CSfhJJyEk3ASTsJJOAkn4SSchJNwEk7CSTgJJ+EknISTcBJOwkk4CSfhJJyEk3ASTsJJOAkn4SSchJNwEk7CSTgJJ+EknISTcBJOwkk4CSfh/O8/8N9+AS0AYKMDfcn6AAAAAElFTkSuQmCC"
+    }
+  ],
+  "animations": []
+}

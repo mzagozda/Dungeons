@@ -1,0 +1,100 @@
+name: iOS project and optional automatic signing
+
+on:
+  workflow_dispatch:
+    inputs:
+      sign:
+        description: Automatically provision/sign and export an IPA using configured Apple credentials
+        type: boolean
+        default: false
+  workflow_call:
+    inputs:
+      sign:
+        type: boolean
+        default: false
+    secrets:
+      DUNGEONS_IOS_API_PRIVATE_KEY:
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  ios-export:
+    runs-on: macos-latest
+    timeout-minutes: ${{ inputs.sign && 120 || 60 }}
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      DUNGEONS_IOS_TEAM_ID: ${{ vars.DUNGEONS_IOS_TEAM_ID }}
+      DUNGEONS_XCODE_DEVELOPER_DIR: ${{ vars.DUNGEONS_XCODE_DEVELOPER_DIR }}
+      DUNGEONS_IOS_API_KEY_ID: ${{ vars.DUNGEONS_IOS_API_KEY_ID }}
+      DUNGEONS_IOS_API_ISSUER_ID: ${{ vars.DUNGEONS_IOS_API_ISSUER_ID }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Require the real public Apple team and select the configured Xcode
+        run: |
+          if ($env:DUNGEONS_IOS_TEAM_ID -notmatch '^[A-Z0-9]{10}$') { throw 'Configure DUNGEONS_IOS_TEAM_ID with the actual Apple team before running iOS validation.' }
+          if ($env:DUNGEONS_XCODE_DEVELOPER_DIR) {
+            if (!(Test-Path -LiteralPath $env:DUNGEONS_XCODE_DEVELOPER_DIR)) { throw 'Configured Xcode developer directory does not exist.' }
+            "DEVELOPER_DIR=$env:DUNGEONS_XCODE_DEVELOPER_DIR" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          }
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Install the pinned editor/templates and native texture dependencies
+        run: |
+          ./tools/Install-Godot.ps1 -WithExportTemplates
+          python -m pip install -r tools/requirements.txt
+          python -m unittest discover -s tools -p test_ios_archive.py
+          python -m unittest discover -s tools -p test_ios_signing.py
+      - name: Export the real arm64 C# project and build an unsigned device archive
+        run: ./tools/Export-IosProject.ps1 -AppleTeamId $env:DUNGEONS_IOS_TEAM_ID -WorkspaceDirectory artifacts/ios-workspace -EvidenceDirectory artifacts/ios-validation -Release -BuildUnsignedArchive
+      - name: Core gate and actual native serialization/full-clear compatibility
+        run: |
+          ./tools/Test-Core.ps1
+          ./tools/Test-AotCompatibility.ps1 -EvidenceDirectory artifacts/ios-validation/aot-compatibility -Native
+      - name: Optional automatic Apple provisioning/signing and export-only IPA
+        if: ${{ inputs.sign }}
+        env:
+          DUNGEONS_IOS_API_PRIVATE_KEY: ${{ secrets.DUNGEONS_IOS_API_PRIVATE_KEY }}
+        run: |
+          if ($env:DUNGEONS_IOS_API_KEY_ID -notmatch '^[A-Z0-9]{10}$' -or !$env:DUNGEONS_IOS_API_ISSUER_ID -or !$env:DUNGEONS_IOS_API_PRIVATE_KEY) { throw 'Configure the actual Apple API key ID/issuer variables and private-key secret before enabling signing.' }
+          $privateDirectory = Join-Path $env:RUNNER_TEMP ('dungeons-apple-' + [guid]::NewGuid().ToString('N'))
+          [void][IO.Directory]::CreateDirectory($privateDirectory)
+          $keyFile = Join-Path $privateDirectory ('AuthKey_' + $env:DUNGEONS_IOS_API_KEY_ID + '.p8')
+          try {
+            [IO.File]::WriteAllText($keyFile,$env:DUNGEONS_IOS_API_PRIVATE_KEY,[Text.UTF8Encoding]::new($false))
+            Remove-Item Env:DUNGEONS_IOS_API_PRIVATE_KEY
+            & chmod 600 $keyFile
+            if ($LASTEXITCODE -ne 0) { throw 'Cannot restrict API-key file permissions.' }
+            ./tools/Sign-IosProject.ps1 -ExportEvidenceDirectory artifacts/ios-validation -EvidenceDirectory artifacts/ios-signed -AppleTeamId $env:DUNGEONS_IOS_TEAM_ID -ApiKeyId $env:DUNGEONS_IOS_API_KEY_ID -ApiIssuerId $env:DUNGEONS_IOS_API_ISSUER_ID -ApiKeyFile $keyFile
+          } finally {
+            if (Test-Path -LiteralPath $keyFile) { Remove-Item -LiteralPath $keyFile }
+            Remove-Item -LiteralPath $privateDirectory
+          }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ios-project-unsigned-archive
+          path: artifacts/ios-validation/
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && inputs.sign }}
+        with:
+          name: ios-signing-evidence
+          path: |
+            artifacts/ios-signed/result.json
+            artifacts/ios-signed/*.log
+            artifacts/ios-signed/*prerequisites.json
+            artifacts/ios-signed/ExportOptions.plist
+            artifacts/ios-signed/export/*.ipa
+
+# Default runs are unsigned. Opt-in signing may contact Apple provisioning but
+# uses export-only distribution options and never registers devices or uploads
+# to App Store/TestFlight. Actual signing, device and store checks remain pending.

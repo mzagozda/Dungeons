@@ -1,0 +1,21 @@
+{
+  "formatVersion": 1,
+  "scenario": "settings-audio",
+  "passed": true,
+  "width": 1280,
+  "height": 720,
+  "imageSha256": "aff6f44239e946b54845593d53d9c17c0348acde19588e00fbfce098088fbebd",
+  "godot": "4.7.2-stable (official)",
+  "renderer": "mobile",
+  "adapter": "NVIDIA GeForce RTX 3060",
+  "quality": "High",
+  "shaderTime": 0,
+  "visualStepSeconds": 0.016666668,
+  "levelHash": "c998a212ad642d919ec907c119526e9ed49086de0f8acd72af6913c76fec504c",
+  "contentHash": "2ca5f6f1a50da8787185c6c3b555be5e41cc4686e4be10f4a3f70e4546fec8a6",
+  "seed": 42,
+  "tick": 0,
+  "finalHash": "9f2eb1a48ca61e07",
+  "baselineApproved": false,
+  "physicalAcceptance": false
+}

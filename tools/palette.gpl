@@ -1,0 +1,52 @@
+GIMP Palette
+Name: Block Dungeons Original 48
+Columns: 8
+# Original project palette, specification 13.1. Values are sRGB.
+16 24 32 Deep shadow
+26 26 31 Panel
+60 60 70 Panel border
+23 35 58 Night
+36 64 90 Fog
+47 74 102 Blue cloth
+85 105 143 Ambient blue
+255 255 255 White highlight
+36 76 37 Forest dark
+44 97 40 Leaf shadow
+63 122 47 Oak leaves
+82 141 56 Leaves light
+106 160 67 Grass shadow
+123 176 74 Grass
+146 194 93 Grass light
+177 209 120 Moss highlight
+77 56 38 Bark dark
+98 72 45 Bark
+118 86 55 Dirt shadow
+138 106 63 Dirt
+161 125 74 Wood
+185 149 99 Plank light
+198 167 123 Wood edge
+223 199 155 Sand
+54 60 71 Stone deep
+77 86 96 Slate
+98 108 115 Stone shade
+111 111 111 Stone dark
+125 129 133 Stone mid
+140 140 140 Stone
+167 170 173 Stone light
+206 208 197 Bone
+23 63 93 Water deep
+36 88 113 Water shadow
+47 111 143 Water
+67 149 164 Water light
+118 184 187 Water crest
+189 221 214 Foam
+200 97 53 Ember
+224 131 52 Fire
+255 179 71 Flame
+255 233 200 Warm light
+34 155 98 Emerald shade
+58 227 116 Emerald
+255 90 60 Hit
+226 182 68 Gold
+196 155 204 Flower
+246 228 209 Skin

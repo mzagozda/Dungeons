@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "free",
+    "box_uv": false
+  },
+  "name": "tree_oak_1",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "uuid": "b60aad05-9c6c-5aa1-a6f9-af9ae55490e5",
+      "type": "cube",
+      "name": "trunk",
+      "from": [
+        -3.2,
+        0.0,
+        -3.2
+      ],
+      "to": [
+        3.2,
+        35.2,
+        3.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "f7550d15-5dd4-5be5-9490-d07e02ea620f",
+      "type": "cube",
+      "name": "crown_low",
+      "from": [
+        -7.6,
+        21.6,
+        -7.84
+      ],
+      "to": [
+        7.6,
+        34.4,
+        7.84
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "822edbca-f1bc-5790-ba79-0b7af7f3a7bb",
+      "type": "cube",
+      "name": "crown_mid",
+      "from": [
+        -6.0,
+        31.999999999999993,
+        -6.16
+      ],
+      "to": [
+        6.800000000000001,
+        43.199999999999996,
+        6.16
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "37835343-84dc-56af-8c99-e4515a146a68",
+      "type": "cube",
+      "name": "crown_top",
+      "from": [
+        -4.8,
+        41.599999999999994,
+        -5.2
+      ],
+      "to": [
+        4.8,
+        48.0,
+        4.3999999999999995
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            24,
+            0,
+            32,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            24,
+            0,
+            32,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            24,
+            0,
+            32,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            24,
+            0,
+            32,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            24,
+            0,
+            32,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            24,
+            0,
+            32,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    {
+      "name": "root",
+      "uuid": "5ae48f54-3caf-50f9-bce8-9587476f92dc",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "children": [
+        "b60aad05-9c6c-5aa1-a6f9-af9ae55490e5",
+        "f7550d15-5dd4-5be5-9490-d07e02ea620f",
+        "822edbca-f1bc-5790-ba79-0b7af7f3a7bb",
+        "37835343-84dc-56af-8c99-e4515a146a68"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "name": "tree_oak_1.png",
+      "id": "0",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABVUlEQVR4nOXVu0pDQRSF4T9L8NIFDwGjoEkjWImdCOIT2PkMvoe172NpI1jYiDaWUSEoHANWXpHIWA04s9sU6yvSLAbyp9jpHO5uTnvdBWqu+t80/fo+vn1jsTdX3dPbplmq7uenz+wP5qv7wdExa+vD6r7cnrE1fKjuL6sn7GzvVXdF8UkUn0Txf++D+CSKT6L4JIpPovhEmBPmFI3t62f4ePIU7x/tT/x+8h7uF/df4T5+HIX73Wgj3K9vLv//AHl06T7k0aX7kEeX7kMeXboPeXTpPuTRpfuQR5fuQ4rO74Mco3NKH87/BJ3uymCKMWFOmBPmhDlhTpgT5oQ5YU6YE+aEOWFOmBPmhDlhTpgT5oQ5YU6YE+aEOWFOmBPmhDlhTpgT5oQ5YU6YE+aEOWFOmBPmhDlhTpgT5oQ5YU6YE+aEOWFOmBPmhDlhTpjTrL/ArP0CymFc8guTC/kAAAAASUVORK5CYII="
+    }
+  ],
+  "animations": []
+}

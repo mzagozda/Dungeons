@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <IsTestProject>true</IsTestProject>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" PrivateAssets="all" />
+    <PackageReference Include="coverlet.collector" Version="6.0.2" PrivateAssets="all" />
+    <ProjectReference Include="../Dungeons.Core/Dungeons.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Compile the engine-free mesher directly: no Godot assembly enters Core's tests. -->
+    <Compile Include="../../game/scripts/Rendering/ChunkMesher.cs" Link="Rendering/ChunkMesher.cs" />
+    <Compile Include="../../game/scripts/Rendering/ChunkRect.cs" Link="Rendering/ChunkRect.cs" />
+    <Compile Include="../../game/scripts/Rendering/AmbientEmissionClock.cs" Link="Rendering/AmbientEmissionClock.cs" />
+    <Compile Include="../../game/scripts/UI/PreviewPng.cs" Link="UI/PreviewPng.cs" />
+    <Compile Include="../../game/scripts/UI/HudFeedbackPolicy.cs" Link="UI/HudFeedbackPolicy.cs" />
+    <Compile Include="../../game/scripts/UI/HudBannerPolicy.cs" Link="UI/HudBannerPolicy.cs" />
+    <Compile Include="../../game/scripts/LaunchOptions.cs" Link="Host/LaunchOptions.cs" />
+    <Compile Include="../../game/scripts/Rendering/ScreenshotScenarios.cs" Link="Host/ScreenshotScenarios.cs" />
+    <Compile Include="../../game/scripts/Input/ReplayPlayback.cs" Link="Host/ReplayPlayback.cs" />
+    <Compile Include="../../game/tests/PreviewPngFixtures.cs" Link="UI/PreviewPngFixtures.cs" />
+    <Compile Include="../../game/scripts/Input/CommandLatch.cs" Link="Input/CommandLatch.cs" />
+    <Compile Include="../../game/scripts/Input/TouchLayout.cs" Link="Input/TouchLayout.cs" />
+    <Compile Include="../../game/scripts/Input/TouchState.cs" Link="Input/TouchState.cs" />
+    <Compile Include="../../game/scripts/Input/DebugTapGesture.cs" Link="Input/DebugTapGesture.cs" />
+    <Compile Include="../../game/scripts/Audio/SoundBank.cs" Link="Audio/SoundBank.cs" />
+    <Compile Include="../../game/scripts/Logging/RollingFileLogger.cs" Link="Logging/RollingFileLogger.cs" />
+    <Compile Include="../../game/scripts/Logging/SessionLog.cs" Link="Logging/SessionLog.cs" />
+    <Compile Include="../../game/scripts/Rendering/ActorPosePolicy.cs" Link="Rendering/ActorPosePolicy.cs" />
+    <Compile Include="../../game/scripts/Rendering/CameraShakeState.cs" Link="Rendering/CameraShakeState.cs" />
+    <Compile Include="../../game/scripts/Input/HapticFeedback.cs" Link="Input/HapticFeedback.cs" />
+    <Compile Include="../../game/scripts/Input/IHaptics.cs" Link="Input/IHaptics.cs" />
+    <Compile Include="../../game/scripts/Input/AimAssistPolicy.cs" Link="Input/AimAssistPolicy.cs" />
+    <Compile Include="../../game/scripts/Rendering/AdaptiveResolutionModel.cs" Link="Rendering/AdaptiveResolutionModel.cs" />
+    <Compile Include="../../game/scripts/Rendering/GraphicsOptions.cs" Link="Rendering/GraphicsOptions.cs" />
+    <Compile Include="../../game/scripts/Rendering/DeviceProfileCatalog.cs" Link="Rendering/DeviceProfileCatalog.cs" />
+    <Compile Include="../Dungeons.Benchmarks/CombatStressFixture.cs" Link="Performance/CombatStressFixture.cs" />
+    <Compile Include="../Dungeons.Benchmarks/NightlyBenchmarkData.cs" Link="Performance/NightlyBenchmarkData.cs" />
+    <Compile Include="../Dungeons.Tools/SimulationFuzz.cs" Link="Hardening/SimulationFuzz.cs" />
+    <Compile Include="../../game/editor/SoakPolicy.cs" Link="Hardening/SoakPolicy.cs" />
+    <Compile Include="../../game/scripts/Persistence/RunStore.cs" Link="Persistence/RunStore.cs" />
+    <Compile Include="../../game/scripts/Persistence/LevelImportStore.cs" Link="Persistence/LevelImportStore.cs" />
+    <Compile Include="../../game/scripts/Persistence/GameSettings.cs" Link="Persistence/GameSettings.cs" />
+    <Compile Include="../../game/scripts/Persistence/SettingsStore.cs" Link="Persistence/SettingsStore.cs" />
+    <Compile Include="../../game/scripts/Persistence/PersistenceJsonContext.cs" Link="Persistence/PersistenceJsonContext.cs" />
+  </ItemGroup>
+</Project>

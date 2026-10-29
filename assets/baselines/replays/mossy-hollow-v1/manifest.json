@@ -1,0 +1,63 @@
+{
+  "formatVersion": 1,
+  "reviewStatus": "approved",
+  "reviewedGolden": true,
+  "committedGolden": false,
+  "review": {
+    "reviewer": "Project owner (human user)",
+    "approvedUtc": "2026-10-28T02:53:18.9990447Z",
+    "reference": "Codex chat 01a177be-6e83-77f3-a8dd-80e2cde2f6e6; call_15bf595c8e4e445481e5a5d0d99cb709; explicit reply: Approve gameplay goldens only",
+    "scope": "Exact full-clear, ambush and death/respawn gameplay recordings shown in the 6:19 Windows video. Gameplay golden identities only.",
+    "excluded": [
+      "motion approval",
+      "audio approval",
+      "real-time pacing",
+      "physical devices",
+      "other platforms"
+    ],
+    "candidateManifestSha256": "6e14264c116a0e698a3e89d6c322b25d0ddae62fbc247fc0bc2a63497b0e3b80"
+  },
+  "evidence": {
+    "videoSha256": "458610e54c99f7ea0f16363f07da7826b8d85555f87628331fa9fa0d2722b42d",
+    "previewSha256": "abe6e2fbb0a634573998480b85a2f55064f14b00984df442d2fd814bc124451e",
+    "videoDirectory": "artifacts/host-migration/native-aot-main/review-video-30fps",
+    "fps": 30,
+    "platform": "Windows RTX3060 Mobile/Vulkan",
+    "physicalAcceptance": false
+  },
+  "candidates": [
+    {
+      "name": "mossy_hollow_full_clear.dreplay",
+      "levelId": "core.mossy_hollow",
+      "tickCount": 11591,
+      "seed": 1,
+      "initialHash": "10c9999851f4b6ad",
+      "finalHash": "a6da84d1de933f5c",
+      "levelHash": "c998a212ad642d919ec907c119526e9ed49086de0f8acd72af6913c76fec504c",
+      "contentHash": "2ca5f6f1a50da8787185c6c3b555be5e41cc4686e4be10f4a3f70e4546fec8a6",
+      "fileSha256": "2fb0cd21bfb38d663a241376e5c4d4c78da9d7cab32af59be4682edf692e2829"
+    },
+    {
+      "name": "mossy_hollow_ambush_only.dreplay",
+      "levelId": "core.mossy_hollow",
+      "tickCount": 8364,
+      "seed": 1,
+      "initialHash": "10c9999851f4b6ad",
+      "finalHash": "2a8bf663642acddd",
+      "levelHash": "c998a212ad642d919ec907c119526e9ed49086de0f8acd72af6913c76fec504c",
+      "contentHash": "2ca5f6f1a50da8787185c6c3b555be5e41cc4686e4be10f4a3f70e4546fec8a6",
+      "fileSha256": "a9c3380c0dac6273d6bb2bc7ca0fa7fabbb2596084026429dcb41a491c6c9d60"
+    },
+    {
+      "name": "mossy_hollow_death_respawn.dreplay",
+      "levelId": "core.mossy_hollow",
+      "tickCount": 1114,
+      "seed": 1,
+      "initialHash": "10c9999851f4b6ad",
+      "finalHash": "395328b0fce05079",
+      "levelHash": "c998a212ad642d919ec907c119526e9ed49086de0f8acd72af6913c76fec504c",
+      "contentHash": "2ca5f6f1a50da8787185c6c3b555be5e41cc4686e4be10f4a3f70e4546fec8a6",
+      "fileSha256": "1e3693981bb19fe28e14008574b5cb3b878e8d676fec876af859178473ef80f7"
+    }
+  ]
+}

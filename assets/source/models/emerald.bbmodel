@@ -1,0 +1,189 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "free",
+    "box_uv": false
+  },
+  "name": "emerald",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "uuid": "1207a4a5-da99-55f6-a6e1-0099ff5284f2",
+      "type": "cube",
+      "name": "gem",
+      "from": [
+        -2.24,
+        1.4400000000000004,
+        -1.76
+      ],
+      "to": [
+        2.24,
+        7.5200000000000005,
+        1.76
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "6577212d-bcc7-5bb5-9a51-fef690935be7",
+      "type": "cube",
+      "name": "crown",
+      "from": [
+        -1.28,
+        7.12,
+        -1.12
+      ],
+      "to": [
+        1.28,
+        8.56,
+        1.12
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    {
+      "name": "root",
+      "uuid": "9334dc8c-3a70-5fc5-87e5-735dd5fbd5e3",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "children": [
+        "1207a4a5-da99-55f6-a6e1-0099ff5284f2",
+        "6577212d-bcc7-5bb5-9a51-fef690935be7"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "name": "emerald.png",
+      "id": "0",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABWUlEQVR4nOXVL0uDURiG8Wt30Cob4lTQzWYSqzCsNovFahD8GH4NBf0MK2IfWAyyZJwK4vyzgVGDk9MOeM5TDfcvrNy8sOsNz9vYOD+atfea1Lyd9PnZ71X3w8UxS81WdT+7vKW1PF/dhxef9Dpz1X334JjVtW51b75fsdl9rO4fK6dsb+1Ud0XxSRSfRPFJFJ9E8UkUn0TxSRSfCHPCnKJxfD2NH+4Pwv11Ogn3yctXuA8evsP9+WkU7vej9XC/G978fQF5dOk+5NGl+5BHl+5DHl26D3l06T7k0aX7kEeX7kOKzu+DHKNzSj/OX4LGQrszw5gwJ8wJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfM6b//wH/7BWS0Ya/ys420AAAAAElFTkSuQmCC"
+    }
+  ],
+  "animations": []
+}

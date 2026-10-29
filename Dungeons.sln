@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F8A6BF9E-9D9D-4E9E-91C3-B223B9979B9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dungeons.Core", "src\Dungeons.Core\Dungeons.Core.csproj", "{7F6647F4-13FF-4AC7-A9C0-DB3DF0A7BD98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dungeons.Core.Tests", "src\Dungeons.Core.Tests\Dungeons.Core.Tests.csproj", "{749F1AD3-3324-42A3-9522-67BFC175D3AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dungeons.Tools", "src\Dungeons.Tools\Dungeons.Tools.csproj", "{33FA1F9A-334C-46F3-ABBD-A0CED739FECA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dungeons.Benchmarks", "src\Dungeons.Benchmarks\Dungeons.Benchmarks.csproj", "{7786D614-A3E2-46CF-AC5F-59A1E6E63201}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dungeons.Game", "game\Dungeons.Game.csproj", "{376FACA5-3542-4325-8620-F60E72E40402}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F6647F4-13FF-4AC7-A9C0-DB3DF0A7BD98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F6647F4-13FF-4AC7-A9C0-DB3DF0A7BD98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F6647F4-13FF-4AC7-A9C0-DB3DF0A7BD98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F6647F4-13FF-4AC7-A9C0-DB3DF0A7BD98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{749F1AD3-3324-42A3-9522-67BFC175D3AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{749F1AD3-3324-42A3-9522-67BFC175D3AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{749F1AD3-3324-42A3-9522-67BFC175D3AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{749F1AD3-3324-42A3-9522-67BFC175D3AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33FA1F9A-334C-46F3-ABBD-A0CED739FECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33FA1F9A-334C-46F3-ABBD-A0CED739FECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33FA1F9A-334C-46F3-ABBD-A0CED739FECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33FA1F9A-334C-46F3-ABBD-A0CED739FECA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7786D614-A3E2-46CF-AC5F-59A1E6E63201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7786D614-A3E2-46CF-AC5F-59A1E6E63201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7786D614-A3E2-46CF-AC5F-59A1E6E63201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7786D614-A3E2-46CF-AC5F-59A1E6E63201}.Release|Any CPU.Build.0 = Release|Any CPU
+		{376FACA5-3542-4325-8620-F60E72E40402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{376FACA5-3542-4325-8620-F60E72E40402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{376FACA5-3542-4325-8620-F60E72E40402}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{376FACA5-3542-4325-8620-F60E72E40402}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7F6647F4-13FF-4AC7-A9C0-DB3DF0A7BD98} = {F8A6BF9E-9D9D-4E9E-91C3-B223B9979B9D}
+		{749F1AD3-3324-42A3-9522-67BFC175D3AB} = {F8A6BF9E-9D9D-4E9E-91C3-B223B9979B9D}
+		{33FA1F9A-334C-46F3-ABBD-A0CED739FECA} = {F8A6BF9E-9D9D-4E9E-91C3-B223B9979B9D}
+		{7786D614-A3E2-46CF-AC5F-59A1E6E63201} = {F8A6BF9E-9D9D-4E9E-91C3-B223B9979B9D}
+	EndGlobalSection
+EndGlobal

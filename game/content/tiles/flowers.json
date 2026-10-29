@@ -1,0 +1,17 @@
+{
+  "id": "core:flowers",
+  "displayName": "Flowers",
+  "category": "decoration",
+  "overlay": true,
+  "walkable": true,
+  "solid": false,
+  "render": {
+    "kind": "cross",
+    "texture": "atlas:flowers",
+    "sway": 0.6
+  },
+  "editor": {
+    "icon": "editor/icons/tiles/flowers.png",
+    "char": "*"
+  }
+}

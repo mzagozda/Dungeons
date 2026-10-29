@@ -1,0 +1,16 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>12.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AnalysisLevel>8.0</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <Deterministic>true</Deterministic>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <!-- Godot publishes per platform/configuration. Keep those transient restores
+         from rewriting the committed desktop Debug dependency graph. -->
+    <NuGetLockFilePath Condition="('$(Configuration)' != '' and '$(Configuration)' != 'Debug') or '$(RuntimeIdentifier)' != ''">$(MSBuildProjectDirectory)/obj/locks/$(Configuration)/$(RuntimeIdentifier)/packages.lock.json</NuGetLockFilePath>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+</Project>

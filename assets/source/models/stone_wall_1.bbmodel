@@ -1,0 +1,266 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "free",
+    "box_uv": false
+  },
+  "name": "stone_wall_1",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "uuid": "80b904a4-2205-5c03-9965-a6d0a406fdee",
+      "type": "cube",
+      "name": "wall",
+      "from": [
+        -8.0,
+        0.0,
+        -8.0
+      ],
+      "to": [
+        8.0,
+        27.2,
+        8.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "5a192c5f-d4ef-5663-9859-67abb255f501",
+      "type": "cube",
+      "name": "cap_w",
+      "from": [
+        -8.0,
+        27.2,
+        -8.0
+      ],
+      "to": [
+        -1.5999999999999996,
+        30.400000000000002,
+        8.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "4771afc0-0d06-5914-9e18-c82b629511e9",
+      "type": "cube",
+      "name": "cap_e",
+      "from": [
+        1.5999999999999996,
+        27.2,
+        -8.0
+      ],
+      "to": [
+        8.0,
+        28.8,
+        8.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    {
+      "name": "root",
+      "uuid": "4583ba1f-b923-51c7-879b-e8a9ea636e77",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "children": [
+        "80b904a4-2205-5c03-9965-a6d0a406fdee",
+        "5a192c5f-d4ef-5663-9859-67abb255f501",
+        "4771afc0-0d06-5914-9e18-c82b629511e9"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "name": "stone_wall_1.png",
+      "id": "0",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABWklEQVR4nOXVPUpDURRF4ZWt+EMQBQNGJZqUFqK2ggNwBJaCtZ0jEDvH4hSsBNtglTIqiCnSiAgqSuR2F7z3tCn2V6TZPMh6xXmNs/OLydLMDzWdTofNrV51799c02otVPe11Sbt9np1P7m65ag7V933j09Zbs5X993FATu9p+o+3rjkYO+wuiuKT6L4JIpPovgkik+i+CSKT6L4RJgT5hSN77+z4cMvz8NwH48/w300eg33u8fvcH/7+Ar3wXA73PsP9/9fQB5dug95dOk+5NGl+5BHl+5DHl26D3l06T7k0aX7kKLz+yDH6JzSj/OXoLHS7k4wJswJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfMCXPCnDAnzAlzwpwwJ8wJc8KcMCfMCXOa9h+Ytj/24Vvq1yoWLAAAAABJRU5ErkJggg=="
+    }
+  ],
+  "animations": []
+}

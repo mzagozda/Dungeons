@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <PublishAot Condition="'$(AotChecksNative)' == 'true'">true</PublishAot>
+    <JsonSerializerIsReflectionEnabledByDefault>false</JsonSerializerIsReflectionEnabledByDefault>
+    <IsAotCompatible>true</IsAotCompatible>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/Dungeons.Core/Dungeons.Core.csproj" />
+    <Compile Include="../../game/scripts/Persistence/GameSettings.cs" Link="GameSettings.cs" />
+    <Compile Include="../../game/scripts/Persistence/RunStore.cs" Link="RunStore.cs" />
+    <Compile Include="../../game/scripts/Persistence/SettingsStore.cs" Link="SettingsStore.cs" />
+    <Compile Include="../../game/scripts/Rendering/GraphicsOptions.cs" Link="GraphicsOptions.cs" />
+    <Compile Include="../../game/scripts/Persistence/PersistenceJsonContext.cs" Link="PersistenceJsonContext.cs" />
+  </ItemGroup>
+</Project>

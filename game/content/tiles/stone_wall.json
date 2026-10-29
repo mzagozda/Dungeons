@@ -1,0 +1,22 @@
+{
+  "id": "core:stone_wall",
+  "displayName": "Stone wall",
+  "category": "structure",
+  "baseFloor": "core:stone_floor",
+  "walkable": false,
+  "solid": true,
+  "blocksProjectiles": true,
+  "blocksVision": true,
+  "moveCost": 1.0,
+  "render": {
+    "kind": "model",
+    "model": "models/tiles/stone_wall.glb",
+    "variants": 2,
+    "autoTile": "wall",
+    "castsShadow": true
+  },
+  "editor": {
+    "icon": "editor/icons/tiles/stone_wall.png",
+    "char": "#"
+  }
+}

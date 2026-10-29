@@ -1,0 +1,14 @@
+{
+  "id": "core:spawn_marker",
+  "displayName": "Spawn Marker",
+  "category": "logic",
+  "kind": "SpawnMarker",
+  "radius": 0,
+  "solid": false,
+  "requiresGround": true,
+  "props": {},
+  "editor": {
+    "icon": "editor/icons/entities/spawn_marker.png",
+    "char": "X"
+  }
+}

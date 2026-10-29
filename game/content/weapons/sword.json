@@ -1,0 +1,8 @@
+{
+  "id": "core:sword", "kind": "melee",
+  "swings": [
+    { "windupTicks": 6, "activeTicks": 6, "recoveryTicks": 12, "damage": 12, "knockback": 1, "halfAngleDeg": 60, "reach": 1.7 },
+    { "windupTicks": 6, "activeTicks": 6, "recoveryTicks": 12, "damage": 12, "knockback": 1, "halfAngleDeg": 60, "reach": 1.7 },
+    { "windupTicks": 9, "activeTicks": 7, "recoveryTicks": 21, "damage": 18, "knockback": 2.5, "halfAngleDeg": 70, "reach": 1.9 }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "core:hero",
+  "displayName": "Hero",
+  "category": "hero",
+  "kind": "Player",
+  "radius": 0.35,
+  "solid": false,
+  "requiresGround": true,
+  "props": {},
+  "stats": {
+    "hp": 100,
+    "armor": 0,
+    "speed": 4.5
+  },
+  "faction": "Hero",
+  "weapons": {
+    "melee": "core:sword",
+    "ranged": "core:bow"
+  },
+  "control": {
+    "rollTicks": 24,
+    "rollDistance": 3,
+    "rollInvulnerableFirst": 3,
+    "rollInvulnerableLast": 20,
+    "rollCooldownTicks": 36,
+    "potionCooldownTicks": 1800,
+    "arrowsStart": 30,
+    "arrowsMax": 99,
+    "pickupRadius": 1,
+    "magnetRadius": 2.5,
+    "magnetSpeed": 6,
+    "recoveryWalk": 0.4
+  },
+  "render": {
+    "model": "models/characters/hero.glb",
+    "animations": {
+      "idle": "idle",
+      "walk": "walk",
+      "attack": "attack",
+      "roll": "roll",
+      "aim": "aim",
+      "fire": "fire",
+      "hit": "hit",
+      "death": "death"
+    }
+  },
+  "audio": {
+    "attack1": "core:sfx_sword_1",
+    "attack2": "core:sfx_sword_2",
+    "attack3": "core:sfx_sword_3",
+    "draw": "core:sfx_bow_draw",
+    "release": "core:sfx_bow_release",
+    "hit": "core:sfx_hero_hurt",
+    "death": "core:sfx_hero_death",
+    "roll": "core:sfx_roll",
+    "potion": "core:sfx_potion",
+    "meleeHit": "core:sfx_sword_hit_flesh",
+    "footstep": "core:sfx_step_soft"
+  },
+  "editor": {
+    "icon": "editor/icons/entities/hero.png",
+    "char": "@"
+  }
+}

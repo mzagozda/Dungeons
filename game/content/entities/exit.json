@@ -1,0 +1,28 @@
+{
+  "id": "core:exit",
+  "displayName": "Exit beacon",
+  "category": "logic",
+  "kind": "Exit",
+  "radius": 0,
+  "solid": false,
+  "requiresGround": true,
+  "unique": true,
+  "render": {
+    "model": "models/props/exit_beacon.glb",
+    "lockedEmissive": 0.2,
+    "unlockedEmissive": 2.5,
+    "particles": "beacon_stream"
+  },
+  "props": {
+    "radius": {
+      "type": "float",
+      "default": 1.0,
+      "min": 0.5,
+      "max": 3
+    }
+  },
+  "editor": {
+    "icon": "editor/icons/entities/exit.png",
+    "char": "E"
+  }
+}

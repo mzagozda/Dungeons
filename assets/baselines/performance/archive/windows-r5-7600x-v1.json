@@ -1,0 +1,67 @@
+{
+  "formatVersion": 1,
+  "runnerId": "windows-r5-7600x",
+  "recordedUtc": "2026-10-27T10:47:09.163913+00:00",
+  "maximumRegression": 0.2,
+  "fixtureVersion": 1,
+  "fixtureSha256": "a81ca5f18a74c80673fadf42dfdade73cc019d3b4bd86a9133a1cc25aa3b317c",
+  "runnerIdentity": {
+    "cpuIdentity": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+    "logicalProcessors": 12
+  },
+  "host": {
+    "BenchmarkDotNetVersion": "0.14.0",
+    "OsVersion": "Windows 11 (10.0.26300.9550)",
+    "ProcessorName": "Unknown processor",
+    "RuntimeVersion": ".NET 8.0.32 (8.0.3226.50405)",
+    "Architecture": "X64",
+    "DotNetCliVersion": "8.0.426",
+    "Configuration": "RELEASE"
+  },
+  "cases": {
+    "Tick_MossyHollow_Replay": {
+      "meanNs": 23786.780383795307,
+      "samples": 7,
+      "allocatedBytes": 0,
+      "job": "InvocationCount=1, IterationCount=8, LaunchCount=1, UnrollFactor=1, WarmupCount=3",
+      "hardwareIntrinsics": "AVX-512F+CD+BW+DQ+VL+VBMI,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256"
+    },
+    "Tick_Stress_64Monsters_32Arrows": {
+      "meanNs": 109275.77708333335,
+      "samples": 8,
+      "allocatedBytes": 0,
+      "job": "InvocationCount=1, IterationCount=8, LaunchCount=1, UnrollFactor=1, WarmupCount=3",
+      "hardwareIntrinsics": "AVX-512F+CD+BW+DQ+VL+VBMI,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256"
+    },
+    "AStar_256_Open": {
+      "meanNs": 48964.30740356445,
+      "samples": 8,
+      "allocatedBytes": 0,
+      "job": "IterationCount=8, LaunchCount=1, WarmupCount=3",
+      "hardwareIntrinsics": "AVX-512F+CD+BW+DQ+VL+VBMI,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256"
+    },
+    "AStar_256_Maze": {
+      "meanNs": 1878383.642578125,
+      "samples": 8,
+      "allocatedBytes": 1,
+      "job": "IterationCount=8, LaunchCount=1, WarmupCount=3",
+      "hardwareIntrinsics": "AVX-512F+CD+BW+DQ+VL+VBMI,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256"
+    },
+    "ChunkMesher_256x256": {
+      "meanNs": 22570133.035714287,
+      "samples": 7,
+      "allocatedBytes": 90335870,
+      "job": "IterationCount=8, LaunchCount=1, WarmupCount=3",
+      "hardwareIntrinsics": "AVX-512F+CD+BW+DQ+VL+VBMI,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256"
+    },
+    "LevelLoad_256x256": {
+      "meanNs": 5344204.6875,
+      "samples": 7,
+      "allocatedBytes": 5623659,
+      "job": "IterationCount=8, LaunchCount=1, WarmupCount=3",
+      "hardwareIntrinsics": "AVX-512F+CD+BW+DQ+VL+VBMI,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256"
+    }
+  },
+  "reportSha256": "ef7c74025183bd71c8f107908181914df6649efcc44445a300a27d32c26ecfef",
+  "contractSha256": "afee296d935f8b55190ebe24ec62c35a8e213d0112372c21d4a7c89fe702feaf"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "core:stone_floor",
+  "displayName": "Stone floor",
+  "category": "ground",
+  "walkable": true,
+  "solid": false,
+  "moveCost": 1,
+  "render": {
+    "kind": "block",
+    "top": "atlas:stone_top",
+    "side": "atlas:dirt_side",
+    "tint": "#8c8c8c"
+  },
+  "audio": {
+    "footstep": "core:sfx_step_stone"
+  },
+  "editor": {
+    "icon": "editor/icons/tiles/stone_floor.png",
+    "char": "_"
+  }
+}

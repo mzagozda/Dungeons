@@ -1,0 +1,17 @@
+{
+  "id": "core:prop_pillar_broken",
+  "displayName": "Prop Pillar Broken",
+  "category": "prop",
+  "kind": "Prop",
+  "radius": 0.35,
+  "solid": true,
+  "requiresGround": true,
+  "props": {},
+  "render": {
+    "model": "models/props/pillar_broken.glb"
+  },
+  "editor": {
+    "icon": "editor/icons/entities/prop_pillar_broken.png",
+    "char": "i"
+  }
+}

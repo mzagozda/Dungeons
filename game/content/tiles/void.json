@@ -1,0 +1,14 @@
+{
+  "id": "core:void",
+  "displayName": "Void",
+  "category": "ground",
+  "walkable": false,
+  "solid": false,
+  "render": {
+    "kind": "none"
+  },
+  "editor": {
+    "icon": "editor/icons/tiles/void.png",
+    "char": " "
+  }
+}

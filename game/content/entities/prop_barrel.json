@@ -1,0 +1,17 @@
+{
+  "id": "core:prop_barrel",
+  "displayName": "Prop Barrel",
+  "category": "prop",
+  "kind": "Prop",
+  "radius": 0.35,
+  "solid": true,
+  "requiresGround": true,
+  "props": {},
+  "render": {
+    "model": "models/props/barrel.glb"
+  },
+  "editor": {
+    "icon": "editor/icons/entities/prop_barrel.png",
+    "char": "b"
+  }
+}

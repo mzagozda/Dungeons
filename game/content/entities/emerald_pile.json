@@ -1,0 +1,30 @@
+{
+  "id": "core:emerald_pile",
+  "displayName": "Emerald Pile",
+  "category": "prop",
+  "kind": "Pickup",
+  "radius": 0.2,
+  "solid": false,
+  "requiresGround": true,
+  "props": {
+    "amount": {
+      "type": "int",
+      "default": 1,
+      "min": 1,
+      "max": 999
+    }
+  },
+  "render": {
+    "model": "models/props/emerald.glb"
+  },
+  "pickup": {
+    "kind": "emerald"
+  },
+  "audio": {
+    "collect": "core:sfx_pickup_emerald"
+  },
+  "editor": {
+    "icon": "editor/icons/entities/emerald_pile.png",
+    "char": "e"
+  }
+}

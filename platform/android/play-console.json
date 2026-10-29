@@ -1,0 +1,49 @@
+{
+  "formatVersion": 1,
+  "developerAccountId": "5601502941079677358",
+  "playAppId": "4972227016795288536",
+  "consoleUrl": "https://play.google.com/console/u/0/developers/5601502941079677358/app/4972227016795288536/app-dashboard",
+  "applicationId": "org.blockdungeons.game",
+  "appName": "Block Dungeons",
+  "defaultLanguage": "en-US",
+  "pricing": "free",
+  "listingState": "draft",
+  "uploadCertificate": "platform/android/signing/upload-certificate.pem",
+  "uploadCertificateSha256": "cf2186a633b8e81fa79c2a8b4b27081eb83d07c6a8fc8275694ab7e488de1e61",
+  "playAppSigningCertificateSha256": "56d757ed6ffebfe5b95f14a777483f2ac0873fd9fd394ae33e675f8cb76aeb35",
+  "uploadCertificateRegistered": true,
+  "productionReleasePublished": false,
+  "playAppSigningCertificate": "platform/android/signing/play-deployment_cert.der",
+  "downloadedPlayCertificates": [
+    {
+      "file": "platform/android/signing/play-deployment_cert.der",
+      "bytes": 1421,
+      "sha256": "56d757ed6ffebfe5b95f14a777483f2ac0873fd9fd394ae33e675f8cb76aeb35"
+    },
+    {
+      "file": "platform/android/signing/play-hybrid_classical_cert.der",
+      "bytes": 1421,
+      "sha256": "a06eb448c15c69df572de9d85b91fa79d7736b010c7181d77fa550fc2090019c"
+    },
+    {
+      "file": "platform/android/signing/play-hybrid_pqc_cert.der",
+      "bytes": 5638,
+      "sha256": "1184aec169717a2ec5b21a67cb2b701877d06cf99e4947959c410afdaadd071f"
+    }
+  ],
+  "playManagedSigningKeyObserved": true,
+  "registeredUploadCertificate": "platform/android/signing/play-upload-certificate.der",
+  "internalTestDraftUrl": "https://play.google.com/console/u/0/developers/5601502941079677358/app/4972227016795288536/tracks/4701186886373700407/releases/1/prepare",
+  "uploadedVersionName": "1.0.0",
+  "uploadedVersionCode": 1,
+  "uploadedBundleSha256": "0ec611d978b0233dcebbfb9a170d8d69ffa2416ae8759505f3347a8a0c393b8f",
+  "internalTestDraftSaved": true,
+  "internalTestRolledOut": true,
+  "internalTestActive": true,
+  "internalTestReleaseStatus": "available to internal testers (unreviewed)",
+  "internalTestAudienceConfigured": true,
+  "internalTestTesterListName": "Block Dungeons Internal Testers",
+  "internalTestTesterCount": 1,
+  "internalTestOptInUrl": "https://play.google.com/apps/internaltest/4701186886373700407",
+  "internalTestTrackUrl": "https://play.google.com/console/u/0/developers/5601502941079677358/app/4972227016795288536/tracks/4701186886373700407?tab=testers"
+}

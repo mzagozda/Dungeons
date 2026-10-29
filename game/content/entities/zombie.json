@@ -1,0 +1,65 @@
+{
+  "id": "core:zombie",
+  "displayName": "Zombie",
+  "category": "monster",
+  "kind": "Enemy",
+  "faction": "Monster",
+  "radius": 0.35,
+  "solid": false,
+  "stats": {
+    "hp": 40,
+    "armor": 0,
+    "speed": 2.6,
+    "knockbackResistance": 0,
+    "xp": 10,
+    "aggroRadius": 7,
+    "hearingRadius": 10
+  },
+  "attack": {
+    "kind": "melee",
+    "damage": 8,
+    "reach": 1.4,
+    "halfAngleDeg": 45,
+    "windup": 0.45,
+    "active": 0.1,
+    "recovery": 0.7,
+    "triggerDistance": 1.3,
+    "knockback": 1.0
+  },
+  "brain": "core:brain_melee_chaser",
+  "loot": "core:loot_zombie",
+  "render": {
+    "model": "models/characters/zombie.glb",
+    "scale": 1.0,
+    "animations": {
+      "idle": "idle",
+      "walk": "walk",
+      "attack": "attack",
+      "hit": "hit",
+      "death": "death",
+      "emerge": "emerge"
+    },
+    "healthBar": true,
+    "shadowBlob": true
+  },
+  "audio": {
+    "alert": "core:sfx_zombie_alert",
+    "attack": "core:sfx_zombie_swing",
+    "hit": "core:sfx_zombie_hit",
+    "death": "core:sfx_zombie_death",
+    "footstep": "core:sfx_step_soft"
+  },
+  "editor": {
+    "icon": "editor/icons/entities/zombie.png",
+    "char": "Z"
+  },
+  "props": {
+    "patrolRadius": {
+      "type": "float",
+      "default": 2.0,
+      "min": 0,
+      "max": 10,
+      "label": "Wander radius"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "core:tree_oak",
+  "displayName": "Oak tree",
+  "category": "nature",
+  "baseFloor": "core:grass",
+  "walkable": false,
+  "solid": true,
+  "blocksProjectiles": true,
+  "blocksVision": true,
+  "render": {
+    "kind": "model",
+    "model": "models/tiles/tree_oak.glb",
+    "variants": 3,
+    "randomRotation": true,
+    "castsShadow": true
+  },
+  "editor": {
+    "icon": "editor/icons/tiles/tree_oak.png",
+    "char": "T"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "formatVersion": 1,
+  "rules": [
+    {
+      "id": "legacy-adreno-3xx",
+      "platform": "android",
+      "adapter": "*Adreno*3??",
+      "preset": "Low",
+      "renderer": "compatibility",
+      "notes": "Conservative legacy GPU policy; physical Low-renderer acceptance remains required."
+    },
+    {
+      "id": "entry-mali-g31",
+      "platform": "android",
+      "adapter": "Mali-G31*",
+      "preset": "Low",
+      "notes": "Conservative Low default; keeps the available backend. Validate performance on a reference device."
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+[gd_resource type="Theme" load_steps=20 format=3]
+
+[ext_resource type="FontFile" path="res://assets/fonts/Silkscreen-Regular.ttf" id="font"]
+[ext_resource type="Texture2D" path="res://assets/ui/panel.png" id="panel"]
+[ext_resource type="Texture2D" path="res://assets/ui/button_hover.png" id="button_hover"]
+[ext_resource type="Texture2D" path="res://assets/ui/button_pressed.png" id="button_pressed"]
+[ext_resource type="Texture2D" path="res://assets/ui/button_disabled.png" id="button_disabled"]
+[ext_resource type="Texture2D" path="res://assets/ui/focus.png" id="focus"]
+[ext_resource type="Texture2D" path="res://assets/ui/check_off.png" id="check_off"]
+[ext_resource type="Texture2D" path="res://assets/ui/check_on.png" id="check_on"]
+[ext_resource type="Texture2D" path="res://assets/ui/arrow_down.png" id="arrow_down"]
+[ext_resource type="Texture2D" path="res://assets/ui/arrow_up.png" id="arrow_up"]
+[ext_resource type="Texture2D" path="res://assets/ui/arrow_left.png" id="arrow_left"]
+[ext_resource type="Texture2D" path="res://assets/ui/arrow_right.png" id="arrow_right"]
+[ext_resource type="Texture2D" path="res://assets/ui/slider_grab.png" id="slider_grab"]
+
+[sub_resource type="StyleBoxTexture" id="panel"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("panel")
+texture_margin_left = 4.0
+texture_margin_right = 4.0
+texture_margin_top = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="button_hover"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("button_hover")
+texture_margin_left = 4.0
+texture_margin_right = 4.0
+texture_margin_top = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="button_pressed"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("button_pressed")
+texture_margin_left = 4.0
+texture_margin_right = 4.0
+texture_margin_top = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="button_disabled"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("button_disabled")
+texture_margin_left = 4.0
+texture_margin_right = 4.0
+texture_margin_top = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="focus"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("focus")
+texture_margin_left = 4.0
+texture_margin_right = 4.0
+texture_margin_top = 4.0
+texture_margin_bottom = 4.0
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="slider"]
+bg_color = Color(0.235294, 0.235294, 0.27451, 1)
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+
+[resource]
+default_font = ExtResource("font")
+default_font_size = 16
+Panel/styles/panel = SubResource("panel")
+PanelContainer/styles/panel = SubResource("panel")
+PopupPanel/styles/panel = SubResource("panel")
+TabContainer/styles/panel = SubResource("panel")
+TooltipPanel/styles/panel = SubResource("panel")
+Button/styles/normal = SubResource("panel")
+Button/styles/hover = SubResource("button_hover")
+Button/styles/pressed = SubResource("button_pressed")
+Button/styles/disabled = SubResource("button_disabled")
+Button/styles/focus = SubResource("focus")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.886275, 0.713726, 0.266667, 1)
+OptionButton/styles/normal = SubResource("panel")
+OptionButton/styles/hover = SubResource("button_hover")
+OptionButton/styles/pressed = SubResource("button_pressed")
+OptionButton/styles/disabled = SubResource("button_disabled")
+OptionButton/styles/focus = SubResource("focus")
+OptionButton/colors/font_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_hover_color = Color(0.886275, 0.713726, 0.266667, 1)
+MenuButton/styles/normal = SubResource("panel")
+MenuButton/styles/hover = SubResource("button_hover")
+MenuButton/styles/pressed = SubResource("button_pressed")
+MenuButton/styles/disabled = SubResource("button_disabled")
+MenuButton/styles/focus = SubResource("focus")
+MenuButton/colors/font_color = Color(1, 1, 1, 1)
+MenuButton/colors/font_hover_color = Color(0.886275, 0.713726, 0.266667, 1)
+LineEdit/styles/normal = SubResource("panel")
+LineEdit/styles/hover = SubResource("button_hover")
+LineEdit/styles/pressed = SubResource("button_pressed")
+LineEdit/styles/disabled = SubResource("button_disabled")
+LineEdit/styles/focus = SubResource("focus")
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_hover_color = Color(0.886275, 0.713726, 0.266667, 1)
+TabBar/styles/tab_selected = SubResource("button_pressed")
+TabContainer/styles/tab_selected = SubResource("button_pressed")
+TabBar/styles/tab_unselected = SubResource("panel")
+TabContainer/styles/tab_unselected = SubResource("panel")
+TabBar/styles/tab_hovered = SubResource("button_hover")
+TabContainer/styles/tab_hovered = SubResource("button_hover")
+TabBar/styles/tab_disabled = SubResource("button_disabled")
+TabContainer/styles/tab_disabled = SubResource("button_disabled")
+TabBar/styles/tab_focus = SubResource("focus")
+TabContainer/styles/tab_focus = SubResource("focus")
+TabBar/colors/font_selected_color = Color(0.886275, 0.713726, 0.266667, 1)
+TabContainer/colors/font_selected_color = Color(0.886275, 0.713726, 0.266667, 1)
+OptionButton/icons/arrow = ExtResource("arrow_down")
+TabBar/icons/increment = ExtResource("arrow_right")
+TabContainer/icons/increment = ExtResource("arrow_right")
+TabBar/icons/increment_highlight = ExtResource("arrow_right")
+TabContainer/icons/increment_highlight = ExtResource("arrow_right")
+TabBar/icons/decrement = ExtResource("arrow_left")
+TabContainer/icons/decrement = ExtResource("arrow_left")
+TabBar/icons/decrement_highlight = ExtResource("arrow_left")
+TabContainer/icons/decrement_highlight = ExtResource("arrow_left")
+CheckBox/icons/checked = ExtResource("check_on")
+CheckBox/icons/checked_disabled = ExtResource("check_on")
+CheckBox/icons/radio_checked = ExtResource("check_on")
+CheckBox/icons/radio_checked_disabled = ExtResource("check_on")
+CheckBox/icons/on = ExtResource("check_on")
+CheckBox/icons/on_disabled = ExtResource("check_on")
+CheckBox/icons/unchecked = ExtResource("check_off")
+CheckBox/icons/unchecked_disabled = ExtResource("check_off")
+CheckBox/icons/radio_unchecked = ExtResource("check_off")
+CheckBox/icons/radio_unchecked_disabled = ExtResource("check_off")
+CheckBox/icons/off = ExtResource("check_off")
+CheckBox/icons/off_disabled = ExtResource("check_off")
+CheckBox/styles/focus = SubResource("focus")
+CheckButton/icons/checked = ExtResource("check_on")
+CheckButton/icons/checked_disabled = ExtResource("check_on")
+CheckButton/icons/radio_checked = ExtResource("check_on")
+CheckButton/icons/radio_checked_disabled = ExtResource("check_on")
+CheckButton/icons/on = ExtResource("check_on")
+CheckButton/icons/on_disabled = ExtResource("check_on")
+CheckButton/icons/unchecked = ExtResource("check_off")
+CheckButton/icons/unchecked_disabled = ExtResource("check_off")
+CheckButton/icons/radio_unchecked = ExtResource("check_off")
+CheckButton/icons/radio_unchecked_disabled = ExtResource("check_off")
+CheckButton/icons/off = ExtResource("check_off")
+CheckButton/icons/off_disabled = ExtResource("check_off")
+CheckButton/styles/focus = SubResource("focus")
+HScrollBar/styles/scroll = SubResource("panel")
+HScrollBar/styles/scroll_focus = SubResource("focus")
+HScrollBar/styles/grabber = SubResource("button_hover")
+HScrollBar/styles/grabber_highlight = SubResource("button_pressed")
+HScrollBar/styles/grabber_pressed = SubResource("button_pressed")
+HScrollBar/icons/decrement = ExtResource("arrow_left")
+HScrollBar/icons/decrement_highlight = ExtResource("arrow_left")
+HScrollBar/icons/decrement_pressed = ExtResource("arrow_left")
+HScrollBar/icons/increment = ExtResource("arrow_right")
+HScrollBar/icons/increment_highlight = ExtResource("arrow_right")
+HScrollBar/icons/increment_pressed = ExtResource("arrow_right")
+VScrollBar/styles/scroll = SubResource("panel")
+VScrollBar/styles/scroll_focus = SubResource("focus")
+VScrollBar/styles/grabber = SubResource("button_hover")
+VScrollBar/styles/grabber_highlight = SubResource("button_pressed")
+VScrollBar/styles/grabber_pressed = SubResource("button_pressed")
+VScrollBar/icons/decrement = ExtResource("arrow_up")
+VScrollBar/icons/decrement_highlight = ExtResource("arrow_up")
+VScrollBar/icons/decrement_pressed = ExtResource("arrow_up")
+VScrollBar/icons/increment = ExtResource("arrow_down")
+VScrollBar/icons/increment_highlight = ExtResource("arrow_down")
+VScrollBar/icons/increment_pressed = ExtResource("arrow_down")
+HSlider/styles/slider = SubResource("slider")
+HSlider/styles/grabber_area = SubResource("slider")
+HSlider/styles/grabber_area_highlight = SubResource("slider")
+HSlider/icons/grabber = ExtResource("slider_grab")
+HSlider/icons/grabber_highlight = ExtResource("slider_grab")
+HSlider/icons/grabber_disabled = ExtResource("slider_grab")
+VSlider/styles/slider = SubResource("slider")
+VSlider/styles/grabber_area = SubResource("slider")
+VSlider/styles/grabber_area_highlight = SubResource("slider")
+VSlider/icons/grabber = ExtResource("slider_grab")
+VSlider/icons/grabber_highlight = ExtResource("slider_grab")
+VSlider/icons/grabber_disabled = ExtResource("slider_grab")

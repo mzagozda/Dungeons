@@ -1,0 +1,189 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "free",
+    "box_uv": false
+  },
+  "name": "torch",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "uuid": "335a6a9d-4340-5fd0-b2fb-2c7b629f573e",
+      "type": "cube",
+      "name": "stem",
+      "from": [
+        -1.2,
+        0.0,
+        -1.2
+      ],
+      "to": [
+        1.2,
+        20.8,
+        1.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "2c434977-2b13-5189-89ea-17368f4eac88",
+      "type": "cube",
+      "name": "flame",
+      "from": [
+        -2.0,
+        19.599999999999998,
+        -2.0
+      ],
+      "to": [
+        2.0,
+        25.2,
+        2.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            16,
+            0,
+            24,
+            8
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    {
+      "name": "root",
+      "uuid": "157feda2-4375-5b4b-b93a-0851c0f381fd",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "children": [
+        "335a6a9d-4340-5fd0-b2fb-2c7b629f573e",
+        "2c434977-2b13-5189-89ea-17368f4eac88"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "name": "torch.png",
+      "id": "0",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABVklEQVR4nOXVv0pbYRyH8cdnaMVBYpuCf6BJFsFJXUQE8QrcSukV9DYkN9UbKDi4qJOjWnBKBJeCdom82ws9510cHL6f4SxfwsmT4Zel08PtxZfBR/oMV1cYDpd79+8bfxntfabpYNo7re3+4Hj8oXc/+faTra+T3v3T7Bc7k/vefb45ZX/3qHe3FV+04ou3xBet+KIVX7Tii1Z8IeEknK1x9vTS/PB8/tzc768e22+/OGvOv+/+NfeHP7fN/eZ21Nwvr8///wHq6K77UEd33Yc6uvM+1NEd96GO7roPdXTXfaiju+5Dia7vg4nRNcsj+Z9gabA+XhBMwkk4CSfhJJyEk3ASTsJJOAkn4SSchJNwEk7CSTgJJ+EknISTcBJOwkk4CSfhJJyEk3ASTsJJOAkn4SSchJNwEk7CSTgJJ+EknISTcBJOwkk4CSfhJJyE872/wHt7BQwoVrmcR35yAAAAAElFTkSuQmCC"
+    }
+  ],
+  "animations": []
+}

@@ -1,0 +1,31 @@
+# Build output and local toolchains
+**/bin/
+**/obj/
+**/.godot/
+game/android/
+.toolchain/
+artifacts/
+TestResults/
+BenchmarkDotNet.Artifacts/
+**/__pycache__/
+*.pyc
+**/*.user
+**/*.suo
+.vs/
+.idea/
+.vscode/
+
+# Signing material and machine-specific settings
+*.keystore
+*.jks
+*.p12
+*.pfx
+*.p8
+*.dpapi
+*.mobileprovision
+.env
+.env.*
+
+# Original design archive (preserved locally)
+_archive/
+game/gdunit4_testadapter_v5/

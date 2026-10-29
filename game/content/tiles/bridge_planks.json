@@ -1,0 +1,22 @@
+{
+  "id": "core:bridge_planks",
+  "displayName": "Bridge planks",
+  "category": "ground",
+  "walkable": true,
+  "solid": false,
+  "moveCost": 1,
+  "render": {
+    "kind": "block",
+    "top": "atlas:planks",
+    "side": "atlas:dirt_side",
+    "thickness": 0.1,
+    "waterBelow": true
+  },
+  "audio": {
+    "footstep": "core:sfx_step_wood"
+  },
+  "editor": {
+    "icon": "editor/icons/tiles/bridge_planks.png",
+    "char": "="
+  }
+}

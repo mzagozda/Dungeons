@@ -1,0 +1,18 @@
+{
+  "id": "core:rock",
+  "displayName": "Rock",
+  "category": "nature",
+  "baseFloor": "core:grass",
+  "walkable": false,
+  "solid": true,
+  "blocksProjectiles": true,
+  "blocksVision": true,
+  "render": {
+    "kind": "model",
+    "model": "models/tiles/rock.glb"
+  },
+  "editor": {
+    "icon": "editor/icons/tiles/rock.png",
+    "char": "o"
+  }
+}

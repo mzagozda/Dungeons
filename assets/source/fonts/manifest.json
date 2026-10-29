@@ -1,0 +1,19 @@
+{
+  "family": "Silkscreen",
+  "style": "Regular",
+  "author": "The Silkscreen Project Authors",
+  "repository": "https://github.com/googlefonts/silkscreen",
+  "revision": "206ccf3f5234c281461e63ecc59cbc6b0563472b",
+  "upstreamPath": "fonts/ttf/Silkscreen-Regular.ttf",
+  "license": "SIL Open Font License 1.1",
+  "files": [
+    {
+      "path": "game/assets/fonts/Silkscreen-Regular.ttf",
+      "sha256": "c845473330b94c2079ce9af01c51ac8ba2d99c24f4d14c039843bbb8e642ebd8"
+    },
+    {
+      "path": "game/licenses/silkscreen_ofl.txt",
+      "sha256": "86c5e9c9382cdcc5948704fdfe60f2aa164a719746931219a42736ecd9cefbd3"
+    }
+  ]
+}

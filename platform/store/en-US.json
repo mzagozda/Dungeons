@@ -1,0 +1,31 @@
+{
+  "formatVersion": 1,
+  "locale": "en-US",
+  "reviewStatus": "pending",
+  "review": null,
+  "publisher": {
+    "name": "Taskscape Ltd",
+    "supportEmail": "info@taskscape.com",
+    "supportUrl": "https://www.taskscape.com",
+    "privacyPolicyUrl": "https://www.taskscape.com/privacy.html",
+    "copyright": "2026 Taskscape Ltd"
+  },
+  "release": {
+    "versionName": "1.0.0",
+    "androidVersionCode": 1
+  },
+  "android": {
+    "applicationId": "org.blockdungeons.game",
+    "title": "Block Dungeons",
+    "shortDescription": "Explore Mossy Hollow, battle monsters and find your way to the beacon.",
+    "fullDescription": "A quiet forest hides an old ruin. Take up your sword and bow, cross the river and survive the ambush in Mossy Hollow.\n\nRead your enemies, time your three-hit sword combo, roll away from danger and make every arrow count. Collect emeralds and supplies, open chests and gates, and reach the exit beacon. Checkpoints and limited lives give each attempt a second chance.\n\nBlock Dungeons includes one handcrafted adventure with zombies, skeleton archers and original cuboid art. Replay the mission to improve your result, or import a compatible custom level package.\n\nAdjust sound levels, text size and touch controls to suit your play."
+  },
+  "ios": {
+    "bundleId": "org.blockdungeons.game",
+    "name": "Block Dungeons",
+    "subtitle": "Sword, bow and forest ruins",
+    "promotionalText": "Cross the river, survive the ambush and reach the beacon. A compact action adventure with sword combos, arrows, hidden supplies and a forest ruin to explore.",
+    "description": "A quiet forest hides an old ruin. Take up your sword and bow, cross the river and survive the ambush in Mossy Hollow.\n\nRead your enemies, time your three-hit sword combo, roll away from danger and make every arrow count. Collect emeralds and supplies, open chests and gates, and reach the exit beacon. Checkpoints and limited lives give each attempt a second chance.\n\nBlock Dungeons includes one handcrafted adventure with zombies, skeleton archers and original cuboid art. Replay the mission to improve your result, or import a compatible custom level package.\n\nAdjust sound levels, text size and touch controls to suit your play.",
+    "keywords": "adventure,sword,archery,forest,ruins,action,zombie,skeleton,pixel"
+  }
+}

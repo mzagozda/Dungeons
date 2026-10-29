@@ -1,0 +1,21 @@
+{
+  "formatVersion": 1,
+  "scenario": "mission-death",
+  "passed": true,
+  "width": 1280,
+  "height": 720,
+  "imageSha256": "b410c7e5c504aa0bfdc260180ba660a86cd6721d0d65b50323c8f243a1a9c77e",
+  "godot": "4.7.2-stable (official)",
+  "renderer": "mobile",
+  "adapter": "NVIDIA GeForce RTX 3060",
+  "quality": "High",
+  "shaderTime": 0,
+  "visualStepSeconds": 0.016666668,
+  "levelHash": "398dd51f0edadd6d345e6e71fa25db8a73fb33484574459c7640853f3042d1d0",
+  "contentHash": "2ca5f6f1a50da8787185c6c3b555be5e41cc4686e4be10f4a3f70e4546fec8a6",
+  "seed": 1,
+  "tick": 968,
+  "finalHash": "5814701599c8a020",
+  "baselineApproved": false,
+  "physicalAcceptance": false
+}

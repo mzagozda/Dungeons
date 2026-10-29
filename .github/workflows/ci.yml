@@ -1,0 +1,169 @@
+name: Build, Core and Godot checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-probe:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+          cache: true
+          cache-dependency-path: '**/packages.lock.json'
+      - name: Install pinned Godot .NET
+        run: ./tools/Install-Godot.ps1
+      - name: Build, architecture tests and headless probe
+        run: ./tools/Test-M0.ps1
+      - name: Release Core tests, allocation/performance and coverage gate
+        run: ./tools/Test-Core.ps1
+      - name: Shipping AOT analysis and actual native persistence/full-clear compatibility
+        run: ./tools/Test-AotCompatibility.ps1 -EvidenceDirectory artifacts/aot-compatibility -Native
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Install JSON Schema validation dependency
+        run: python -m pip install -r tools/requirements.txt
+      - name: Built-in levels, independent JSON Schemas and diagnostic catalogue
+        run: |
+          dotnet run --project src/Dungeons.Tools -c Release --no-build -- validate game/levels
+          python tools/check_schemas.py
+          python tools/generate_diagnostics.py --check
+          python tools/atlas_pack.py --check
+          python tools/check_clips.py
+          python tools/check_imports.py
+          python tools/check_editor_icons.py
+          python tools/make_audio.py --check
+          python tools/make_ui.py --check
+          python tools/store_metadata.py check
+          python -m unittest discover -s tools -p test_compare_images.py
+          python -m unittest discover -s tools -p test_visual_baseline.py
+          python -m unittest discover -s tools -p test_benchmark_baseline.py
+          python -m unittest discover -s tools -p test_texture_imports.py
+          python -m unittest discover -s tools -p test_android_release.py
+          python -m unittest discover -s tools -p test_android_splits.py
+          python -m unittest discover -s tools -p test_store_metadata.py
+          python -m unittest discover -s tools -p test_ci_release.py
+          python -m unittest discover -s tools -p test_ios_preset.py
+          python -m unittest discover -s tools -p test_ios_archive.py
+          python -m unittest discover -s tools -p test_ios_signing.py
+          python -m unittest discover -s tools -p test_replay_baseline.py
+      - name: Verify the reviewed gameplay baseline when established
+        run: |
+          if (Test-Path assets/baselines/replays/mossy-hollow-v1) {
+            ./tools/Test-ReplayGoldens.ps1 -EvidenceDirectory artifacts/replays/ci
+          } else {
+            Write-Host 'Reviewed replay baseline is not established; golden acceptance remains pending.'
+          }
+      - name: Godot runtime integration tests
+        run: |
+          . ./tools/Common.ps1
+          $env:GODOT_BIN = Get-GodotPath
+          Invoke-Checked 'dotnet' @('test', 'game/Dungeons.Game.csproj', '-c', 'Debug', '--no-build', '--settings', 'tools/godot.runsettings', '--logger', 'trx', '--results-directory', 'artifacts/m3/gdunit')
+          ./tools/Assert-TestRun.ps1 -ResultsDirectory artifacts/m3/gdunit -MinimumTests 93
+      - name: Application launch, validation and replay process contracts
+        run: ./tools/Test-LaunchCommands.ps1 -EvidenceDirectory artifacts/m8/launch-ci
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m0-checks-${{ matrix.os }}
+          path: |
+            artifacts/m0/
+            artifacts/core/
+            artifacts/aot-compatibility/
+            artifacts/replays/
+            artifacts/m3/
+            artifacts/m8/launch-ci/
+
+  windows-export:
+    runs-on: windows-2022
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Install pinned engine, templates and resource editor
+        run: ./tools/Install-Godot.ps1 -WithExportTemplates
+      - name: Restore locked dependencies
+        run: dotnet restore Dungeons.sln --locked-mode
+      - name: Export and run packaged Windows probe
+        run: ./tools/Export-M0.ps1 -Platform Windows -SmokeTest
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-m0
+          path: artifacts/windows/
+
+  android-export:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Install native texture pipeline dependencies
+        run: python -m pip install -r tools/requirements.txt
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Install Android SDK components
+        run: sdkmanager 'platform-tools' 'platforms;android-36' 'build-tools;36.1.0' 'ndk;29.0.14206865'
+      - name: Install pinned Godot and templates
+        run: ./tools/Install-Godot.ps1 -WithExportTemplates
+      - name: Restore locked dependencies
+        run: dotnet restore Dungeons.sln --locked-mode
+      - name: Export Android arm64 debug APK
+        run: ./tools/Export-M0.ps1 -Platform Android
+      - name: Reject absent, stale, changed and incomplete native texture profiles
+        run: |
+          $textureProfile = (Get-Content artifacts/android/block_dungeons.apk.textures.json -Raw | ConvertFrom-Json).profileDirectory
+          ./tools/Test-MobileTextureExport.ps1 -ProfileDirectory $textureProfile -EvidenceDirectory artifacts/mobile-textures/export-rejections
+      - name: Cold AAB export, offline QA APK and signature rejection contracts
+        run: ./tools/Test-AndroidBundlePipeline.ps1 -WorkspaceDirectory artifacts/bundle-workspace -EvidenceDirectory artifacts/bundle-qa
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: android-m0
+          path: |
+            artifacts/android/
+            artifacts/mobile-textures/
+            artifacts/bundle-qa/
+
+# Physical Android/iPhone QA remains a manual M0 gate. iOS export/signing requires
+# a Mac, Xcode and the real Apple team; no fake signing identity is supplied here.
+# Core coverage, data/assets, GdUnit4 and application process checks are above;
+# rendered regression, simulation fuzz and benchmark jobs are in nightly.yml.

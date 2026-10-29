@@ -1,0 +1,54 @@
+; M0 platform probe. Gameplay begins only after specification §21's export gate.
+config_version=5
+
+[application]
+config/name="Block Dungeons"
+config/icon="res://assets/ui/probe_icon.svg"
+run/main_scene="res://scenes/app.tscn"
+config/features=PackedStringArray("4.4", "C#", "Mobile")
+config/use_custom_user_dir=true
+config/custom_user_dir_name="BlockDungeons"
+
+[autoload]
+GraphicsRuntime="*res://scripts/Rendering/GraphicsRuntime.cs"
+UiTheme="*res://scripts/UI/UiTheme.cs"
+
+[display]
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+; DisplayServer.SCREEN_SENSOR_LANDSCAPE: either landscape direction, never portrait.
+window/handheld/orientation=4
+window/vsync/vsync_mode=1
+
+[dotnet]
+project/assembly_name="Dungeons.Game"
+
+[editor_plugins]
+enabled=PackedStringArray("res://addons/editor_export/plugin.cfg")
+
+[debug]
+; The app's ILogger owns bounded logs on every platform; QA still captures native stdout/stderr.
+file_logging/enable_file_logging=false
+file_logging/enable_file_logging.pc=false
+
+[internationalization]
+locale/translations=PackedStringArray("res://i18n/strings.en.translation")
+locale/fallback="en"
+
+[rendering]
+renderer/rendering_method="mobile"
+renderer/rendering_method.mobile="mobile"
+renderer/rendering_method.android_low="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
+lights_and_shadows/directional_shadow/size=4096
+lights_and_shadows/directional_shadow/size.mobile=2048
+
+[shader_globals]
+capture_time={
+"type": "float",
+"value": -1.0
+}

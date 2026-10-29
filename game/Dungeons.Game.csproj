@@ -1,0 +1,38 @@
+<Project Sdk="Godot.NET.Sdk/4.7.2">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <!-- Keep engine generators isolated from machine-wide cache cleanup/analysis locks. -->
+    <RestorePackagesPath>$(MSBuildProjectDirectory)/.godot/mono/packages</RestorePackagesPath>
+    <RootNamespace>Dungeons.Game</RootNamespace>
+    <!-- Batch exports derive this flag from the preset's editor feature. Mobile
+         stays stripped by default; opting in needs a preset change, not a port. -->
+    <DungeonsIncludeEditor Condition="'$(DungeonsIncludeEditor)' == '' and '$(DUNGEONS_INCLUDE_EDITOR)' != ''">$(DUNGEONS_INCLUDE_EDITOR)</DungeonsIncludeEditor>
+    <DungeonsIncludeEditor Condition="'$(DungeonsIncludeEditor)' == '' and ('$(GodotTargetPlatform)' == 'android' or '$(GodotTargetPlatform)' == 'ios')">false</DungeonsIncludeEditor>
+    <DungeonsIncludeEditor Condition="'$(DungeonsIncludeEditor)' == ''">true</DungeonsIncludeEditor>
+    <NuGetLockFilePath Condition="'$(Configuration)' != 'Debug' or '$(RuntimeIdentifier)' != ''">$(MSBuildProjectDirectory)/.godot/mono/locks/$(Configuration)/$(RuntimeIdentifier)/packages.lock.json</NuGetLockFilePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DungeonsIncludeEditor)' == 'true'">
+    <DefineConstants>$(DefineConstants);DUNGEONS_EDITOR_TOOLS</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../src/Dungeons.Core/Dungeons.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'Debug' and '$(GodotTargetPlatform)' != 'android' and '$(GodotTargetPlatform)' != 'ios' and '$(DungeonsIncludeEditor)' == 'true'">
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" PrivateAssets="all" />
+    <PackageReference Include="gdUnit4.api" Version="5.0.0" PrivateAssets="all" />
+    <PackageReference Include="gdUnit4.test.adapter" Version="3.0.0" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' != 'Debug' or '$(GodotTargetPlatform)' == 'android' or '$(GodotTargetPlatform)' == 'ios' or '$(DungeonsIncludeEditor)' != 'true'">
+    <Compile Remove="tests/**/*.cs" />
+    <Compile Remove="gdunit4_testadapter_v5/**/*.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="android/**/*.cs;obj/**/*.cs" />
+  </ItemGroup>
+  <!-- Export filters strip resources, but do not remove C# types from the DLL.
+       The same boundary must therefore be applied to platform compilation. -->
+  <ItemGroup Condition="'$(DungeonsIncludeEditor)' != 'true'">
+    <Compile Remove="editor/**/*.cs" />
+  </ItemGroup>
+</Project>

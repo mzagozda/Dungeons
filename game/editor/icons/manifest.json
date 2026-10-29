@@ -1,0 +1,349 @@
+{
+  "formatVersion": 1,
+  "contentHash": "2ca5f6f1a50da8787185c6c3b555be5e41cc4686e4be10f4a3f70e4546fec8a6",
+  "width": 32,
+  "height": 32,
+  "paletteColors": 48,
+  "renderer": "mobile",
+  "inputs": {
+    "assets/source/editor-icons/entities/light.svg": "7b15d0d1701b144758bf9fed1236ad6d592c233bb4bab23201a7347159d08fb1",
+    "assets/source/editor-icons/entities/player_spawn.svg": "94fdef65a4f1394c0205515047b3774fc6710db17747e4eef977eadb01b8ddc9",
+    "assets/source/editor-icons/entities/spawn_marker.svg": "45e0d0d11cfe5ca55105388b64f45807b6934f11d790e292ec0b02dd2a217347",
+    "assets/source/editor-icons/entities/spawner.svg": "e5f513b39f8c4cf1347c0e4d507bdabeec3659a32e62db718fb69569fe7c0d6b",
+    "assets/source/editor-icons/tiles/void.svg": "affcd734e35c85824ae7215992b29ecf4dabf075a415658c2f4fbe784c12b080",
+    "game/content/atlas.json": "16ffb53222d412baa000cbeba4f6867a827ae91224d5b8010dd853e0a254c276",
+    "game/content/audio.json": "48abc6d45034e54adf4a0ae2753c7e101ed99262b27014e0fa9f511a6cde4aa3",
+    "game/content/bootstrap.json": "fc3a5ae55a18f263098490d75ecf45258aa90e249cf79fa399209ca19e6b2578",
+    "game/content/device_profiles.json": "4d95316bbe2a6a154272884fdff01e5cd0f6dccef0e14f7497e5daeb1fe43d38",
+    "game/content/entities/arrow_bundle.json": "60390ff03d0e72c7c7a0ab743b724afcf9975fd10cf7ad96188cdcefb3964e37",
+    "game/content/entities/arrow_hero.json": "45e1675eab5e3e6f1efd505fdec85f507cdc783d426cf8c8c972593cde3946fe",
+    "game/content/entities/arrow_skeleton.json": "bc986a3544c934ca89e4b488ce6a400630548780831a205fd9af7dbfd0aad86f",
+    "game/content/entities/checkpoint.json": "b38fc98178a327b4b122d6ea27e96b5a93a4b34e1c65907a297a11f1dc1c1686",
+    "game/content/entities/chest.json": "f7b4a65c5a878b4798f834428bf5a4abbb01c10181cf4bcf2e2e18a9d15bb3ce",
+    "game/content/entities/emerald_pile.json": "e0dd5e5882c78c18015489b12db55f20a6b6470b3442fab509f23311aea53b59",
+    "game/content/entities/exit.json": "5b5a970fd4540d7b578b302190f422b70dc21f6d39514769e44a56e5676d027a",
+    "game/content/entities/food.json": "42b427396e9bdb49c3fe646c2be88f048e5f45a33f72195d559bf8ed64361375",
+    "game/content/entities/gate.json": "cb0866e5c764300e82c3cf84e81cb01c733a9c447e7306f58eafe916b2fd8a13",
+    "game/content/entities/hero.json": "30279907968f5fec41949eaca68703a99097390875f2f84c7e91de9d386ae3c8",
+    "game/content/entities/light.json": "958a72e40620cb81623361c91bfe245b93e147aec6c597bb7ec87a1855f7cf93",
+    "game/content/entities/player_spawn.json": "2df1ab4aaf5b737f281a629d7ef2546ddd560c3ef4f23d042653745aef81323b",
+    "game/content/entities/prop_barrel.json": "0767bde52a22f385b8122922371df7a2efbeaec87d8faa9d064000b6bc987574",
+    "game/content/entities/prop_crate.json": "88b7ac659dc325a7fd5466570151349aca664ece102a06e47b8b8feb638e0c4b",
+    "game/content/entities/prop_pillar_broken.json": "f962209f6f027ef03332fb0df1807ec188a367f9ac57edf9485ffcb2086ffe64",
+    "game/content/entities/skeleton.json": "48f17842ef985f3ee302556c812f584c5b2597b6bc57d5002b5d154efa3ac655",
+    "game/content/entities/spawn_marker.json": "94867f6a139bfcb16a8697b518eeadaeb521683c7fa056e6f8712407a9b2d2df",
+    "game/content/entities/spawner.json": "36edbc40a9afef82be3e1d65b36aab89d5288f2e3726e8f61684c39839635a94",
+    "game/content/entities/torch.json": "f95b204b821834d4509c8f42a675983a0de014ddba32629ca2f53d6a581ff96c",
+    "game/content/entities/zombie.json": "2de5c787236ca80b38a3d475ebcb7f77e159ce53ba725e655723083607a82a2b",
+    "game/content/index.json": "8e86f7327be5952445b5174cd01c0ccd344441351c2b5ff255521b44ad1c1d5d",
+    "game/content/loot/loot_chest_common.json": "80f8b6098057bf89a526424c0034e3d268ae1e0e16b0b74be28b7253b5175318",
+    "game/content/loot/loot_skeleton.json": "f7369e88930bf3be41d91092b32a4766aec5eb7ef4a25a28dfe24a144945f211",
+    "game/content/loot/loot_zombie.json": "5dca9b36a60f2f14613eabba2d26d68f24c5a65f098c4d3195f0537e6161fbe8",
+    "game/content/tiles/bridge_planks.json": "e6ac8dbd7e843ff568e65d1ce5060d414dfbf2f2b0f291506734c64098c032eb",
+    "game/content/tiles/dirt_path.json": "4f3827d0dad4f2562a1baa624ef5e67a1f08c19922dbd01b9491313cc3c71ec1",
+    "game/content/tiles/flowers.json": "2125cafcf1221dfa1e8b0029d116afd0e2a230bafa4bdf731e0c64f3c08b85cf",
+    "game/content/tiles/grass.json": "c81b9fc9285810c0419c84255ba28a7391a2632c3d7b03083e6ee5dd07abd0ef",
+    "game/content/tiles/rock.json": "ce53a273932bf18d119e408cb427339943f55d923e17039acacf1ef5c38f9467",
+    "game/content/tiles/stairs.json": "2c5d9c9958bee3b80b1dfdc595c7991c08fbbd3baa2b564faff34ab4bb57b705",
+    "game/content/tiles/stone_floor.json": "176d9181e352c28c8745129ae2e54f6ad4ae90e4d54670bd7fece5a98bc1d56e",
+    "game/content/tiles/stone_floor_cracked.json": "5df14de842a53b2d9eb1a507ad37a5addcbaa9757806bb0524d41d831685641a",
+    "game/content/tiles/stone_wall.json": "bfa5c36b1cd80f7b8b2a5c8846353a5f4de07c16eba22e6eaad173d188c06de2",
+    "game/content/tiles/tall_grass.json": "57fe50b5a3e5bead062d47a1cb57a8da6ba464e16a19b7bc43ccf823f3a4a347",
+    "game/content/tiles/tree_oak.json": "0131e5ddb4c988f8472f1a1e8b34d1f733c9749c166c640d3fd6574916d938b6",
+    "game/content/tiles/void.json": "5a3f94d9a9252bb6e72f3ec853d0d5c17e42ae0e4cce072821dbd02f60e0da10",
+    "game/content/tiles/water.json": "0ec83dcb6c26aee46590366ba05506882c2590f5f806f05f6145fa501cba6bcb",
+    "game/content/weapons/bow.json": "8d33a2e0b5ea85139e89c03cec2d50a81d7b436bfac371a10d49dddea684055b",
+    "game/content/weapons/sword.json": "f421156be9a90d235c30651a5d03c8f8596f709463bc49753bb0b9fb1c10d13e",
+    "game/editor/PaletteIconCapture.cs": "886ec0ac28efd5fe10d22288765c6ed02aee78d056610b9a2bd0a404df163275",
+    "game/models/characters/hero.glb": "4d2079259dd5f968e1975ffdc31fe92185b915404c3164476009cf18c37721f6",
+    "game/models/characters/hero_0.png": "46afacd3d090d9422eb1ad0e11f5a85b5aab83ce638e112a7ada9be4746b3aed",
+    "game/models/characters/skeleton.glb": "67cf0286b36c0ec4332a377f5f48aa001168ac8879873c023e6f596c795998ed",
+    "game/models/characters/skeleton_0.png": "b9868fe777aecf2bee2bc54ebd83003ded8695b0b08599f19f1c7fa9169c0d24",
+    "game/models/characters/zombie.glb": "255085863fc832899c543cd2d5794eb036b423800fc711a75db239638ec3ea63",
+    "game/models/characters/zombie_0.png": "eb2b5c1e97f37c774caaedb3a20a93f53b68bceea1514814e90c9d49f28a1463",
+    "game/models/props/arrow.glb": "34210fbf8f37ad1bd65245caf023f642e68c84163a073716aa09300a544e0860",
+    "game/models/props/arrow_0.png": "dd925c663203206d4db4d747376ad668f9951cd540348f90778e8d7dcb8ed98b",
+    "game/models/props/arrow_bundle.glb": "2bb50740902f02f2e667f582c7f444f4660d8a16a8152a80f4ec9d7c7b6a8bee",
+    "game/models/props/barrel.glb": "b9dfe2ff75bd73c8927eb93fa4e6b93ae023f3e1b33b672dfc7d885dc3690344",
+    "game/models/props/barrel_0.png": "dd925c663203206d4db4d747376ad668f9951cd540348f90778e8d7dcb8ed98b",
+    "game/models/props/checkpoint_banner.glb": "20043224b873b26659be0c72c78734257416d4c502650cc77951c235e14fa053",
+    "game/models/props/checkpoint_banner_0.png": "dd925c663203206d4db4d747376ad668f9951cd540348f90778e8d7dcb8ed98b",
+    "game/models/props/chest.glb": "3b497a4bbc2fcbe455d7961b001e1f081dbe7d17744b76bf7d344b4a41b2dddb",
+    "game/models/props/chest_0.png": "dd925c663203206d4db4d747376ad668f9951cd540348f90778e8d7dcb8ed98b",
+    "game/models/props/crate.glb": "8e92465f2e7c6d5f55491a4f10f69366ed8d9237547f228a014b252549d887ca",
+    "game/models/props/crate_0.png": "dd925c663203206d4db4d747376ad668f9951cd540348f90778e8d7dcb8ed98b",
+    "game/models/props/emerald.glb": "0d430ae33845ed83da445fd87c30f2880de5cd491b9ccf0d79472d9a8857d5dd",
+    "game/models/props/exit_beacon.glb": "a3d37351ffb4d48706a264c6b5cec5caf44f52cc9fc4809631366bc8a4f47b17",
+    "game/models/props/exit_beacon_0.png": "9fca78a1304813f79cb869bcbbaa84a58941df08e63d032095d8f4cd94175081",
+    "game/models/props/food.glb": "3415c42ac7482469e03562298a4cb30b4983c791d8eed4d3fe93433de648dd29",
+    "game/models/props/gate_wood.glb": "038edbb2fcb04db93891e3261107eb0887adddbdc6875924902454fbc46b9a02",
+    "game/models/props/gate_wood_0.png": "dd925c663203206d4db4d747376ad668f9951cd540348f90778e8d7dcb8ed98b",
+    "game/models/props/pillar_broken.glb": "01b4d334af244cbb1a4f3048e34a10736844e5c9fb40ee47bae480edacb0a760",
+    "game/models/props/pillar_broken_0.png": "dd925c663203206d4db4d747376ad668f9951cd540348f90778e8d7dcb8ed98b",
+    "game/models/props/torch.glb": "0cad094d3b35c58c0e11c57d1c363bcf3c14943db410eb8f654f752097601494",
+    "game/models/props/torch_0.png": "09d7e0f2b95153706e0c4e8d244401b90d4537dfa8c8294e3847873082066109",
+    "game/models/tiles/rock.glb": "a4e82468c576a450eb113bb8e25c34fe7fb6f0d777f02d41bb8b421ab8a0bf4f",
+    "game/models/tiles/rock_0.png": "dd925c663203206d4db4d747376ad668f9951cd540348f90778e8d7dcb8ed98b",
+    "game/models/tiles/stone_wall.glb": "34e5d0d0751ca1c7a014de70aa91ece8c8fd1b9ebccb2eeed197397ada88a7dc",
+    "game/models/tiles/stone_wall_0.png": "dd925c663203206d4db4d747376ad668f9951cd540348f90778e8d7dcb8ed98b",
+    "game/models/tiles/stone_wall_1.glb": "201b771a8a7488d1193f693a4ee8e1d332860d3358f770049e36c6b41f927f42",
+    "game/models/tiles/tree_oak.glb": "6491f966eef2a1a9fa00a3237f9d76bb74bdcd325723d791bc0359dab41fcb0a",
+    "game/models/tiles/tree_oak_0.png": "e6cf82d3738ed303b2ca3ce9aa334fda22f664fe5d4685b93984d2b1e3150ec1",
+    "game/models/tiles/tree_oak_1.glb": "988ddb6001a04cd36976c3091314c5ad2ca4b478914ad009d127b8e539475b86",
+    "game/models/tiles/tree_oak_2.glb": "c7835be5262292ef512895fe07f7dcc82f61c6962a197c03d48a17bd2cee24cb",
+    "game/scripts/Rendering/ChunkMesher.cs": "27f2e8b19a749dbcae0ff8168e1dd30be2e3b3227f474df425502c1098defc4b",
+    "game/scripts/Rendering/ModelLibrary.cs": "7595a0a7e9b59ac751aaba357cbccacbcca2438b6446dd41c16e2e55ffd041f7",
+    "game/scripts/Rendering/RenderMaterials.cs": "d2ed8103cdd29946bf73c102c77af418e39b188d7be767aa84bc27f9e6465fb3",
+    "game/shaders/character.gdshader": "cccd4f783ffcf73c13f11b8cc620216484375685c12ef72889caf8566a818659",
+    "game/shaders/dither_fade.gdshader": "9f2c1039f30f38d8369240cf729d911e4a7ed8b1e7cc74a0061d4ed21a713632",
+    "game/shaders/emissive.gdshader": "f078e49a585ba6bad0aa81ed173c7158df512d1acf4775b625bf66beef4caee9",
+    "game/shaders/foliage.gdshader": "6510f06acb0872a5e638c9412957070df5cf4a2cbb5fc251a0e8409a4357f189",
+    "game/shaders/particles_dust.gdshader": "a45730e3b1fdc1c97a8960e9c8cf633fba60045e8407c1d5a55fc6f305263c6b",
+    "game/shaders/particles_spark.gdshader": "2b2a334fffae5f9b370e25c911b812e5671cf9dd64ecd3985319119f3e5462a7",
+    "game/shaders/pixel_sample.gdshaderinc": "09c119e2b59f4388a1ef7a7d06ecdc993cfb10eb9cadf78879a386e90962b25d",
+    "game/shaders/shadow_blob.gdshader": "e5973dd72bb58249fbf10b84c771f62467075f2b53ced367bd022f3b731f0394",
+    "game/shaders/terrain.gdshader": "ede3e9fa8d82e08ec386cd31fc8f3b37632df2d37105323080ae714aea3ed35b",
+    "game/shaders/vignette.gdshader": "95d4f9431861c3c0be9b786eb67e848bba4b29aa4e99dac7e689c1b901702f17",
+    "game/shaders/water.gdshader": "25e2eb91f4fb2ddd6ea38949bbf9c8954fdb8b0b5745feda2808a58588b14445",
+    "game/textures/models/arrow.png": "aa4c6a1e1464e88eb92a95a9a933f0e40b6a603758fc5a2fdc5ef19b116cd7f0",
+    "game/textures/models/arrow_bundle.png": "3d278e43493a9346c2d793f2c669d6932707d449223b4af089a2bae45764ebd2",
+    "game/textures/models/barrel.png": "aa4c6a1e1464e88eb92a95a9a933f0e40b6a603758fc5a2fdc5ef19b116cd7f0",
+    "game/textures/models/checkpoint_banner.png": "aa4c6a1e1464e88eb92a95a9a933f0e40b6a603758fc5a2fdc5ef19b116cd7f0",
+    "game/textures/models/chest.png": "aa4c6a1e1464e88eb92a95a9a933f0e40b6a603758fc5a2fdc5ef19b116cd7f0",
+    "game/textures/models/crate.png": "aa4c6a1e1464e88eb92a95a9a933f0e40b6a603758fc5a2fdc5ef19b116cd7f0",
+    "game/textures/models/emerald.png": "a7f11fc154c8d90bf1e4cb60dd82ee154db0c38b85d431c5fe6574d29dd9a032",
+    "game/textures/models/exit_beacon.png": "b972c905783c1e5a66a34d3cdf5c8675f987ba1a871941ee12a1cafee3efae76",
+    "game/textures/models/food.png": "3646911e2b19920242c419f132886f579bee1b82ed186e04f2cff22e5fc74dd5",
+    "game/textures/models/gate_wood.png": "aa4c6a1e1464e88eb92a95a9a933f0e40b6a603758fc5a2fdc5ef19b116cd7f0",
+    "game/textures/models/hero.png": "a34a00525570ccba37c8faa165fe2e0de269248acf4defe8647f87bcd8b47e8b",
+    "game/textures/models/pillar_broken.png": "aa4c6a1e1464e88eb92a95a9a933f0e40b6a603758fc5a2fdc5ef19b116cd7f0",
+    "game/textures/models/rock.png": "aa4c6a1e1464e88eb92a95a9a933f0e40b6a603758fc5a2fdc5ef19b116cd7f0",
+    "game/textures/models/skeleton.png": "45c6773fde0e4369b027251b130bf39130cdbd7ddcbb6b3cd62b4a7f8e797d98",
+    "game/textures/models/stone_wall.png": "aa4c6a1e1464e88eb92a95a9a933f0e40b6a603758fc5a2fdc5ef19b116cd7f0",
+    "game/textures/models/stone_wall_1.png": "aa4c6a1e1464e88eb92a95a9a933f0e40b6a603758fc5a2fdc5ef19b116cd7f0",
+    "game/textures/models/torch.png": "6838d22df72de08c9c7089ca618a17c55a16ef282c1cafacde86e005ed273d6b",
+    "game/textures/models/tree_oak.png": "5860dfe4b72544fbc641fbceac907d824ce05ddb83318b7c6145a0169c22c09d",
+    "game/textures/models/tree_oak_1.png": "5860dfe4b72544fbc641fbceac907d824ce05ddb83318b7c6145a0169c22c09d",
+    "game/textures/models/tree_oak_2.png": "5860dfe4b72544fbc641fbceac907d824ce05ddb83318b7c6145a0169c22c09d",
+    "game/textures/models/zombie.png": "bc8743601f2c4467d7a6c2f47e422399324396cbc8a203a2b4b45136db85cc92",
+    "game/textures/terrain/bark.png": "57589b85867a292781e2bd33bfe754844091f896324ff75c932cbf7816686416",
+    "game/textures/terrain/dirt_side.png": "6056f916de3da3b1bd950efced5bfa324c3ad17af1ea8f3d027af3d86ef68622",
+    "game/textures/terrain/flowers.png": "ae8f688510fce1695a8d6a94f64cfc46657c37da67cef6ed9b843cd601a5c1eb",
+    "game/textures/terrain/foam.png": "0524699b7e3efdd2c5ef4c3eed1016c384d5f0c489ae3287de3103d99afc9453",
+    "game/textures/terrain/grass_top_0.png": "14c961f4fb682f0790d5b5dab400adacea6eb4c1acb49674607efccf3cc09245",
+    "game/textures/terrain/grass_top_1.png": "a234c7134cd5c536995958fffd4235a812bff8dc0fcb25b8625900d06d8a0d5d",
+    "game/textures/terrain/grass_top_2.png": "fff75fc83c4b9acca43dc19655c9c16a18bca16e10c6d86d20745dcbab602fc9",
+    "game/textures/terrain/grass_top_3.png": "7360329e95313e76ed4aeee20020c2e968361c6607cafea9e2b2eae194f9d6d8",
+    "game/textures/terrain/leaves.png": "c0f0e6a9624cd71efb98929391d463cab0181add3229713543b226d016b7cb7f",
+    "game/textures/terrain/path.png": "a4399c3fd7c50e77f90c9d5973c6c834a9aa6f332a177d6d420dad4e51c361da",
+    "game/textures/terrain/planks.png": "57f1b807517f0be4bc6084a0220095692749ac93bc1151ecd430d952a2f1ff6e",
+    "game/textures/terrain/sand_dark.png": "0375afe37889501d55cf424641af26d06d4d5a13ee3f9913e57afd53d0b0fdc9",
+    "game/textures/terrain/stone_cracked.png": "84c87dfc92e29fe25be8283bb0eda97aa80ba781dfef1ad46d8a5b4da3a02f5e",
+    "game/textures/terrain/stone_side.png": "92c72b8468416e0440fb52c7ec6b489e8ecf9373c9de8831d8e7366332005a3f",
+    "game/textures/terrain/stone_top.png": "3c31045e18658f86a5893f1b08dcbfa920e780dccb6dbcf910e4a399dca57884",
+    "game/textures/terrain/tall_grass.png": "9ffde09ac77a78c6df0191155ee9a96fdaa0cb669b501530a4b3ac16497a5ee7",
+    "game/textures/terrain/water.png": "191b25a8549ddf3aa6eb8f581abef676146e27a32bc5def1b4f4e653d28ab45f",
+    "game/textures/terrain_atlas.png": "2701d859a053b1a3cd340a4cd2e6633032a1f587a3f9264eb84460db4798d9bb",
+    "tools/palette.gpl": "3fb01581a050f3c2ddaf6aba1c28ff23fe2bb287e5f1c84b9b15fd5a2a79b3f3"
+  },
+  "icons": [
+    {
+      "id": "core:bridge_planks",
+      "path": "editor/icons/tiles/bridge_planks.png",
+      "sourceSvg": null,
+      "sha256": "cf4045e6958e3d021af7913bc842fa918aa834a2f286c236afdf76e7f7a0d55a"
+    },
+    {
+      "id": "core:dirt_path",
+      "path": "editor/icons/tiles/dirt_path.png",
+      "sourceSvg": null,
+      "sha256": "9bf114d29fb0b34cc0bba055b5418e5c1058df402b9548ac6af6afc8516cbd07"
+    },
+    {
+      "id": "core:flowers",
+      "path": "editor/icons/tiles/flowers.png",
+      "sourceSvg": null,
+      "sha256": "290c90c396e4363f17c4b7f8160b582255068bd1c305c1c44b57857f92f20062"
+    },
+    {
+      "id": "core:grass",
+      "path": "editor/icons/tiles/grass.png",
+      "sourceSvg": null,
+      "sha256": "40ed009be6bd489abaeaa31f8a5c06fb33275b0058557950a8af668e4a0583e8"
+    },
+    {
+      "id": "core:rock",
+      "path": "editor/icons/tiles/rock.png",
+      "sourceSvg": null,
+      "sha256": "929ac4904bc2ad4f210ba90ef645067adad328d712ef48758f6cd717bd59469a"
+    },
+    {
+      "id": "core:stairs",
+      "path": "editor/icons/tiles/stairs.png",
+      "sourceSvg": null,
+      "sha256": "cf6dc702d970bcde541d8d1ee3710bc96742676004ed393122dae7abff22feb0"
+    },
+    {
+      "id": "core:stone_floor",
+      "path": "editor/icons/tiles/stone_floor.png",
+      "sourceSvg": null,
+      "sha256": "2700a9a34dbf020306fd9e2b12377892b1b23756af894c9dc085d71d8789b966"
+    },
+    {
+      "id": "core:stone_floor_cracked",
+      "path": "editor/icons/tiles/stone_floor_cracked.png",
+      "sourceSvg": null,
+      "sha256": "0de7df07023a061025c6965b9a949d7692282b7aa768875bdba530e2320328b2"
+    },
+    {
+      "id": "core:stone_wall",
+      "path": "editor/icons/tiles/stone_wall.png",
+      "sourceSvg": null,
+      "sha256": "6be4eacb4534730f712c6c6e4f742b2344af544417e5f40b950f7b8a73ad3b94"
+    },
+    {
+      "id": "core:tall_grass",
+      "path": "editor/icons/tiles/tall_grass.png",
+      "sourceSvg": null,
+      "sha256": "60d6e2330a21c588ea0d25ba04bea5fb586ccc18279e962a06444d67d6f9f667"
+    },
+    {
+      "id": "core:tree_oak",
+      "path": "editor/icons/tiles/tree_oak.png",
+      "sourceSvg": null,
+      "sha256": "5ce81eed2838e5522530d74689eb411273a38159ead977eabde4cc9fff6acd48"
+    },
+    {
+      "id": "core:void",
+      "path": "editor/icons/tiles/void.png",
+      "sourceSvg": "assets/source/editor-icons/tiles/void.svg",
+      "sha256": "a446bad6c651bb580f61eb3f0db256cb8ab9f72bcbd7b72c3ddff6e7cfded67a"
+    },
+    {
+      "id": "core:water",
+      "path": "editor/icons/tiles/water.png",
+      "sourceSvg": null,
+      "sha256": "c310c1e5b51b5509f34ca1ccbbe09bbc46932faed4b38900f48df73dcf38d95a"
+    },
+    {
+      "id": "core:arrow_bundle",
+      "path": "editor/icons/entities/arrow_bundle.png",
+      "sourceSvg": null,
+      "sha256": "5886f4943a86060650dad3bb9e781fd5ffda36d17d3aebfca935d11b8549cf83"
+    },
+    {
+      "id": "core:arrow_hero",
+      "path": "editor/icons/entities/arrow_hero.png",
+      "sourceSvg": null,
+      "sha256": "60ab1f288cc24de0b4eb5dd3a100fcf99313a93d7c23e931ef8d77fcea3bfc6d"
+    },
+    {
+      "id": "core:arrow_skeleton",
+      "path": "editor/icons/entities/arrow_skeleton.png",
+      "sourceSvg": null,
+      "sha256": "60ab1f288cc24de0b4eb5dd3a100fcf99313a93d7c23e931ef8d77fcea3bfc6d"
+    },
+    {
+      "id": "core:checkpoint",
+      "path": "editor/icons/entities/checkpoint.png",
+      "sourceSvg": null,
+      "sha256": "32a42935661d6d17653cbea0866b5e30b9df1b6b748f2543d958eb4afb83f47f"
+    },
+    {
+      "id": "core:chest",
+      "path": "editor/icons/entities/chest.png",
+      "sourceSvg": null,
+      "sha256": "3a0a9cd8c6849798c39e5e9a92285394255080aeb022f83ec514e499d6cdf1e4"
+    },
+    {
+      "id": "core:emerald_pile",
+      "path": "editor/icons/entities/emerald_pile.png",
+      "sourceSvg": null,
+      "sha256": "5f453cc28b0ae1a57c0f53888875b2ddc1886108fdba27e4cbb81387169951c2"
+    },
+    {
+      "id": "core:exit",
+      "path": "editor/icons/entities/exit.png",
+      "sourceSvg": null,
+      "sha256": "1274a9f84e9b7eae643f76c74f3a22959923d86c147ab9e1937fe6a7cf147a64"
+    },
+    {
+      "id": "core:food",
+      "path": "editor/icons/entities/food.png",
+      "sourceSvg": null,
+      "sha256": "f66bbf479983ec1cb3592bc63f74d244c9aee0f030fa4b9f486511103fa6ee94"
+    },
+    {
+      "id": "core:gate",
+      "path": "editor/icons/entities/gate.png",
+      "sourceSvg": null,
+      "sha256": "244701e76d680759d476f65ec26e2f95f5ce450f7793ec58bfafa978dc88f087"
+    },
+    {
+      "id": "core:hero",
+      "path": "editor/icons/entities/hero.png",
+      "sourceSvg": null,
+      "sha256": "264812507406554dce66275f848cc5a43d2f66ab682ad59b04b6cc70b7149c17"
+    },
+    {
+      "id": "core:light",
+      "path": "editor/icons/entities/light.png",
+      "sourceSvg": "assets/source/editor-icons/entities/light.svg",
+      "sha256": "918c2b01ca2c70439e48eda63988fd3bbb8993a6b744fb5734994aca737fbd55"
+    },
+    {
+      "id": "core:player_spawn",
+      "path": "editor/icons/entities/player_spawn.png",
+      "sourceSvg": "assets/source/editor-icons/entities/player_spawn.svg",
+      "sha256": "d0f5063afa2fd8ef63b4d1672638f0fb2513b0e583a8f48f92df5ced7b2cf338"
+    },
+    {
+      "id": "core:prop_barrel",
+      "path": "editor/icons/entities/prop_barrel.png",
+      "sourceSvg": null,
+      "sha256": "a84015a01a061673695a4c6804d71f51c6eb1aea22e4130656ebf7ea641f11ea"
+    },
+    {
+      "id": "core:prop_crate",
+      "path": "editor/icons/entities/prop_crate.png",
+      "sourceSvg": null,
+      "sha256": "e90656a196d598eddfd8edf258f05953dd278f26c2f328483218a443dbef2b05"
+    },
+    {
+      "id": "core:prop_pillar_broken",
+      "path": "editor/icons/entities/prop_pillar_broken.png",
+      "sourceSvg": null,
+      "sha256": "1fabb99028ffefe64531a408973a9c85dec9ca565d5d1a63819183761995a2ca"
+    },
+    {
+      "id": "core:skeleton",
+      "path": "editor/icons/entities/skeleton.png",
+      "sourceSvg": null,
+      "sha256": "f6204da712781853f26ba8f3b68c2bbe28f224175ba2ca7c7a1922642dbb78c8"
+    },
+    {
+      "id": "core:spawn_marker",
+      "path": "editor/icons/entities/spawn_marker.png",
+      "sourceSvg": "assets/source/editor-icons/entities/spawn_marker.svg",
+      "sha256": "567656a3f094f2cb24f3f3c5c72482aaa30520b9e67f7393f84775abf80e6bc7"
+    },
+    {
+      "id": "core:spawner",
+      "path": "editor/icons/entities/spawner.png",
+      "sourceSvg": "assets/source/editor-icons/entities/spawner.svg",
+      "sha256": "13c4590cdda2532c42ec5afeb35131ce30ff9ed735bf59c5c3eaaf232c3c2468"
+    },
+    {
+      "id": "core:torch",
+      "path": "editor/icons/entities/torch.png",
+      "sourceSvg": null,
+      "sha256": "4c4a4a6abc589195e9fb9445cebd0ba73bcb24c3de378c40add428ed8a94a03e"
+    },
+    {
+      "id": "core:zombie",
+      "path": "editor/icons/entities/zombie.png",
+      "sourceSvg": null,
+      "sha256": "3894a8005a431321ac864e7602abcc75f69c233bb2e8de4e8b545aa25109846e"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://b8qeb1pv1rfmd"
+path="res://.godot/imported/block_symbols.fnt-0ec23dc8b542e470d7597b4a15c16483.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/block_symbols.fnt"
+dest_files=["res://.godot/imported/block_symbols.fnt-0ec23dc8b542e470d7597b4a15c16483.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=1

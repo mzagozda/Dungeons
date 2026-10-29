@@ -1,0 +1,177 @@
+{
+  "formatVersion": 1,
+  "profileId": "windows-rtx3060-mobile-host47",
+  "reviewStatus": "approved",
+  "review": {
+    "reviewer": "Project owner (human user)",
+    "approvedUtc": "2026-10-27T18:41:19.155748+00:00",
+    "reference": "Codex chat 01a177be-6e83-77f3-a8dd-80e2cde2f6e6; call_4afeea8d3abb4e87891ac00abcdc5f7b; explicit reply: Approve this still-image baseline",
+    "scope": "The exact 22-scene Windows RTX 3060 Mobile/Vulkan still-image candidate shown for review.",
+    "excluded": [
+      "motion",
+      "audio",
+      "other renderers or GPUs",
+      "physical mobile devices",
+      "gameplay replay goldens"
+    ],
+    "candidateManifestSha256": "2ed6ddf5771f6202bd5f1ac539edaa259045e102a58edf7c9d8f15462d2bbc58",
+    "contactSheetSha256": "92e94d1a233bd2ea1eafdcebca77c3f871cf122e1db2bd289dec60a5b6ce6fee"
+  },
+  "preparedUtc": "2026-10-27T17:45:13.578409+00:00",
+  "cases": [
+    {
+      "scenario": "terrain-bridge",
+      "image": "cases/terrain-bridge.png",
+      "capture": "cases/terrain-bridge.capture.json",
+      "imageSha256": "8e732fabb9ebe8577c875df6bb11eb2cdf97258dd56a4be8086a502ad52f4f58",
+      "captureSha256": "6752de0e23080b264dff452456710c9dc2fff5538a1f075f9739a4a278c60731"
+    },
+    {
+      "scenario": "terrain-stairs",
+      "image": "cases/terrain-stairs.png",
+      "capture": "cases/terrain-stairs.capture.json",
+      "imageSha256": "286f819a04bc186b9c482e92e768c16840c3114ffbf94b1162cf44420394d2c0",
+      "captureSha256": "4bfe7345ba6e638d8ecaa14312a5428b61e5c43d912ba8763c797c72be3e4397"
+    },
+    {
+      "scenario": "terrain-ruin",
+      "image": "cases/terrain-ruin.png",
+      "capture": "cases/terrain-ruin.capture.json",
+      "imageSha256": "625c2bb7ea0c55cf41a1961d86907045ac634951e2b17cfea623e4ddd0541f59",
+      "captureSha256": "90fa0ba165fb1b953c2d51b90952daf49d44c11e7e4588a5b94901ae2f2ffeac"
+    },
+    {
+      "scenario": "hero-roll",
+      "image": "cases/hero-roll.png",
+      "capture": "cases/hero-roll.capture.json",
+      "imageSha256": "5f184a874148aba2ec6a0fd8685c8c009bf6db9f66078d28982d56de6a1b2b06",
+      "captureSha256": "21ee93527726646306224ba26f4880ee53ee9e861ef6610e6f949704fd9afbeb"
+    },
+    {
+      "scenario": "hero-bow",
+      "image": "cases/hero-bow.png",
+      "capture": "cases/hero-bow.capture.json",
+      "imageSha256": "0c4a9178b357e6c0f04c2692e5d4a28cc74dab1236faf48e1c39d50fb5a55c31",
+      "captureSha256": "50ff7ac35f52e8d0fd96f41db79ce91447215e7ad6ed03928f3643429f1e56d8"
+    },
+    {
+      "scenario": "hero-melee",
+      "image": "cases/hero-melee.png",
+      "capture": "cases/hero-melee.capture.json",
+      "imageSha256": "2f5947e47a430a77e4cd5bdf084a560856dedeeb758ee9e09588da52cf4932a9",
+      "captureSha256": "a35429bec0f8e70c22e787008816435e7771bac68be264da264d048c77a2fe7c"
+    },
+    {
+      "scenario": "hero-pickup",
+      "image": "cases/hero-pickup.png",
+      "capture": "cases/hero-pickup.capture.json",
+      "imageSha256": "ccc51814867505e14300451461a9400cbe62eb97a82714c2e001b0d6ca0fd214",
+      "captureSha256": "0591daaf47f9897ec00e1b84c372af2a2e2a8b9aa735950521e6585d80d85ecd"
+    },
+    {
+      "scenario": "combat",
+      "image": "cases/combat.png",
+      "capture": "cases/combat.capture.json",
+      "imageSha256": "c8db15dc92d96252625f49f611726a36fa8c4215156b5edb5ea3dbcfc93d5428",
+      "captureSha256": "7aa35132a81b6f98d33b432349a030f7c1129a904bd75aaeec4296b923e6ffe5"
+    },
+    {
+      "scenario": "mission-death",
+      "image": "cases/mission-death.png",
+      "capture": "cases/mission-death.capture.json",
+      "imageSha256": "b410c7e5c504aa0bfdc260180ba660a86cd6721d0d65b50323c8f243a1a9c77e",
+      "captureSha256": "5bdc088e107214248a29558711961c0768fec299dbc710cf97810e7a0d03f3cc"
+    },
+    {
+      "scenario": "mission-failed",
+      "image": "cases/mission-failed.png",
+      "capture": "cases/mission-failed.capture.json",
+      "imageSha256": "cd0be783bebd269e9ad0ca67f550479723d3805119e57b5b0f93e3eb438b1e95",
+      "captureSha256": "96b666614e1b0561ca09ac95aec7c546bd6c10fba96de264435a906077882197"
+    },
+    {
+      "scenario": "mission-objects",
+      "image": "cases/mission-objects.png",
+      "capture": "cases/mission-objects.capture.json",
+      "imageSha256": "4d42ec7d83ff09b8a55849b85f6597bed81107e4c1370c56fd9e2315ac06c320",
+      "captureSha256": "54d2b085575f2144f30e49bd578c754eb41536854810e59059008adb86c27f7b"
+    },
+    {
+      "scenario": "mission-complete",
+      "image": "cases/mission-complete.png",
+      "capture": "cases/mission-complete.capture.json",
+      "imageSha256": "58f44c2ddb6be7b0665fb2b8346ee052bd95e9aa58c8ccf98cd5b2be8b42a0b5",
+      "captureSha256": "b910b6aa1f6a2654055205ac3d218bea846289d711032be48c448ef8582e05fd"
+    },
+    {
+      "scenario": "touch-phone",
+      "image": "cases/touch-phone.png",
+      "capture": "cases/touch-phone.capture.json",
+      "imageSha256": "ecb917c3cabe2ccc3980625f4386d242c08105fad96d1f15b0795f2749bec845",
+      "captureSha256": "e9c3eef2badc2a9eae60b0540398adffcbd9e81470e9ad6d196d45b8c617759f"
+    },
+    {
+      "scenario": "touch-aim",
+      "image": "cases/touch-aim.png",
+      "capture": "cases/touch-aim.capture.json",
+      "imageSha256": "f5dcd388b7c4d5c3fb247711511f6aab55577176051ff594955aa18b5a8209b1",
+      "captureSha256": "843447bb1cffc4178c882a04d8ff9a1efe1f0f2e1f25c05692ad845b9c4b77b8"
+    },
+    {
+      "scenario": "touch-left",
+      "image": "cases/touch-left.png",
+      "capture": "cases/touch-left.capture.json",
+      "imageSha256": "ea461f99fd447012699aa851d9aabfdcd0a416bc8c7fa42fed91104295750c01",
+      "captureSha256": "4ff6e619950d3681dfa33d949960d19ef3578269bbba7e8e7e6f00cda8c391a9"
+    },
+    {
+      "scenario": "touch-tablet",
+      "image": "cases/touch-tablet.png",
+      "capture": "cases/touch-tablet.capture.json",
+      "imageSha256": "38e05b180cddc0e89bf30f5562dcf4302a71b5fb9e9667b34eb31fb8162f60d5",
+      "captureSha256": "06752a63b74403d602449338c1d3d5b73f1825b34775b6b946226346b2d4b683"
+    },
+    {
+      "scenario": "settings-video",
+      "image": "cases/settings-video.png",
+      "capture": "cases/settings-video.capture.json",
+      "imageSha256": "d50c94eac71ebca5c8bb0282c8372158abef2bdacd8ee0f8300b1fd3bcaeddad",
+      "captureSha256": "2928e9349177e831543e68145ed4bd49a9465106f6ab2531122a9fef87b5ce40"
+    },
+    {
+      "scenario": "settings-audio",
+      "image": "cases/settings-audio.png",
+      "capture": "cases/settings-audio.capture.json",
+      "imageSha256": "aff6f44239e946b54845593d53d9c17c0348acde19588e00fbfce098088fbebd",
+      "captureSha256": "87dd63b77b7fa9e4bc1b2b5e73ee9126b2099e8b0ada74fae1cd61c7a91261f2"
+    },
+    {
+      "scenario": "settings-controls",
+      "image": "cases/settings-controls.png",
+      "capture": "cases/settings-controls.capture.json",
+      "imageSha256": "eb76cdc7a6602b06c9f1c3ec8258aae8e2e71be4ed280102dd0362cbfcf60016",
+      "captureSha256": "c85e535acd7bb44f928453b35ea79a9e986dcf0bba716ee6d47f3241b53639cc"
+    },
+    {
+      "scenario": "settings-accessibility",
+      "image": "cases/settings-accessibility.png",
+      "capture": "cases/settings-accessibility.capture.json",
+      "imageSha256": "4cc41f6631ca13967ea31474ab79bbc41a0d9f1c47d6662b6a9174912edb8538",
+      "captureSha256": "dc7b5de655df18a99e825d84243ffd979876f2f83ae82a40d2527fed5d6d5216"
+    },
+    {
+      "scenario": "phone-hud",
+      "image": "cases/phone-hud.png",
+      "capture": "cases/phone-hud.capture.json",
+      "imageSha256": "fb7132b93f8df96fe5e8be6cb2f27d9069f1fa0e071f79e71f819466de115bd3",
+      "captureSha256": "8e2d9b85397651c281456aa97f302b548f7bd83c852fb09b1e28c13f3fd08806"
+    },
+    {
+      "scenario": "phone-layout",
+      "image": "cases/phone-layout.png",
+      "capture": "cases/phone-layout.capture.json",
+      "imageSha256": "f31027bff76064c6c7772a72b97dfde2c52802d7c436645a56d017433cbbc5a8",
+      "captureSha256": "934fdc0dd7d1e2983c830133631c1be41d29faf25dd3f106618dfaf3eb2a2d94"
+    }
+  ]
+}

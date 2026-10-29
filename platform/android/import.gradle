@@ -1,0 +1,22 @@
+// The pinned exporter generates mergeOnlyAttributes on GodotApp, which would drop
+// application-owned VIEW filters from the base manifest. Run after generation.
+def dungeonsLow = System.getenv('DUNGEONS_ANDROID_LOW') == '1'
+tasks.named('preBuild').configure {
+    doFirst {
+        ['debug', 'dev', 'release'].each { variant ->
+            def manifest = file("src/${variant}/AndroidManifest.xml")
+            if (manifest.exists()) {
+                def text = manifest.getText('UTF-8').replace('tools:node="mergeOnlyAttributes"', 'tools:node="merge"')
+                if (dungeonsLow) {
+                    text = text.replaceAll('(android:name="android.hardware.vulkan.(?:level|version)"[^>]*android:required=)"true"', '$1"false"')
+                    // Godot 4.7 writes a literal instead of the older placeholder.
+                    text = text.replaceAll('(android:name="org[.]godotengine[.]rendering[.]method"[^>]*android:value=)"[^"]+"', '$1"gl_compatibility"')
+                    if (!text.contains('android:value="gl_compatibility"')) {
+                        throw new GradleException('Low build lacks explicit Compatibility rendering metadata.')
+                    }
+                }
+                manifest.setText(text, 'UTF-8')
+            }
+        }
+    }
+}

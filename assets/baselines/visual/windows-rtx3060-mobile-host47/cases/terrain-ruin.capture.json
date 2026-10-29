@@ -1,0 +1,21 @@
+{
+  "formatVersion": 1,
+  "scenario": "terrain-ruin",
+  "passed": true,
+  "width": 1280,
+  "height": 720,
+  "imageSha256": "625c2bb7ea0c55cf41a1961d86907045ac634951e2b17cfea623e4ddd0541f59",
+  "godot": "4.7.2-stable (official)",
+  "renderer": "mobile",
+  "adapter": "NVIDIA GeForce RTX 3060",
+  "quality": "High",
+  "shaderTime": 0,
+  "visualStepSeconds": 0.016666668,
+  "levelHash": "c363d8d848dc36600ae7fd4181d27ac2f7bf0e9d0ff6f57d9dd08932f1187e35",
+  "contentHash": "2ca5f6f1a50da8787185c6c3b555be5e41cc4686e4be10f4a3f70e4546fec8a6",
+  "seed": 1,
+  "tick": 120,
+  "finalHash": "0f9395225b3b3cda",
+  "baselineApproved": false,
+  "physicalAcceptance": false
+}

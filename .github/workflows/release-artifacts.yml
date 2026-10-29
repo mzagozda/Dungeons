@@ -1,0 +1,147 @@
+name: Main release artifacts
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Keep every pushed build; a later push must not cancel its predecessor's artifacts.
+jobs:
+  windows:
+    if: github.ref == 'refs/heads/main'
+    runs-on: windows-2022
+    timeout-minutes: 45
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Stamp disposable checkout and identify artifacts
+        id: identity
+        env:
+          VERSION_CODE_OFFSET: ${{ vars.ANDROID_VERSION_CODE_OFFSET || '1000' }}
+        run: python tools/prepare_ci_release.py --run-number $env:GITHUB_RUN_NUMBER --run-attempt $env:GITHUB_RUN_ATTEMPT --commit $env:GITHUB_SHA --version-code-offset $env:VERSION_CODE_OFFSET --output artifacts/release-ci/identity.json --github-output $env:GITHUB_OUTPUT
+      - name: Check release version allocation contracts
+        run: python -m unittest discover -s tools -p test_ci_release.py
+      - name: Install pinned engine/templates and Windows resource editor
+        run: ./tools/Install-Godot.ps1 -WithExportTemplates
+      - name: Restore locked dependencies
+        run: dotnet restore Dungeons.sln --locked-mode
+      - name: Export and smoke-test release game
+        run: ./tools/Export-M0.ps1 -Platform Windows -Release -SmokeTest
+      - name: Package installer and portable ZIP; optionally Authenticode sign
+        env:
+          WINDOWS_SIGNING_PFX_BASE64: ${{ secrets.WINDOWS_SIGNING_PFX_BASE64 }}
+          WINDOWS_SIGNING_PFX_PASSWORD: ${{ secrets.WINDOWS_SIGNING_PFX_PASSWORD }}
+        run: ./tools/Build-WindowsArtifacts.ps1 -IdentityPath artifacts/release-ci/identity.json
+      - name: Verify portable launch, installation, payload parity and uninstall
+        run: ./tools/Test-WindowsArtifacts.ps1 -ArtifactDirectory artifacts/release-ci/windows -EvidenceDirectory artifacts/release-ci/windows-install-checks
+      - name: Retain Windows installer and portable ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.identity.outputs.stem }}-windows-x64
+          path: artifacts/release-ci/windows/
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
+      - name: Retain Windows diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-release-checks-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            artifacts/release-ci/identity.json
+            artifacts/release-ci/windows-checks/*.log
+            artifacts/release-ci/windows-checks/result.json
+            artifacts/release-ci/windows-install-checks/*.log
+            artifacts/release-ci/windows-install-checks/*.json
+            artifacts/windows/*.log
+            artifacts/windows/*.json
+          retention-days: 14
+
+  android:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          persist-credentials: false
+      - name: Require registered Android upload credentials
+        env:
+          ANDROID_UPLOAD_KEYSTORE_BASE64: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_BASE64 }}
+          ANDROID_UPLOAD_KEY_ALIAS: ${{ secrets.ANDROID_UPLOAD_KEY_ALIAS }}
+          ANDROID_UPLOAD_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_PASSWORD }}
+        run: |
+          foreach ($name in @('ANDROID_UPLOAD_KEYSTORE_BASE64','ANDROID_UPLOAD_KEY_ALIAS','ANDROID_UPLOAD_KEYSTORE_PASSWORD')) {
+            if (![Environment]::GetEnvironmentVariable($name)) { throw "Missing Actions secret: $name" }
+          }
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Install native texture dependencies
+        run: python -m pip install -r tools/requirements.txt
+      - name: Stamp disposable checkout and identify artifacts
+        id: identity
+        env:
+          VERSION_CODE_OFFSET: ${{ vars.ANDROID_VERSION_CODE_OFFSET || '1000' }}
+        run: python tools/prepare_ci_release.py --run-number $env:GITHUB_RUN_NUMBER --run-attempt $env:GITHUB_RUN_ATTEMPT --commit $env:GITHUB_SHA --version-code-offset $env:VERSION_CODE_OFFSET --output artifacts/release-ci/identity.json --github-output $env:GITHUB_OUTPUT
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Install Android SDK components
+        run: sdkmanager 'platform-tools' 'platforms;android-36' 'build-tools;36.1.0' 'ndk;29.0.14206865'
+      - name: Install pinned engine and templates
+        run: ./tools/Install-Godot.ps1 -WithExportTemplates
+      - name: Export publisher-signed release AAB and validated universal APK
+        env:
+          ANDROID_UPLOAD_KEYSTORE_BASE64: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_BASE64 }}
+          ANDROID_UPLOAD_KEY_ALIAS: ${{ secrets.ANDROID_UPLOAD_KEY_ALIAS }}
+          ANDROID_UPLOAD_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_PASSWORD }}
+        run: ./tools/Build-AndroidArtifacts.ps1 -IdentityPath artifacts/release-ci/identity.json
+      - name: Retain Android APK and AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.identity.outputs.stem }}-android-arm64
+          path: artifacts/release-ci/android/
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
+      - name: Retain sanitized Android diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-release-checks-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            artifacts/release-ci/identity.json
+            artifacts/release-ci/android-checks/result.json
+            artifacts/release-ci/android-checks/export/*.log
+            artifacts/release-ci/android-checks/export/result.json
+            artifacts/release-ci/android-checks/validation/*.json
+            artifacts/release-ci/android-checks/validation/*.log
+            artifacts/release-ci/android-checks/validation/manifest.xml
+            artifacts/release-ci/android-checks/validation/apk-release/*.json
+          retention-days: 14
+
+# Build/download only: no GitHub Release creation, Play API credentials, upload or rollout.

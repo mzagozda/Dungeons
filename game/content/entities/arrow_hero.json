@@ -1,0 +1,30 @@
+{
+  "id": "core:arrow_hero",
+  "displayName": "Arrow (hero)",
+  "category": "projectile",
+  "kind": "Projectile",
+  "faction": "Hero",
+  "radius": 0.15,
+  "solid": false,
+  "requiresGround": false,
+  "projectile": {
+    "damage": 10,
+    "speed": 14,
+    "lifetimeTicks": 90,
+    "pierce": 0,
+    "height": 1,
+    "knockback": 0
+  },
+  "render": {
+    "model": "models/props/arrow.glb",
+    "stickOnTerrain": 2
+  },
+  "audio": {
+    "hitTerrain": "core:sfx_arrow_hit_wood",
+    "hitEntity": "core:sfx_arrow_hit_flesh"
+  },
+  "editor": {
+    "icon": "editor/icons/entities/arrow_hero.png",
+    "char": ">"
+  }
+}

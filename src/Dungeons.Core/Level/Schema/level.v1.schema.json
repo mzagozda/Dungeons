@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://blockdungeons.example/schema/level.v1.json",
+  "title": "Block Dungeons level",
+  "type": "object",
+  "required": ["formatVersion", "id", "name", "version", "size", "palette", "layers", "entities", "completion"],
+  "additionalProperties": true,
+  "properties": {
+    "formatVersion": { "type": "integer", "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z0-9_]+(\\.[a-z0-9_]+)*$", "maxLength": 64 },
+    "name": { "$ref": "#/$defs/localizedString" },
+    "author": { "type": "string", "maxLength": 64 },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "description": { "$ref": "#/$defs/localizedString" },
+    "difficulty": { "type": "integer", "minimum": 1, "maximum": 5, "default": 1 },
+    "recommendedTimeSeconds": { "type": "integer", "minimum": 0 },
+    "seed": { "type": ["integer", "null"], "default": null },
+    "size": {
+      "type": "object", "required": ["width", "height"], "additionalProperties": false,
+      "properties": {
+        "width":  { "type": "integer", "minimum": 8, "maximum": 256 },
+        "height": { "type": "integer", "minimum": 8, "maximum": 256 }
+      }
+    },
+    "environment": { "$ref": "#/$defs/environment" },
+    "palette": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "type": "string", "minLength": 1, "maxLength": 1 },
+      "additionalProperties": { "$ref": "#/$defs/tileRef" }
+    },
+    "layers": {
+      "type": "object", "required": ["floor", "heights"], "additionalProperties": false,
+      "properties": {
+        "floor":   { "$ref": "#/$defs/charRows" },
+        "heights": { "type": "array", "items": { "type": "string", "pattern": "^[0-9a-f]+$" } },
+        "overlay": { "$ref": "#/$defs/charRows" }
+      }
+    },
+    "cells": {
+      "type": "array", "maxItems": 65536,
+      "items": {
+        "type": "object", "required": ["x", "z", "props"], "additionalProperties": false,
+        "properties": {
+          "x": { "type": "integer", "minimum": 0 }, "z": { "type": "integer", "minimum": 0 },
+          "props": { "type": "object" }
+        }
+      }
+    },
+    "entities": { "type": "array", "maxItems": 4096, "items": { "$ref": "#/$defs/entity" } },
+    "triggers": { "type": "array", "maxItems": 512, "items": { "$ref": "#/$defs/trigger" } },
+    "objectives": { "type": "array", "maxItems": 32, "items": { "$ref": "#/$defs/objective" } },
+    "completion": { "$ref": "#/$defs/completion" },
+    "flags": { "type": "object", "additionalProperties": { "type": "boolean" } }
+  },
+  "$defs": {
+    "localizedString": {
+      "oneOf": [
+        { "type": "string", "maxLength": 512 },
+        { "type": "object", "required": ["en"], "additionalProperties": { "type": "string", "maxLength": 512 } }
+      ]
+    },
+    "color": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9_]+$", "maxLength": 64 },
+    "contentId": { "type": "string", "pattern": "^[a-z0-9_]+:[a-z0-9_]+$" },
+    "charRows": { "type": "array", "minItems": 8, "maxItems": 256, "items": { "type": "string", "minLength": 8, "maxLength": 256 } },
+    "tileRef": {
+      "oneOf": [
+        { "$ref": "#/$defs/contentId" },
+        {
+          "type": "object", "required": ["tile"], "additionalProperties": false,
+          "properties": {
+            "tile": { "$ref": "#/$defs/contentId" },
+            "overlay": { "$ref": "#/$defs/contentId" },
+            "props": { "type": "object" }
+          }
+        }
+      ]
+    },
+    "facing": {
+      "oneOf": [
+        { "type": "string", "enum": ["north", "east", "south", "west"] },
+        { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 }
+      ]
+    },
+    "entity": {
+      "type": "object", "required": ["type", "x", "z"], "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "type": { "$ref": "#/$defs/contentId" },
+        "x": { "type": "number" }, "z": { "type": "number" },
+        "facing": { "$ref": "#/$defs/facing" },
+        "tags": { "type": "array", "maxItems": 8, "items": { "$ref": "#/$defs/id" } },
+        "props": { "type": "object" }
+      }
+    },
+    "area": {
+      "type": "object", "required": ["x", "z", "w", "h"], "additionalProperties": false,
+      "properties": {
+        "x": { "type": "number" }, "z": { "type": "number" },
+        "w": { "type": "number", "exclusiveMinimum": 0 }, "h": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "event": {
+      "type": "object", "required": ["type"],
+      "properties": { "type": { "type": "string", "enum": ["level_start", "enter", "exit", "entities_dead", "objective", "interact", "checkpoint", "flag", "timer"] } },
+      "allOf": [
+        { "if": { "properties": { "type": { "enum": ["enter", "exit"] } } },
+          "then": { "required": ["area"], "properties": { "area": { "$ref": "#/$defs/area" }, "who": { "enum": ["player", "monster", "any"], "default": "player" } } } },
+        { "if": { "properties": { "type": { "const": "entities_dead" } } },
+          "then": { "required": ["tag"], "properties": { "tag": { "$ref": "#/$defs/id", "x-refKind": "tag" }, "min": { "type": "integer", "minimum": 1, "default": 1 } } } },
+        { "if": { "properties": { "type": { "const": "objective" } } },
+          "then": { "required": ["id", "state"], "properties": { "id": { "$ref": "#/$defs/id", "x-refKind": "objective" }, "state": { "enum": ["active", "complete", "failed"] } } } },
+        { "if": { "properties": { "type": { "enum": ["interact", "checkpoint"] } } },
+          "then": { "required": ["id"], "properties": { "id": { "$ref": "#/$defs/id", "x-refKind": "entity", "x-targetKindsByType": { "checkpoint": ["Checkpoint"], "interact": ["Chest", "Gate"] } } } } },
+        { "if": { "properties": { "type": { "const": "flag" } } },
+          "then": { "required": ["flag"], "properties": { "flag": { "$ref": "#/$defs/id", "x-refKind": "flag" }, "value": { "type": "boolean", "default": true } } } },
+        { "if": { "properties": { "type": { "const": "timer" } } },
+          "then": { "required": ["seconds"], "properties": { "seconds": { "type": "number", "minimum": 0 } } } }
+      ]
+    },
+    "condition": {
+      "type": "object", "required": ["type"],
+      "properties": {
+        "type": { "enum": ["objective", "flag", "entities_dead", "lives_at_least", "not"] },
+        "id": { "$ref": "#/$defs/id", "x-appliesTo": ["objective"], "x-required": true, "x-refKind": "objective" },
+        "state": { "enum": ["hidden", "active", "complete", "failed"], "default": "hidden", "x-appliesTo": ["objective"] },
+        "flag": { "$ref": "#/$defs/id", "x-appliesTo": ["flag"], "x-required": true, "x-refKind": "flag" },
+        "value": { "type": "boolean", "default": true, "x-appliesTo": ["flag"] },
+        "tag": { "$ref": "#/$defs/id", "x-appliesTo": ["entities_dead"], "x-required": true, "x-refKind": "tag" },
+        "min": { "type": "integer", "default": 1, "x-appliesTo": ["entities_dead"] },
+        "lives": { "type": "integer", "default": 0, "x-appliesTo": ["lives_at_least"] },
+        "condition": { "$ref": "#/$defs/condition", "x-appliesTo": ["not"], "x-required": true }
+      }
+    },
+    "action": {
+      "type": "object", "required": ["type"],
+      "properties": {
+        "type": { "enum": ["message", "objective", "spawn", "delay", "sound", "music", "camera_shake", "set_state", "set_flag",
+                           "checkpoint", "enable_trigger", "disable_trigger", "complete_level", "fail_level", "remove_entity", "heal_player", "give"] }
+      },
+      "allOf": [
+        { "if": { "properties": { "type": { "const": "message" } } }, "then": { "required": ["text"], "properties": { "text": { "$ref": "#/$defs/localizedString" }, "seconds": { "type": "number", "default": 2.5 } } } },
+        { "if": { "properties": { "type": { "const": "objective" } } }, "then": { "required": ["id", "state"], "properties": { "id": { "$ref": "#/$defs/id", "x-refKind": "objective" }, "state": { "enum": ["active", "complete", "failed", "hidden"] } } } },
+        { "if": { "properties": { "type": { "const": "spawn" } } }, "then": { "required": ["at", "entity"], "properties": { "at": { "$ref": "#/$defs/id", "x-refKind": "entity", "x-targetKinds": ["Marker", "SpawnMarker"] }, "count": { "type": "integer", "minimum": 1, "maximum": 16, "default": 1 }, "entity": { "type": "object", "required": ["type"], "properties": { "type": { "$ref": "#/$defs/contentId", "x-refKind": "entityDefinition" }, "tags": { "type": "array", "items": { "$ref": "#/$defs/id", "x-refKind": "tag" } }, "props": { "type": "object", "x-propertySchemaFrom": "type" } } } } } },
+        { "if": { "properties": { "type": { "const": "delay" } } }, "then": { "required": ["seconds"], "properties": { "seconds": { "type": "number", "minimum": 0, "maximum": 600 } } } },
+        { "if": { "properties": { "type": { "enum": ["sound", "music"] } } }, "then": { "required": ["id"], "properties": { "id": { "$ref": "#/$defs/contentId", "x-refKind": "sound" } } } },
+        { "if": { "properties": { "type": { "const": "camera_shake" } } }, "then": { "properties": { "strength": { "type": "number", "minimum": 0, "maximum": 1, "default": 0.3 }, "seconds": { "type": "number", "default": 0.3 } } } },
+        { "if": { "properties": { "type": { "const": "set_state" } } }, "then": { "required": ["entity", "state"], "properties": { "entity": { "$ref": "#/$defs/id", "x-refKind": "entity", "x-targetKinds": ["Gate", "Chest", "Checkpoint", "SpawnMarker"] }, "state": { "type": "string" } } } },
+        { "if": { "properties": { "type": { "const": "set_flag" } } }, "then": { "required": ["flag"], "properties": { "flag": { "$ref": "#/$defs/id", "x-refKind": "flag" }, "value": { "type": "boolean", "default": true } } } },
+        { "if": { "properties": { "type": { "enum": ["checkpoint", "enable_trigger", "disable_trigger", "remove_entity"] } } }, "then": { "required": ["id"], "properties": { "id": { "$ref": "#/$defs/id", "x-refKindByType": { "checkpoint": "entity", "enable_trigger": "trigger", "disable_trigger": "trigger", "remove_entity": "entity" }, "x-targetKindsByType": { "checkpoint": ["Checkpoint"] } } } } },
+        { "if": { "properties": { "type": { "const": "heal_player" } } }, "then": { "properties": { "percent": { "type": "number", "minimum": 0, "maximum": 100, "default": 100 } } } },
+        { "if": { "properties": { "type": { "const": "give" } } }, "then": { "required": ["item", "amount"], "properties": { "item": { "enum": ["emerald", "arrows"] }, "amount": { "type": "integer", "minimum": 1 } } } }
+      ]
+    },
+    "trigger": {
+      "type": "object", "required": ["id", "event", "actions"], "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "once": { "type": "boolean", "default": true },
+        "enabled": { "type": "boolean", "default": true },
+        "event": { "$ref": "#/$defs/event" },
+        "conditions": { "type": "array", "items": { "$ref": "#/$defs/condition" } },
+        "actions": { "type": "array", "minItems": 1, "maxItems": 64, "items": { "$ref": "#/$defs/action" } }
+      }
+    },
+    "objective": {
+      "type": "object", "required": ["id", "text", "type"], "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "text": { "$ref": "#/$defs/localizedString" },
+        "type": { "enum": ["reach", "kill_tag", "interact", "flag", "survive"] },
+        "target": { "$ref": "#/$defs/id" },
+        "tag": { "$ref": "#/$defs/id" },
+        "minSpawned": { "type": "integer", "minimum": 1, "default": 1 },
+        "flag": { "$ref": "#/$defs/id" },
+        "seconds": { "type": "number", "exclusiveMinimum": 0 },
+        "initialState": { "enum": ["hidden", "active"], "default": "hidden" },
+        "optional": { "type": "boolean", "default": false }
+      }
+    },
+    "completion": {
+      "type": "object", "required": ["type"], "additionalProperties": false,
+      "properties": {
+        "type": { "enum": ["exit", "objectives"] },
+        "exit": { "$ref": "#/$defs/id" },
+        "requires": { "type": "array", "items": { "$ref": "#/$defs/id" } }
+      }
+    },
+    "environment": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "sky": { "type": "object", "properties": { "top": { "$ref": "#/$defs/color" }, "horizon": { "$ref": "#/$defs/color" }, "ground": { "$ref": "#/$defs/color" } } },
+        "sun": { "type": "object", "properties": { "yawDeg": { "type": "number" }, "pitchDeg": { "type": "number", "maximum": -10, "minimum": -89 }, "color": { "$ref": "#/$defs/color" }, "energy": { "type": "number", "minimum": 0, "maximum": 4 }, "shadows": { "type": "boolean" } } },
+        "ambient": { "type": "object", "properties": { "color": { "$ref": "#/$defs/color" }, "energy": { "type": "number", "minimum": 0, "maximum": 2 } } },
+        "fog": { "type": "object", "properties": { "color": { "$ref": "#/$defs/color" }, "density": { "type": "number", "minimum": 0, "maximum": 0.2 }, "startDistance": { "type": "number", "minimum": 0 }, "enabled": { "type": "boolean" } } },
+        "glow": { "type": "object", "properties": { "enabled": { "type": "boolean" }, "intensity": { "type": "number", "minimum": 0, "maximum": 2 }, "threshold": { "type": "number", "minimum": 0, "maximum": 4 } } },
+        "camera": { "type": "object", "properties": { "yawDeg": { "type": "number" }, "pitchDeg": { "type": "number", "minimum": -80, "maximum": -30 }, "distance": { "type": "number", "minimum": 12, "maximum": 40 }, "fovDeg": { "type": "number", "minimum": 15, "maximum": 45 }, "lookAhead": { "type": "number", "minimum": 0, "maximum": 4 }, "bounds": { "$ref": "#/$defs/area" } } },
+        "music": { "$ref": "#/$defs/contentId" },
+        "ambience": { "$ref": "#/$defs/contentId" },
+        "waterColor": { "$ref": "#/$defs/color" }
+      }
+    }
+  }
+}

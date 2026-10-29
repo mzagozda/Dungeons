@@ -1,0 +1,58 @@
+{
+  "id": "core:skeleton",
+  "displayName": "Skeleton",
+  "category": "monster",
+  "kind": "Enemy",
+  "faction": "Monster",
+  "radius": 0.3,
+  "solid": false,
+  "requiresGround": true,
+  "stats": {
+    "hp": 25,
+    "armor": 0,
+    "speed": 2.8,
+    "knockbackResistance": 0,
+    "xp": 12,
+    "aggroRadius": 10,
+    "hearingRadius": 12
+  },
+  "attack": {
+    "kind": "ranged",
+    "projectile": "core:arrow_skeleton",
+    "aim": 0.6,
+    "recovery": 1.4,
+    "minRange": 5,
+    "maxRange": 8,
+    "retreatBelow": 3.5,
+    "retreatMax": 1.5
+  },
+  "brain": "core:brain_archer",
+  "loot": "core:loot_skeleton",
+  "render": {
+    "model": "models/characters/skeleton.glb",
+    "animations": {
+      "idle": "idle",
+      "walk": "walk",
+      "aim": "aim",
+      "fire": "fire",
+      "hit": "hit",
+      "death": "death",
+      "emerge": "emerge"
+    },
+    "healthBar": true,
+    "shadowBlob": true
+  },
+  "audio": {
+    "alert": "core:sfx_skeleton_alert",
+    "attack": "core:sfx_bow_release",
+    "hit": "core:sfx_skeleton_hit",
+    "death": "core:sfx_skeleton_death",
+    "footstep": "core:sfx_step_soft",
+    "draw": "core:sfx_skeleton_draw",
+    "release": "core:sfx_bow_release"
+  },
+  "editor": {
+    "icon": "editor/icons/entities/skeleton.png",
+    "char": "S"
+  }
+}

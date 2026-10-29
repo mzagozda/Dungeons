@@ -1,0 +1,4 @@
+{
+  "id": "core:bow", "kind": "ranged", "projectile": "core:arrow_hero",
+  "windupTicks": 6, "recoveryTicks": 12, "cooldownTicks": 30
+}

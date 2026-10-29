@@ -1,0 +1,20 @@
+{
+  "id": "core:water",
+  "displayName": "Water",
+  "category": "ground",
+  "walkable": false,
+  "solid": false,
+  "blocksProjectiles": false,
+  "blocksVision": false,
+  "moveCost": 1.0,
+  "render": {
+    "kind": "water",
+    "bed": "atlas:sand_dark",
+    "color": "#2f6f8f",
+    "foam": "atlas:foam"
+  },
+  "editor": {
+    "icon": "editor/icons/tiles/water.png",
+    "char": "~"
+  }
+}

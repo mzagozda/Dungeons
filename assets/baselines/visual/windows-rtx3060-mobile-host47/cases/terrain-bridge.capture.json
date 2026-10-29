@@ -1,0 +1,21 @@
+{
+  "formatVersion": 1,
+  "scenario": "terrain-bridge",
+  "passed": true,
+  "width": 1280,
+  "height": 720,
+  "imageSha256": "8e732fabb9ebe8577c875df6bb11eb2cdf97258dd56a4be8086a502ad52f4f58",
+  "godot": "4.7.2-stable (official)",
+  "renderer": "mobile",
+  "adapter": "NVIDIA GeForce RTX 3060",
+  "quality": "High",
+  "shaderTime": 0,
+  "visualStepSeconds": 0.016666668,
+  "levelHash": "e4c2625249e832658de38473f2440ff661c2d0747c4a1052521ab345fb51ed67",
+  "contentHash": "2ca5f6f1a50da8787185c6c3b555be5e41cc4686e4be10f4a3f70e4546fec8a6",
+  "seed": 1,
+  "tick": 120,
+  "finalHash": "40500406e681bf56",
+  "baselineApproved": false,
+  "physicalAcceptance": false
+}

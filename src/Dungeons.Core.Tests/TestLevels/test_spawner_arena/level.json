@@ -1,0 +1,22 @@
+{
+  "formatVersion": 1,
+  "id": "test.spawner_arena",
+  "name": "Spawner arena",
+  "version": "1.0.0",
+  "size": { "width": 8, "height": 8 },
+  "palette": { ".": "core:grass", "#": "core:stone_wall" },
+  "layers": {
+    "floor": ["########", "#......#", "#......#", "#......#", "#......#", "#......#", "#......#", "########"],
+    "heights": ["00000000", "00000000", "00000000", "00000000", "00000000", "00000000", "00000000", "00000000"]
+  },
+  "entities": [
+    { "id": "spawn", "type": "core:player_spawn", "x": 1.5, "z": 6.5 },
+    { "id": "exit", "type": "core:exit", "x": 6.5, "z": 1.5 },
+    { "id": "checkpoint", "type": "core:checkpoint", "x": 1.5, "z": 5.5 },
+    { "id": "wave", "type": "core:spawner", "x": 5.5, "z": 3.5,
+      "props": { "entity": "core:zombie", "count": 6, "interval": 0.5, "maxAlive": 2, "activation": "proximity", "activationRadius": 4, "tag": "arena" } }
+  ],
+  "triggers": [],
+  "objectives": [ { "id": "clear", "text": "Clear the arena", "type": "kill_tag", "tag": "arena", "minSpawned": 6, "initialState": "active" } ],
+  "completion": { "type": "exit", "exit": "exit", "requires": ["clear"] }
+}

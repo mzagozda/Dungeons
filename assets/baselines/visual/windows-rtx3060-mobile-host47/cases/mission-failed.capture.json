@@ -1,0 +1,21 @@
+{
+  "formatVersion": 1,
+  "scenario": "mission-failed",
+  "passed": true,
+  "width": 1280,
+  "height": 720,
+  "imageSha256": "cd0be783bebd269e9ad0ca67f550479723d3805119e57b5b0f93e3eb438b1e95",
+  "godot": "4.7.2-stable (official)",
+  "renderer": "mobile",
+  "adapter": "NVIDIA GeForce RTX 3060",
+  "quality": "High",
+  "shaderTime": 0,
+  "visualStepSeconds": 0.016666668,
+  "levelHash": "4e15c2bd5e0d4ecb20aad2e864730432e9f4681b5bda623c9811d3c637819044",
+  "contentHash": "2ca5f6f1a50da8787185c6c3b555be5e41cc4686e4be10f4a3f70e4546fec8a6",
+  "seed": 1,
+  "tick": 12,
+  "finalHash": "a0d7fd6d6f361111",
+  "baselineApproved": false,
+  "physicalAcceptance": false
+}

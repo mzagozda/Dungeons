@@ -1,0 +1,17 @@
+{
+  "id": "core:prop_crate",
+  "displayName": "Prop Crate",
+  "category": "prop",
+  "kind": "Prop",
+  "radius": 0.35,
+  "solid": true,
+  "requiresGround": true,
+  "props": {},
+  "render": {
+    "model": "models/props/crate.glb"
+  },
+  "editor": {
+    "icon": "editor/icons/entities/prop_crate.png",
+    "char": "c"
+  }
+}

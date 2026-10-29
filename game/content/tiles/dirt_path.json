@@ -1,0 +1,21 @@
+{
+  "id": "core:dirt_path",
+  "displayName": "Dirt path",
+  "category": "ground",
+  "walkable": true,
+  "solid": false,
+  "moveCost": 0.9,
+  "render": {
+    "kind": "block",
+    "top": "atlas:path",
+    "side": "atlas:dirt_side",
+    "tint": "#8a6a3f"
+  },
+  "audio": {
+    "footstep": "core:sfx_step_soft"
+  },
+  "editor": {
+    "icon": "editor/icons/tiles/dirt_path.png",
+    "char": ":"
+  }
+}

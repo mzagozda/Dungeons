@@ -1,0 +1,4 @@
+jsonschema==4.26.0
+Pillow==13.0.0
+numpy==2.5.4
+soundfile==0.14.0
