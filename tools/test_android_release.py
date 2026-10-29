@@ -15,6 +15,14 @@ def elf(alignment=16384, address=0, machine=183):
 class AndroidReleaseTests(unittest.TestCase):
     badging = "package: name='org.blockdungeons.game'\nsdkVersion:'26'\ntargetSdkVersion:'36'\n"
     signed = "Verifies\nSigner #1 certificate DN: CN=Release\nSigner #1 certificate SHA-256 digest: " + "ab" * 32 + "\n"
+    versioned_signed = (
+        "Verifies\n"
+        "Verified using v2 scheme (APK Signature Scheme v2): true\n"
+        "Verified using v3 scheme (APK Signature Scheme v3): true\n"
+        "Number of signers: 1\n"
+        "V3.0 Signer: certificate DN: CN=Release\n"
+        "V3.0 Signer: certificate SHA-256 digest: " + "AB" * 32 + "\n"
+    )
 
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
@@ -42,6 +50,33 @@ class AndroidReleaseTests(unittest.TestCase):
     def test_compressed_libraries_do_not_require_zip_alignment(self):
         self.package()
         self.assertTrue(native_libraries(self.apk)[0]["zipCompatible16Kb"])
+
+    def test_versioned_signer_output_preserves_qa_identity_without_release_acceptance(self):
+        self.package()
+        signature = self.versioned_signed.replace("CN=Release", "CN=Android Debug, O=Block Dungeons QA, C=PL")
+        result = report(self.apk, self.badging + "application-debuggable\n", signature)
+        self.assertTrue(result["verifiedSignature"])
+        self.assertEqual(["ab" * 32], result["certificateSha256"])
+        self.assertFalse(result["releaseCertificate"])
+        self.assertFalse(result["passed"])
+
+    def test_versioned_release_signer_requires_one_verified_expected_certificate(self):
+        self.package()
+        result = report(self.apk, self.badging, self.versioned_signed, release_certificate_sha256="ab" * 32)
+        self.assertTrue(result["passed"])
+        for signature, expected in (
+            (self.versioned_signed.replace("Verifies\n", "DOES NOT VERIFY\n"), "ab" * 32),
+            (self.versioned_signed, None),
+            (self.versioned_signed, "cd" * 32),
+            (self.versioned_signed.replace("CN=Release", "CN=Android Debug"), "ab" * 32),
+            (self.versioned_signed.replace("AB" * 32, "AB" * 31), "ab" * 32),
+            (self.versioned_signed + self.versioned_signed.split("Number of signers: 1\n")[1], "ab" * 32),
+            (self.versioned_signed + self.signed.split("Verifies\n")[1], "ab" * 32),
+        ):
+            with self.subTest(signature=signature, expected=expected):
+                result = report(self.apk, self.badging, signature, release_certificate_sha256=expected)
+                self.assertFalse(result["releaseCertificate"])
+                self.assertFalse(result["passed"])
 
     def test_stored_libraries_require_the_actual_local_data_offset(self):
         self.package(stored=True)

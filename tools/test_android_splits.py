@@ -56,6 +56,31 @@ class AndroidSplitTests(unittest.TestCase):
             with self.subTest(index=index), self.assertRaises(ValueError):
                 self.run_check()
 
+    def test_versioned_signer_output_is_supported_for_every_selected_split(self):
+        for item in self.plan["files"]:
+            Path(item["signature"]).write_text(
+                "Verifies\nNumber of signers: 1\n"
+                "V3.0 Signer: certificate DN: CN=Android Debug, O=Block Dungeons QA, C=PL\n"
+                "V3.0 Signer: certificate SHA-256 digest: " + CERT.upper() + "\n",
+                encoding="utf-8",
+            )
+        self.assertTrue(self.run_check()["passed"])
+
+    def test_versioned_splits_still_require_one_verified_expected_certificate(self):
+        path = Path(self.plan["files"][0]["signature"])
+        signature = "Verifies\nV3.0 Signer: certificate SHA-256 digest: " + CERT + "\n"
+        for changed in (
+            signature.replace("Verifies", "DOES NOT VERIFY"),
+            signature.replace(CERT, "cd" * 32),
+            signature.replace(CERT, "ab" * 31),
+            "Verifies\nNumber of signers: 1\n",
+            signature + signature.split("Verifies\n")[1],
+            signature + "Signer #2 certificate SHA-256 digest: " + CERT + "\n",
+        ):
+            path.write_text(changed, encoding="utf-8")
+            with self.subTest(signature=changed), self.assertRaisesRegex(ValueError, "signer"):
+                self.run_check()
+
     def test_every_apk_requires_signature_identity_and_actual_zipalign(self):
         for index, item in enumerate(self.plan["files"]):
             signature = Path(item["signature"])
