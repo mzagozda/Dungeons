@@ -11,6 +11,14 @@ import zipfile
 
 PAGE = 16384
 MAX_LIBRARY_BYTES = 256 * 1024 * 1024
+SIGNER_LABEL = r"(?:Signer #\d+|V\d+\.\d+ Signer:)"
+
+
+def signer_fingerprints(signature: str) -> list[str]:
+    # Keep every signer record: duplicate fingerprints must not bypass count checks.
+    return [value.lower() for value in re.findall(
+        rf"^{SIGNER_LABEL} certificate SHA-256 digest: ([0-9a-fA-F]{{64}})\s*$", signature, re.M
+    )]
 
 
 def elf_loads(data: bytes) -> list[dict]:
@@ -85,10 +93,10 @@ def report(apk: Path, badging: str, signature: str, required_target: int = 36, r
     result["minSdk"] = int(minimum[1]) if minimum else None
     result["targetSdk"] = int(target[1]) if target else None
     result["debuggable"] = bool(re.search(r"^application-debuggable(?:\s|$)", badging, re.M))
-    signers = re.findall(r"^Signer #\d+ certificate DN: (.+)$", signature, re.M)
+    signers = re.findall(rf"^{SIGNER_LABEL} certificate DN: (.+)$", signature, re.M)
     verified = bool(re.search(r"^Verifies\s*$", signature, re.M))
     result["verifiedSignature"] = verified
-    result["certificateSha256"] = [value.lower() for value in re.findall(r"^Signer #\d+ certificate SHA-256 digest: ([0-9a-fA-F]+)\s*$", signature, re.M)]
+    result["certificateSha256"] = signer_fingerprints(signature)
     expected = release_certificate_sha256.lower() if release_certificate_sha256 else None
     result["expectedReleaseCertificateSha256"] = expected
     result["releaseCertificate"] = verified and len(signers) == 1 and expected is not None and result["certificateSha256"] == [expected] and not re.search(r"(?:^|[,\s])CN\s*=\s*Android Debug(?:[,\s]|$)", signers[0], re.I)

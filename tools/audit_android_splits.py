@@ -6,7 +6,7 @@ from pathlib import Path, PurePosixPath
 import re
 import zipfile
 
-from audit_android_release import native_libraries
+from audit_android_release import native_libraries, signer_fingerprints
 
 
 def inventory(apk):
@@ -65,8 +65,8 @@ def check(plan, reference, reference_badging, expected_certificate):
         if apk_package != package or apk_code != code or apk_version not in ("", version) or apk_split in names:
             raise ValueError("Split package/version identity differs or split is duplicated")
         names.add(apk_split)
-        fingerprints = re.findall(r"^Signer #\d+ certificate SHA-256 digest: ([0-9a-fA-F]{64})\s*$", signature, re.M)
-        if not re.search(r"^Verifies\s*$", signature, re.M) or [value.lower() for value in fingerprints] != [expected_certificate]:
+        fingerprints = signer_fingerprints(signature)
+        if not re.search(r"^Verifies\s*$", signature, re.M) or fingerprints != [expected_certificate]:
             raise ValueError("Every selected split must verify under the expected APK signer")
         if apk_split is None:
             base = str(apk.resolve())
