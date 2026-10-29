@@ -1,5 +1,9 @@
 # Nightly performance baselines
 
+On **2026-10-29**, the owner requested relaxing the combat stress-test timing requirement after the same PR head passed at **1.4552 ms/tick** and failed at **1.6609 ms/tick** on hosted Windows. `CombatStressTests` now permits **2 ms/tick**, matching the desktop benchmark ceiling, instead of 1.5 ms. The 600 measured ticks, workload/hash checks and exact zero-allocation assertion remain unchanged. This allowance applies to the normal optimized Core test gate on local and hosted machines. The per-runner benchmark references, +20% regression limit and other performance assertions retain their existing values.
+
+The full local `tools/Test-Core.ps1` runner passes **478 optimized cases** (464 functional + 14 performance), **464 coverage cases**, and **98.42% Core line coverage** after this change. Scoped Roslyn compiler/analyzer diagnostics report no warnings or errors. Evidence: `artifacts/performance-budget-2ms/full-core.log`.
+
 On **2026-10-28**, the owner approved the exact proposed Windows .NET 10/twelve-warmup reference. `assets/baselines/performance/windows-r5-7600x.json` now contains those unchanged proposed bytes; the adjacent `.review.json` records the explicit approval, context, hashes and excluded platforms. The old .NET 8 reference is preserved byte-for-byte at `archive/windows-r5-7600x-net8-pre-host47.json`. Both independent datasets pass against the adopted canonical reference. Earlier sections below retain historical checkpoints; the final section records this adoption. Linux/device/hosted acceptance remains separate.
 
 `tools/Test-NightlyBenchmarks.ps1 -Runner <id>` implements the six §20.7 BenchmarkDotNet workloads and a stored per-runner regression gate. The nightly workflow has a separate `benchmark-regression` job. Hosted execution remains pending; a Windows measurement is not a Linux or mobile baseline.
