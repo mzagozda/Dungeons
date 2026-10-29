@@ -35,9 +35,11 @@ $includeEditor = @($featureMatch.Groups[1].Value.Split(',') | ForEach-Object Tri
 Push-Location $script:RepoRoot
 Start-Transcript -Path (Join-Path ([IO.Path]::GetDirectoryName($output)) 'export-transcript.log') -Force | Out-Null
 try {
-    $env:DUNGEONS_INCLUDE_EDITOR = $includeEditor.ToString().ToLowerInvariant()
     # A clean checkout needs the editor assembly before C# autoloads are imported.
-    Invoke-Checked 'dotnet' @('build', 'game/Dungeons.Game.csproj', '--configuration', 'Debug', '-warnaserror')
+    # Match the committed desktop Debug graph; the export keeps its preset scope.
+    $env:DUNGEONS_INCLUDE_EDITOR = 'true'
+    Invoke-Checked 'dotnet' @('build', 'game/Dungeons.Game.csproj', '--configuration', 'Debug', '-p:RestoreLockedMode=true', '-warnaserror')
+    $env:DUNGEONS_INCLUDE_EDITOR = $includeEditor.ToString().ToLowerInvariant()
     Initialize-GodotEditor -Path $godot
     $importLog = [IO.Path]::ChangeExtension($output, '.import.log')
     $knownPreviewDiagnostics = Invoke-GodotImport -Path $godot -LogPath $importLog
