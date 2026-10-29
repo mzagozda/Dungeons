@@ -4,7 +4,7 @@ Implementation follows [specification.md](specification.md). The checklist at th
 
 ## Automatic release downloads
 
-Pushes to `main` run [Main release artifacts](.github/workflows/release-artifacts.yml): Windows Inno Setup installer and portable ZIP, plus publisher-signed Android APK/AAB. Downloads include build identity and SHA-256 checksums; no store upload or rollout occurs. Configure the three required Android secrets and optional Windows Authenticode secrets described in [CI release setup](docs/ci-release-artifacts.md). Hosted execution awaits the first remote/push and credential setup.
+Pushes to `main` run [Main release artifacts](.github/workflows/release-artifacts.yml): Windows Inno Setup installer and portable ZIP, plus publisher-signed Android APK/AAB. Downloads include build identity and SHA-256 checksums; no store upload or rollout occurs. Configure the three required Android secrets and optional Windows Authenticode secrets described in [CI release setup](docs/ci-release-artifacts.md). The owner-selected repository is [mzagozda/Dungeons](https://github.com/mzagozda/Dungeons); first successful hosted builds and credential setup remain pending.
 
 ## Toolchain candidate
 
@@ -117,7 +117,7 @@ The helper creates an Xcode project and optional unsigned archive. The [iOS hand
 
 ## Validation and scope
 
-[docs/m0-validation.md](docs/m0-validation.md) and [docs/m1-validation.md](docs/m1-validation.md) record evidence, failures and pending checks. `.github/workflows/ci.yml` includes Linux/Windows builds/headless probes, the Release Core tests/allocation/performance/85% coverage gate, Windows export and debug Android export. Hosted CI cannot run until the repository has a remote and is pushed. Physical device tests are separate; the optional iOS signing implementation awaits real Mac/credential execution.
+[docs/m0-validation.md](docs/m0-validation.md) and [docs/m1-validation.md](docs/m1-validation.md) record evidence, failures and pending checks. `.github/workflows/ci.yml` includes Linux/Windows builds/headless probes, the Release Core tests/allocation/performance/85% coverage gate, Windows export and debug Android export. Hosted acceptance requires successful runs against the actual pushed revision. Physical device tests are separate; the optional iOS signing implementation awaits real Mac/credential execution.
 
 The Core contains deterministic fixed ticks, movement/collision/stairs, separation, A*, independent random streams, state hashes/replays, level/content loading, safe packages and mission/objective logic. Hero actions include sword combos, roll, bow/projectiles, armour/damage/grace, potion, pickups and deterministic auto-aim. Zombies and skeletons now perceive, chase/position, telegraph, attack, retreat/return and drop loot; dynamic spawning obeys live caps and emergence. The host boots to the menu/catalogue and renders the level with original models, terrain, lighting, camera, HUD and pooled combat text. WASD/arrows move; J/left mouse attacks; K/right mouse fires; Space/Shift rolls; Q heals; Escape pauses. Gamepad defaults are X/RT/A or B/Y/Start. F3 shows counters and F4–F7 toggle world layers. Remaining presentation/final UI and reviewed gameplay/platform acceptance are pending.
 
