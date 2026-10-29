@@ -1,17 +1,22 @@
-# Per-push release artifacts
+# Per-push installation downloads and GitHub prereleases
 
-`.github/workflows/release-artifacts.yml` builds on every push to `main`, with a manual entry point restricted to `main`. A multi-commit push builds its head. A later push does not cancel an earlier build. Existing PR/debug and nightly workflows remain independent; a successful artifact job does not establish that all other CI or platform acceptance gates passed.
+`.github/workflows/release-artifacts.yml` builds on every push to `main`. Pull requests validate Windows/Linux packaging without publishing or receiving signing secrets. Manual runs may validate a branch's full package set, including registered-key Android signing; only `main` publishes. A multi-commit push builds its head. A later push does not cancel an earlier build. Existing PR/debug and nightly workflows remain independent; a successful package job does not establish that all other CI or platform acceptance gates passed.
 
 Successful jobs retain these **30-day** Actions downloads; selected diagnostics have **14-day** retention:
 
 | Download group | Deployable files |
 | --- | --- |
 | `BlockDungeons-<version>-build<run>.<attempt>-<sha12>-windows-x64` | `…-windows-x64-setup.exe`, `…-windows-x64-portable.zip` |
+| `BlockDungeons-<version>-build<run>.<attempt>-<sha12>-linux-amd64` | `…-linux-amd64.deb` |
 | `BlockDungeons-<version>-build<run>.<attempt>-<sha12>-android-arm64` | `…-android-arm64.apk`, `…-android-arm64.aab` |
 
-Both groups include `build-info.json` and `SHA256SUMS.txt`. GitHub wraps each downloaded group in a ZIP: extract that before opening the installer/APK or extracting the portable ZIP. PDB debug symbols are excluded from the Windows distribution.
+Each group includes `build-info.json` and `SHA256SUMS.txt`. GitHub wraps Actions downloads in a ZIP: extract that before opening the installer/APK. Public GitHub Release assets are direct files. PDB debug symbols and logs are excluded from desktop distributions.
 
-The workflow has read-only repository permissions. It does not create GitHub Releases, upload to Google Play or roll out a release. Device, motion/audio, listing and store acceptance remain separate.
+After Windows, Linux and Android pass, the release-bundle job verifies every package checksum, exact source commit, workflow run, version and signing cleanup. It rejects missing platforms, unexpected/private files and ambiguous package attempts. When jobs are rerun, the newest valid attempt for each platform is selected only from the same commit/run/version. Per-platform identities retain the actual build attempts.
+
+The main-only publishing job is the only job granted `contents: write`. It creates a draft prerelease tagged `build-<workflow-run-id>-<publication-attempt>` against the full commit SHA, uploads five installation/package files plus three platform build reports and a combined `SHA256SUMS.txt`, verifies GitHub's uploaded names, sizes and SHA-256 digests, then publishes. A failed upload leaves a private draft. A failed platform job produces no public partial release. Build prereleases do not replace a stable release or claim store/physical-device acceptance. No Google Play upload or rollout occurs.
+
+For a failed publication, rerun the workflow's complete package/preparation chain to create a new publication attempt. Existing public releases/assets are never overwritten. Earlier interrupted drafts may be reviewed and removed separately.
 
 ## Signing secrets
 
@@ -74,10 +79,14 @@ Windows uses locked NuGet dependencies and the pinned engine/templates, exports 
 
 Android uses JDK 17, API 36/build tools 36.1.0/NDK 29, pinned engine/templates and bundletool. `Build-AndroidArtifacts.ps1` exports an isolated **release-template** AAB; the existing validator derives the universal APK with the same key. Checks cover actual bundle identity/version, signatures, non-debuggable manifest, min API 26/target 36, editor/test stripping, 54 ETC2 textures, all native 16 KB prerequisites and independent zipalign. The download is the exact validated APK. No device connection is used.
 
+Linux exports the x86-64 release template with a self-contained .NET runtime. `build_linux_deb.py` stages the game under `/opt/block-dungeons`, a `/usr/bin/block-dungeons` launcher, desktop entry, icon and third-party notices. The Debian version includes the workflow run/attempt so later builds upgrade correctly. Native and .NET dependencies are declared for Debian/Ubuntu; the initial validation target is Ubuntu 24.04 amd64. Install with `sudo apt install ./BlockDungeons-*-linux-amd64.deb`. `Test-LinuxArtifacts.ps1` refuses to replace an existing installation, installs the package, checks its version and every installed payload byte, runs packaged smoke/palette/UI checks and removes it. Application user data is retained on removal.
+
 ## Local and hosted evidence
 
 `specification.md` tracks implementation/checks up front. Local CI-equivalent evidence is under `artifacts/release-ci-validation-20261029/`, with a disposable stamped source checkout. Its all-zero commit SHA is an explicit **local placeholder** from the pre-commit validation checkpoint; Actions uses the real pushed SHA. The source is now in initial commit `8d2a70c`, and the owner selected `https://github.com/mzagozda/Dungeons.git` as origin. First successful hosted builds, repository-secret provisioning and trusted Windows signing remain separate. A local Windows-host Android export is not a hosted Linux result.
 
 Final local runs pass: Windows release export, installer/ZIP generation and actual install/payload parity/launch/uninstall (`windows-final/`, `windows-install-final/`); registered-key code-1001 AAB and validated universal APK with private cleanup (`source/artifacts/release-ci-final/`); all **102 Python contracts**; workflow actionlint and PowerShell parsing. Eight failure-path checks pass in `guard-results.json`. A temporary self-signed fixture exercises game/Inno signing, is rejected by trust verification, and is removed from the current-user certificate store; the signed embedded-PCK game also launches (`windows-untrusted-signing-result.json`). No root trust is added, and this fixture does not establish trusted publisher signing. Failed/rejected packages stay separate from successful downloads.
+
+The later hosted main run `40862458808` passes Windows installer/portable installation checks; Android stops at missing Actions signing secrets. The previous workflow retained Actions downloads only, and had no Linux package or GitHub Release publisher. The new Linux `.deb` passes actual installation, payload parity, packaged smoke/palette/UI and removal in a fresh Ubuntu 24.04 container without a preinstalled .NET runtime (`artifacts/release-publication/container-result.json`). All 118 Python contracts, workflow lint (Shellcheck/Pyflakes unavailable) and PowerShell parsing pass locally. Hosted validation of the new package/publisher and first public GitHub Release remain separately pending.
 
 References: [workflow artifacts](https://docs.github.com/en/actions/concepts/workflows-and-actions/workflow-artifacts), [Inno compiler](https://jrsoftware.org/ishelp/topic_compilercmdline.htm), [Inno signing](https://jrsoftware.org/ishelp/topic_setup_signtool.htm), [Android signing](https://developer.android.com/studio/publish/app-signing), [Android versioning](https://developer.android.com/studio/publish/versioning).

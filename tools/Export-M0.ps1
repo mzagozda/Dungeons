@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('Windows', 'Android', 'iOS')][string]$Platform = 'Windows',
+    [ValidateSet('Windows', 'Linux', 'Android', 'iOS')][string]$Platform = 'Windows',
     [string]$GodotPath,
     [ValidateRange(30, 1800)][int]$ExportTimeoutSeconds = 600,
     [switch]$Release,
@@ -10,12 +10,13 @@ param(
 )
 . (Join-Path $PSScriptRoot 'Common.ps1')
 if ($Low -and $Platform -ne 'Android') { throw '-Low selects the Android Compatibility preset.' }
-if ($SmokeTest -and $Platform -ne 'Windows') { throw '-SmokeTest is supported for Windows; use device QA for mobile.' }
+if ($SmokeTest -and $Platform -notin @('Windows','Linux')) { throw '-SmokeTest is supported for desktop; use device QA for mobile.' }
 if ($Rendered -and !$SmokeTest) { throw '-Rendered requires -SmokeTest.' }
 $godot = Get-GodotPath -ExplicitPath $GodotPath
 Assert-GodotVersion -Path $godot
 switch ($Platform) {
     'Windows' { $preset = 'Windows Desktop'; $relativeOutput = 'artifacts/windows/BlockDungeons.exe' }
+    'Linux' { $preset = 'Linux'; $relativeOutput = 'artifacts/linux/BlockDungeons.x86_64' }
     'Android' { $preset = if ($Low) { 'Android Low' } else { 'Android' }; $relativeOutput = if ($Low) { 'artifacts/android/block_dungeons_low.apk' } else { 'artifacts/android/block_dungeons.apk' } }
     'iOS' { $preset = 'iOS'; $relativeOutput = 'artifacts/ios/block_dungeons.zip' }
 }
@@ -70,8 +71,9 @@ try {
         Invoke-Checked $godot @('--headless','--path',$textureProject,'--script',(Join-Path $PSScriptRoot 'audit_packaged_mobile_textures.gd'),'--',$resourcePack,(Join-Path $textureProject 'manifest.json'),(Join-Path $textureProject 'package-native-audit.json')) -TimeoutSeconds 90 -LogPath (Join-Path $textureProject 'package-native-audit.log') -RejectEngineErrors -Quiet
         [ordered]@{profileDirectory=$textureProject; manifest=(Join-Path $textureProject 'manifest.json'); apkSha256=(Get-FileHash -LiteralPath $output -Algorithm SHA256).Hash; packageAudit=(Join-Path $textureProject 'package-audit.json'); nativeAudit=(Join-Path $textureProject 'package-native-audit.json'); physicalAcceptance=$false} | ConvertTo-Json | Set-Content -LiteralPath ($output + '.textures.json') -Encoding UTF8
     }
-    if ($Platform -eq 'Windows') {
-        & (Join-Path $PSScriptRoot 'Test-EditorExport.ps1') -DesktopAssemblyPath (Join-Path ([IO.Path]::GetDirectoryName($output)) 'data_Dungeons.Game_windows_x86_64/Dungeons.Game.dll')
+    if ($Platform -in @('Windows','Linux')) {
+        $desktopRuntime = if ($Platform -eq 'Windows') { 'windows' } else { 'linuxbsd' }
+        & (Join-Path $PSScriptRoot 'Test-EditorExport.ps1') -DesktopAssemblyPath (Join-Path ([IO.Path]::GetDirectoryName($output)) "data_Dungeons.Game_${desktopRuntime}_x86_64/Dungeons.Game.dll")
     }
     $exportSucceeded = $true
     if ($previousOutput) { Remove-Item -LiteralPath $previousOutput }

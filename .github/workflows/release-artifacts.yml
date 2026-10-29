@@ -3,6 +3,7 @@ name: Main release artifacts
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -11,7 +12,6 @@ permissions:
 # Keep every pushed build; a later push must not cancel its predecessor's artifacts.
 jobs:
   windows:
-    if: github.ref == 'refs/heads/main'
     runs-on: windows-2022
     timeout-minutes: 45
     defaults:
@@ -43,8 +43,8 @@ jobs:
         run: ./tools/Export-M0.ps1 -Platform Windows -Release -SmokeTest
       - name: Package installer and portable ZIP; optionally Authenticode sign
         env:
-          WINDOWS_SIGNING_PFX_BASE64: ${{ secrets.WINDOWS_SIGNING_PFX_BASE64 }}
-          WINDOWS_SIGNING_PFX_PASSWORD: ${{ secrets.WINDOWS_SIGNING_PFX_PASSWORD }}
+          WINDOWS_SIGNING_PFX_BASE64: ${{ github.event_name != 'pull_request' && secrets.WINDOWS_SIGNING_PFX_BASE64 || '' }}
+          WINDOWS_SIGNING_PFX_PASSWORD: ${{ github.event_name != 'pull_request' && secrets.WINDOWS_SIGNING_PFX_PASSWORD || '' }}
         run: ./tools/Build-WindowsArtifacts.ps1 -IdentityPath artifacts/release-ci/identity.json
       - name: Verify portable launch, installation, payload parity and uninstall
         run: ./tools/Test-WindowsArtifacts.ps1 -ArtifactDirectory artifacts/release-ci/windows -EvidenceDirectory artifacts/release-ci/windows-install-checks
@@ -71,8 +71,67 @@ jobs:
             artifacts/windows/*.json
           retention-days: 14
 
+  linux:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Stamp disposable checkout and identify artifacts
+        id: identity
+        env:
+          VERSION_CODE_OFFSET: ${{ vars.ANDROID_VERSION_CODE_OFFSET || '1000' }}
+        run: python tools/prepare_ci_release.py --run-number $env:GITHUB_RUN_NUMBER --run-attempt $env:GITHUB_RUN_ATTEMPT --commit $env:GITHUB_SHA --version-code-offset $env:VERSION_CODE_OFFSET --output artifacts/release-ci/identity.json --github-output $env:GITHUB_OUTPUT
+      - name: Check release packaging and publication contracts
+        run: |
+          python -m unittest discover -s tools -p test_ci_release.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest discover -s tools -p test_release_publication.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest discover -s tools -p test_linux_deb.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Install pinned engine and templates
+        run: ./tools/Install-Godot.ps1 -WithExportTemplates
+      - name: Restore locked dependencies
+        run: dotnet restore Dungeons.sln --locked-mode
+      - name: Export and smoke-test self-contained Linux release
+        run: ./tools/Export-M0.ps1 -Platform Linux -Release -SmokeTest
+      - name: Build Debian/Ubuntu amd64 installer
+        run: python tools/build_linux_deb.py --identity artifacts/release-ci/identity.json --export artifacts/linux --stage artifacts/release-ci/linux-staging --output artifacts/release-ci/linux
+      - name: Verify Debian installation, payload, launch and removal
+        run: ./tools/Test-LinuxArtifacts.ps1 -ArtifactDirectory artifacts/release-ci/linux -EvidenceDirectory artifacts/release-ci/linux-install-checks
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.identity.outputs.stem }}-linux-amd64
+          path: artifacts/release-ci/linux/
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
+      - name: Retain Linux diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-release-checks-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            artifacts/release-ci/identity.json
+            artifacts/release-ci/linux-install-checks/*.log
+            artifacts/release-ci/linux-install-checks/result.json
+            artifacts/linux/*.log
+          retention-days: 14
+
   android:
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     defaults:
@@ -146,4 +205,68 @@ jobs:
             artifacts/release-ci/android-checks/validation/apk-release/*.json
           retention-days: 14
 
-# Build/download only: no GitHub Release creation, Play API credentials, upload or rollout.
+  release-bundle:
+    if: github.event_name != 'pull_request'
+    needs: [windows, linux, android]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: BlockDungeons-*
+          path: artifacts/release-downloads
+      - name: Verify exact source, all three platforms and checksums
+        env:
+          RELEASE_COMMIT: ${{ github.sha }}
+          RELEASE_RUN_NUMBER: ${{ github.run_number }}
+          RELEASE_RUN_ID: ${{ github.run_id }}
+          RELEASE_ATTEMPT: ${{ github.run_attempt }}
+          RELEASE_REPOSITORY: ${{ github.repository }}
+        run: >-
+          python tools/prepare_github_release.py
+          --artifacts artifacts/release-downloads --output artifacts/github-release
+          --commit "$RELEASE_COMMIT" --run-number "$RELEASE_RUN_NUMBER"
+          --run-id "$RELEASE_RUN_ID" --attempt "$RELEASE_ATTEMPT"
+          --repository "$RELEASE_REPOSITORY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-release-${{ github.run_id }}
+          path: artifacts/github-release/
+          overwrite: true
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
+
+  publish:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: release-bundle
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - uses: actions/download-artifact@v4
+        with:
+          name: verified-release-${{ github.run_id }}
+          path: artifacts/github-release
+      - name: Upload verified installers and publish build prerelease
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_REPOSITORY: ${{ github.repository }}
+          RELEASE_COMMIT: ${{ github.sha }}
+          RELEASE_RUN_ID: ${{ github.run_id }}
+        run: >-
+          python tools/publish_github_release.py --prepared artifacts/github-release
+          --repository "$RELEASE_REPOSITORY" --commit "$RELEASE_COMMIT" --run-id "$RELEASE_RUN_ID"
+
+# Publishing targets GitHub prereleases only; no Google Play upload or rollout.
