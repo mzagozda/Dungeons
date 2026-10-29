@@ -4,7 +4,7 @@ Implementation follows [specification.md](specification.md). The checklist at th
 
 ## Automatic release downloads
 
-Pushes to `main` run [Main release artifacts](.github/workflows/release-artifacts.yml): Windows Inno Setup installer and portable ZIP, plus publisher-signed Android APK/AAB. Downloads include build identity and SHA-256 checksums; no store upload or rollout occurs. Configure the three required Android secrets and optional Windows Authenticode secrets described in [CI release setup](docs/ci-release-artifacts.md). The owner-selected repository is [mzagozda/Dungeons](https://github.com/mzagozda/Dungeons); first successful hosted builds and credential setup remain pending.
+Pushes to `main` run [Main release artifacts](.github/workflows/release-artifacts.yml): Windows Inno Setup installer and portable ZIP, Debian/Ubuntu amd64 `.deb`, and publisher-signed Android APK/AAB. Once all three platform jobs pass, verified packages and SHA-256 checksums are published as a build prerelease on [GitHub Releases](https://github.com/mzagozda/Dungeons/releases). PRs test desktop packaging without signing secrets or publication; manual branch runs can validate the full package set without publishing. Configure the three required Android secrets and optional Windows Authenticode secrets described in [CI release setup](docs/ci-release-artifacts.md). No Google Play upload or rollout occurs.
 
 ## Toolchain candidate
 
