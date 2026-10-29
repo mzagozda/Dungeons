@@ -36,6 +36,8 @@ Push-Location $script:RepoRoot
 Start-Transcript -Path (Join-Path ([IO.Path]::GetDirectoryName($output)) 'export-transcript.log') -Force | Out-Null
 try {
     $env:DUNGEONS_INCLUDE_EDITOR = $includeEditor.ToString().ToLowerInvariant()
+    # A clean checkout needs the editor assembly before C# autoloads are imported.
+    Invoke-Checked 'dotnet' @('build', 'game/Dungeons.Game.csproj', '--configuration', 'Debug', '-warnaserror')
     Initialize-GodotEditor -Path $godot
     $importLog = [IO.Path]::ChangeExtension($output, '.import.log')
     $knownPreviewDiagnostics = Invoke-GodotImport -Path $godot -LogPath $importLog
